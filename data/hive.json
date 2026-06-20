@@ -1,0 +1,132 @@
+{
+  "componentId": "hive",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "hive-c-001",
+      "difficulty": "easy",
+      "stem": "Hive 中元数据（MetaStore）存储在哪个组件中？",
+      "options": {
+        "A": "HDFS",
+        "B": "HBase",
+        "C": "关系型数据库（如 MySQL）",
+        "D": "ZooKeeper"
+      },
+      "answer": "C",
+      "explanation": "Hive 的 MetaStore 存储表结构、分区信息、列类型等元数据，后端默认使用内嵌的 Derby 数据库，生产环境必须替换为 MySQL 或 PostgreSQL 等关系型数据库。MetaStore 不存储实际数据——数据存在 HDFS 上。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-002",
+      "difficulty": "easy",
+      "stem": "Hive 的分区（Partition）在 HDFS 上体现为什么？",
+      "options": {
+        "A": "多个文件副本",
+        "B": "以分区列为名的子目录",
+        "C": "独立的 HBase 表",
+        "D": "HDFS 的 Block 分组"
+      },
+      "answer": "B",
+      "explanation": "Hive 分区在 HDFS 上创建对应分区列值的子目录。例如 `PARTITIONED BY (dt STRING, region STRING)` 会在表目录下创建 `dt=2024-01-01/region=CN/` 这样的子目录。查询时通过 `WHERE dt='2024-01-01'` 可以只扫描对应目录，大幅减少数据扫描量。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-003",
+      "difficulty": "medium",
+      "stem": "Hive 中 ORC 格式相比 TextFile 的主要优势不包括？",
+      "options": {
+        "A": "列式存储，支持列裁剪",
+        "B": "更好的压缩比",
+        "C": "支持谓词下推",
+        "D": "写入速度比 TextFile 快"
+      },
+      "answer": "D",
+      "explanation": "ORC（Optimized Row Columnar）是列式存储格式，优势包括：1）列式存储，查询时只读需要的列（列裁剪）；2）压缩比高（通常比 TextFile 小 70-80%）；3）内置索引和统计信息，支持谓词下推。但 ORC 的写入比 TextFile 慢，因为需要压缩编码和构建索引。用写入时间换查询时间是列存格式的典型权衡。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-004",
+      "difficulty": "easy",
+      "stem": "Hive 中将小表广播到所有 Map 节点的 JOIN 优化技术叫什么？",
+      "options": {
+        "A": "Shuffle Join",
+        "B": "Bucket Join",
+        "C": "Map Join",
+        "D": "Merge Join"
+      },
+      "answer": "C",
+      "explanation": "Map Join（又叫 Broadcast Join）将小表数据加载到每个 Map 节点的内存中，在 Map 端直接完成 Join，避免了 Shuffle 阶段。Hive 通过 `hive.auto.convert.join=true` 自动启用，小表大小阈值由 `hive.mapjoin.smalltable.filesize` 控制（默认 25MB）。显式使用 hint：`SELECT /*+ MAPJOIN(small_table) */ ...`。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-005",
+      "difficulty": "medium",
+      "stem": "Hive 的分区和分桶（Bucket）的区别，以下描述正确的是？",
+      "options": {
+        "A": "分区和分桶功能完全相同，只是叫法不同",
+        "B": "分区创建子目录，分桶将数据按 Hash 分散到多个文件中",
+        "C": "分桶创建子目录，分区按 Hash 分散数据",
+        "D": "分区数量必须是分桶数量的整数倍"
+      },
+      "answer": "B",
+      "explanation": "分区（Partition）：按字段值在 HDFS 上创建子目录，如 `dt=2024-01-01/`，减少数据扫描范围。分桶（Bucket）：按字段 Hash 值将数据分散到固定数量的文件中（如 hash(user_id)%256），便于高效 Sampling 和 Bucket Map Join。两者可以结合使用。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-006",
+      "difficulty": "medium",
+      "stem": "Hive 的 Driver 在执行查询时，哪个阶段负责将 SQL 转换为 MapReduce/Tez/Spark 任务？",
+      "options": {
+        "A": "Parser（解析器）",
+        "B": "Semantic Analyzer（语义分析器）",
+        "C": "Physical Plan Generator（物理计划生成器）",
+        "D": "MetaStore（元数据服务）"
+      },
+      "answer": "C",
+      "explanation": "Hive 执行流程：Parser 将 SQL 解析为 AST → Semantic Analyzer 校验表和列 → Logical Plan Generator 生成逻辑执行计划 → Optimizer 优化逻辑计划 → Physical Plan Generator 将优化后的计划转换为具体的 MapReduce/Tez/Spark 任务 → Execution Engine 提交执行。Physical Plan Generator 是决定最终用哪个引擎执行的关键阶段。"
+    },
+    {
+      "type": "choice",
+      "id": "hive-c-007",
+      "difficulty": "hard",
+      "stem": "关于 Hive 数据倾斜（Skew）的处理，以下哪个说法是正确的？",
+      "options": {
+        "A": "数据倾斜不影响 Map 端的性能",
+        "B": "GROUP BY 数据倾斜可以通过 hive.groupby.skewindata=true 优化",
+        "C": "数据倾斜只能通过更换执行引擎解决",
+        "D": "数据倾斜只影响 JOIN，不影响 GROUP BY"
+      },
+      "answer": "B",
+      "explanation": "hive.groupby.skewindata=true 会在 Map 端进行预聚合，然后启动两轮 MR 任务处理数据倾斜。其他处理倾斜的方式：1）hive.map.aggr=true 在 Map 端部分聚合；2）JOIN 倾斜可用 Map Join（小表广播）或加盐打散大 key；3）合理调整 reducers 数量。数据倾斜同时影响 GROUP BY 和 JOIN。"
+    },
+    {
+      "type": "essay",
+      "id": "hive-e-001",
+      "difficulty": "medium",
+      "stem": "请描述 Hive 的架构和执行流程，从用户提交 SQL 到最终任务执行的完整链路。",
+      "referencePoints": [
+        "组件：Driver、MetaStore、Execution Engine、HDFS",
+        "流程：Parser → Semantic Analyzer → Logical Plan → Optimizer → Physical Plan → Execution",
+        "MetaStore 存储表结构/分区/列信息",
+        "执行引擎可选 MR/Tez/Spark",
+        "物理计划将逻辑计划转换为具体的 MR/Tez Job"
+      ],
+      "sampleAnswer": "1. 用户通过 CLI/JDBC 提交 HiveQL\n2. Driver 接收 SQL → Parser 解析为 AST（抽象语法树）\n3. Semantic Analyzer 通过 MetaStore 校验表名、列名、类型，生成 Query Block\n4. Logical Plan Generator 将 Query Block 转为 Operator Tree（逻辑计划）\n5. Optimizer 应用优化规则：谓词下推、列裁剪、Map Join 转换、Join 重排\n6. Physical Plan Generator 将优化后的逻辑计划转换为 MR/Tez/Spark 物理任务\n7. Execution Engine 提交任务到 YARN，监控执行状态\n8. 结果返回给客户端\n\n关键点：MetaStore 存元数据（MySQL），数据存在 HDFS，Hive 本身不存数据。"
+    },
+    {
+      "type": "essay",
+      "id": "hive-e-002",
+      "difficulty": "hard",
+      "stem": "在设计数仓分层时，Hive 的分区和分桶分别适用于什么场景？请举例说明如何为一个用户行为日志表设计分区和分桶策略。",
+      "referencePoints": [
+        "分区适用于按时间/地域等维度裁剪数据",
+        "分桶适用于 JOIN 优化和 Sampling",
+        "分区不宜过多（建议 < 10000），每个分区对应一个 HDFS 目录",
+        "分桶数量固定，在 JOIN 时可以避免 Shuffle",
+        "实际表设计示例：按 dt 分区 + 按 user_id 分桶",
+        "考虑小文件问题"
+      ],
+      "sampleAnswer": "分区适用场景：按时间（日/小时）、地域、业务类型等维度裁剪数据。分区字段通常是查询的 WHERE 条件中出现频率最高的字段。\n\n分桶适用场景：\n1. JOIN 优化——两张表按相同字段分桶，可做 Bucket Map Join\n2. Sampling——`TABLESAMPLE(BUCKET 1 OUT OF 64 ON user_id)`\n3. 避免数据倾斜——Hash 分散\n\n用户行为日志表设计示例：\n```sql\nCREATE TABLE user_behavior_log (\n  user_id BIGINT,\n  event_type STRING,\n  event_time BIGINT,\n  properties STRING\n)\nPARTITIONED BY (dt STRING)          -- 按天分区，便于按日期查询\nCLUSTERED BY (user_id) INTO 256 BUCKETS  -- 按用户分桶，便于用户维度 JOIN\nSTORED AS ORC;\n```\n\n注意事项：\n- 分区不要过细（避免按小时分区导致几万个分区）\n- 分桶后要留意小文件——每个分桶一个文件，256 个桶 × 365 天 = 93440 个文件\n- 建议配合文件合并策略使用"
+    }
+  ]
+}

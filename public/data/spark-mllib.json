@@ -1,0 +1,131 @@
+{
+  "componentId": "spark-mllib",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "smllib-c-001",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 目前推荐使用哪个 API？",
+      "options": {
+        "A": "spark.mllib（RDD API）",
+        "B": "spark.ml（DataFrame API + Pipeline）",
+        "C": "两者功能完全相同，随意选择",
+        "D": "直接用 Hadoop Mahout"
+      },
+      "answer": "B",
+      "explanation": "Spark 推荐使用 spark.ml（DataFrame API）。spark.mllib（RDD API）处于维护模式，不再增加新功能。DataFrame API 优点：Schema 类型信息、Catalyst 优化、Pipeline 统一工作流、Tungsten 堆外内存。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-002",
+      "difficulty": "easy",
+      "stem": "Spark ML Pipeline 中，Transformer 和 Estimator 的区别是？",
+      "options": {
+        "A": "Transformer 和 Estimator 完全相同",
+        "B": "Transformer 输入 DF 输出 DF，Estimator 输入 DF 输出 Model（一个 Transformer）",
+        "C": "Transformer 用于模型训练，Estimator 用于特征转换",
+        "D": "Estimator 不需要 fit，Transformer 需要 fit"
+      },
+      "answer": "B",
+      "explanation": "Transformer = 输入 DataFrame → 输出 DataFrame（转换器）。如 VectorAssembler、StandardScaler 的 Model。Estimator = 输入 DataFrame → 输出 Model（学习器 / 训练器）。如 RandomForestClassifier、KMeans。Model 本身也是一个 Transformer。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-003",
+      "difficulty": "medium",
+      "stem": "在 Spark ML 中，StringIndexer 的作用是？",
+      "options": {
+        "A": "为 DataFrame 添加行号索引",
+        "B": "将字符串类型的类别列映射为数值索引（按频率排序）",
+        "C": "对字符串进行排序",
+        "D": "提取字符串中的数字"
+      },
+      "answer": "B",
+      "explanation": "StringIndexer 将字符串类别列转换为数值索引，按出现频率从高到低排序：最常见的类别 → 0，第二常见 → 1...。配合 OneHotEncoder 使用：先 StringIndexer 转索引 → 再 OneHotEncoder 转稀疏向量。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-004",
+      "difficulty": "medium",
+      "stem": "K-Means 聚类中，k 值通常如何选择？",
+      "options": {
+        "A": "k 必须等于数据的行数",
+        "B": "随机选一个 k 即可",
+        "C": "肘部法则（Elbow Method）：观察不同 k 的 SSE 下降趋势，选拐点",
+        "D": "k 必须等于 Executor 的数量"
+      },
+      "answer": "C",
+      "explanation": "肘部法则：对 k=2 开始递增，记录每个 k 的 SSE（误差平方和），画图找到 SSE 下降趋势由陡转缓的拐点（肘部）。同时也需结合业务解释性——比如用户分群 5 类是否业务上有意义。Spark 的 KMeans 训练后可通过 model.summary.trainingCost 获取 SSE。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-005",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 ALS 推荐算法的 rank 参数代表什么？",
+      "options": {
+        "A": "推荐结果排序的优先级",
+        "B": "隐因子（Latent Factor）的维度——用户和物品向量的长度",
+        "C": "模型的并行度",
+        "D": "物品的排名"
+      },
+      "answer": "B",
+      "explanation": "ALS（Alternating Least Squares）将用户-物品评分矩阵分解为两个低秩矩阵的乘积：User Matrix (m × rank) 和 Item Matrix (rank × n)。rank 就是隐因子的维度，通常取值 10-200。rank 越大模型表达能力越强但易过拟合且计算量大。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-006",
+      "difficulty": "hard",
+      "stem": "Spark ML Pipeline 中，如何对训练集和测试集统一做特征工程？",
+      "options": {
+        "A": "在训练集和测试集上分别调用 fit()",
+        "B": "在训练集上 fit Pipeline → 得到的 PipelineModel 对测试集 transform()",
+        "C": "在测试集上 fit → 在训练集上 transform",
+        "D": "不需要特征工程"
+      },
+      "answer": "B",
+      "explanation": "Pipeline 的核心：在 trainDF 上调用 pipeline.fit() 得到 PipelineModel（包含了所有 Transformer 和 Model），然后用这个 PipelineModel 对 testDF 做 transform()。这样确保 StringIndexer 等使用训练集的词汇表，测试集未知类别可统一处理（handleInvalid=\"keep\"）。"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-007",
+      "difficulty": "hard",
+      "stem": "关于 Spark ML 的交叉验证（CrossValidator），以下哪个说法是正确的？",
+      "options": {
+        "A": "交叉验证在单机上运行，不利用 Spark 分布式能力",
+        "B": "CrossValidator 是 Estimator，fit 后产生 CrossValidatorModel",
+        "C": "交叉验证不能与 Pipeline 一起使用",
+        "D": "交叉验证只能用于分类，不能用于回归"
+      },
+      "answer": "B",
+      "explanation": "CrossValidator 本身是 Estimator，调用 fit 后返回 CrossValidatorModel，其中包含最优模型。可以和 Pipeline 结合使用（Pipeline 作为 CrossValidator 的 estimator 属性）。支持分类、回归等所有 Estimator。在 Spark 中以分布式方式并行训练多个参数组合。"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-001",
+      "difficulty": "medium",
+      "stem": "请描述 Spark ML Pipeline 的工作流程，包含从原始数据到模型部署的完整步骤。",
+      "referencePoints": [
+        "流程：数据加载 → 特征转换（StringIndexer/OneHotEncoder/VectorAssembler）→ 模型训练 → 评估 → 部署",
+        "Transformer（输入DF→输出DF）和 Estimator（输入DF→输出Model）的区别",
+        "Pipeline 确保训练和预测使用相同的特征处理",
+        "模型可通过 model.write.overwrite().save() 持久化",
+        "评估指标：分类用 accuracy/f1，回归用 rmse/r2"
+      ],
+      "sampleAnswer": "Spark ML Pipeline 完整工作流程：\n\n1. **数据加载**：从 HDFS/Parquet/CSV 等读取为 DataFrame\n\n2. **特征工程**（多个 Stage 串联）：\n   - StringIndexer：字符串类别 → 数值索引\n   - OneHotEncoder：数值索引 → 稀疏向量\n   - VectorAssembler：多个特征列 → 一个特征向量列\n   - StandardScaler/Normalizer：标准化/归一化\n\n3. **训练/测试划分**：df.randomSplit(Array(0.8, 0.2))\n\n4. **Pipeline 组装**：new Pipeline().setStages(Array(indexer, encoder, assembler, classifier))\n\n5. **模型训练**：pipeline.fit(trainDF) → PipelineModel\n\n6. **模型评估**：model.transform(testDF)，用 MulticlassClassificationEvaluator 或 RegressionEvaluator\n\n7. **超参数调优**：ParamGridBuilder + CrossValidator 或 TrainValidationSplit\n\n8. **模型部署**：model.write.overwrite().save(\"hdfs://models/v1\")，生产环境 PipelineModel.load() 直接做预测\n\n关键点：**Pipeline 保证训练和预测使用相同的特征处理逻辑**——StringIndexer 的词汇表在训练时确定，预测时不用重新 fit。"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-002",
+      "difficulty": "hard",
+      "stem": "Spark MLlib 使用 DataFrame API 相比旧版 RDD API 有哪些优势？从类型安全、性能优化、工作流三个方面分析。",
+      "referencePoints": [
+        "类型安全：DataFrame 有 Schema，运行时验证列名和类型",
+        "性能：Catalyst 优化器全图优化，Tungsten 堆外内存避免 GC",
+        "工作流：Pipeline API 标准化特征工程和模型训练",
+        "互操作性：DataFrame 可无缝衔接 Spark SQL 和 Streaming",
+        "可维护性：不再需要在 RDD 上手动拼接特征向量"
+      ],
+      "sampleAnswer": "**类型安全**：\n- DataFrame 有显式 Schema，Spark 运行时检查列名和类型\n- 错误在运行时尽早暴露（而不是在模型训练时才发现特征维度不对）\n- 虽然不如 Dataset[T] 编译期安全，但比 RDD 的 Object 级操作更清晰\n\n**性能优化**：\n- Catalyst 优化器：DataFrame 操作经过 Parser→Analyzer→Optimizer→Planner 的完整优化流水线\n- Tungsten 堆外内存：DataFrame 数据以二进制格式存储在堆外，大幅减少 JVM GC 开销\n- 全阶段代码生成（WholeStageCodegen）：将多个算子编译为一个 Java 方法，消除虚函数调用\n- RDD 操作全是对象级（Java Object），GC 压力大\n\n**工作流**：\n- Pipeline API：Transformer + Estimator 的统一抽象，特征工程和模型训练整合为一个可重复的 Pipeline\n- 训练/预测一致性：PipelineModel 确保预测时的特征处理与训练时完全相同（词汇表、均值/标准差等均来自训练集）\n- 模型持久化：model.save() 一行代码完成部署\n- 跨组件互操作：DataFrame 可直接用于 Spark SQL（注册临时视图）或 Spark Streaming（结构化流）\n\n**总结**：DataFrame API 让 MLlib 从'分布式算法的集合'升级为'端到端的机器学习平台'。"
+    }
+  ]
+}

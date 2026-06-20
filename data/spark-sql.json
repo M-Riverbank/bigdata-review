@@ -1,0 +1,131 @@
+{
+  "componentId": "spark-sql",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "ssql-c-001",
+      "difficulty": "easy",
+      "stem": "Spark SQL 中，`ROW_NUMBER()` 和 `RANK()` 的区别是？",
+      "options": {
+        "A": "ROW_NUMBER() 会给相同值的行分配相同序号",
+        "B": "ROW_NUMBER() 生成连续序号，RANK() 相同值同排名且不跳过",
+        "C": "ROW_NUMBER() 生成连续序号，RANK() 相同值同排名但后续名次跳过",
+        "D": "两者功能完全相同，只是名字不同"
+      },
+      "answer": "C",
+      "explanation": "ROW_NUMBER() 为每行生成唯一的连续编号，即使 ORDER BY 列的值相同也会分配不同序号（随机）。而 RANK() 对相同的 ORDER BY 值给予相同排名，但后续排名会跳过（如 1, 2, 2, 4）。DENSE_RANK() 则不会跳过（1, 2, 2, 3）。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-002",
+      "difficulty": "easy",
+      "stem": "在 Spark SQL 中，以下哪个不是窗口函数的组成部分？",
+      "options": {
+        "A": "PARTITION BY",
+        "B": "ORDER BY",
+        "C": "GROUP BY",
+        "D": "ROWS BETWEEN ... AND ..."
+      },
+      "answer": "C",
+      "explanation": "窗口函数语法为 `func() OVER (PARTITION BY ... ORDER BY ... [ROWS/RANGE BETWEEN ...])`。GROUP BY 是普通聚合的一部分，不是窗口函数的组成部分。窗口函数不会将多行折叠成一行，而 GROUP BY 会。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-003",
+      "difficulty": "medium",
+      "stem": "以下关于 `ROWS` 和 `RANGE` 窗口帧的描述，正确的是？",
+      "options": {
+        "A": "ROWS 和 RANGE 行为完全相同",
+        "B": "ROWS 基于物理行数，RANGE 基于逻辑值范围",
+        "C": "RANGE 总是比 ROWS 更快",
+        "D": "ROWS 不能在 ORDER BY 列有重复值时使用"
+      },
+      "answer": "B",
+      "explanation": "ROWS 基于物理行数计算帧范围（如 '前 3 行'），每个行独立计算。RANGE 基于 ORDER BY 列的逻辑值范围，相同的 ORDER BY 值被视为同一逻辑行。当 ORDER BY 列有重复值时，RANGE 会将所有相同值的行一起包含在计算中。当 ORDER BY 列唯一时，两者行为一致。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-004",
+      "difficulty": "easy",
+      "stem": "`LAG(col, 1, 0) OVER (ORDER BY dt)` 的作用是？",
+      "options": {
+        "A": "获取当前行后面第 1 行的 col 值，不存在时返回 0",
+        "B": "获取当前行前面第 1 行的 col 值，不存在时返回 0",
+        "C": "对 col 列进行排名",
+        "D": "删除 col 列的后 1 行"
+      },
+      "answer": "B",
+      "explanation": "LAG(col, n, default) 向上（前）偏移 n 行获取值，如果前面没有对应行（如第一行），则返回 default 值。LEAD(col, n, default) 向下（后）偏移 n 行。LAG/LEAD 常用于计算环比、同比变化。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-005",
+      "difficulty": "medium",
+      "stem": "窗口函数在 SQL 中与下列哪个子句的执行顺序最正确？",
+      "options": {
+        "A": "FROM → WHERE → 窗口函数 → GROUP BY → SELECT",
+        "B": "FROM → WHERE → GROUP BY → HAVING → 窗口函数 → SELECT → ORDER BY",
+        "C": "FROM → 窗口函数 → WHERE → GROUP BY → SELECT",
+        "D": "FROM → GROUP BY → 窗口函数 → WHERE → SELECT"
+      },
+      "answer": "B",
+      "explanation": "SQL 逻辑执行顺序：FROM → WHERE → GROUP BY → HAVING → 窗口函数 → SELECT → ORDER BY → LIMIT。这表示不能在 WHERE 子句中直接使用窗口函数的结果（需要子查询），但可以在 SELECT 和 ORDER BY 中使用。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-006",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中使用 `SUM(amount) OVER (ORDER BY dt ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)` 实现的是？",
+      "options": {
+        "A": "每个分组的总额",
+        "B": "累计求和 (Running Total)",
+        "C": "移动平均值",
+        "D": "排名"
+      },
+      "answer": "B",
+      "explanation": "`ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW` 定义了从分区开始到当前行的帧范围，因此 SUM 会累计从第一行到当前行的所有值，即累计求和（Running Total）。移动平均需要用 `ROWS BETWEEN n PRECEDING AND CURRENT ROW` 配合 AVG。"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-007",
+      "difficulty": "hard",
+      "stem": "关于 Spark SQL 窗口函数的性能调优，以下哪个说法是错误的？",
+      "options": {
+        "A": "减少 PARTITION BY 列基数可以降低 Shuffle 压力",
+        "B": "相同 PARTITION BY + ORDER BY 的窗口可以共享 WindowSpec",
+        "C": "窗口函数不需要 Shuffle，所以总比 GROUP BY 快",
+        "D": "过多的不同窗口定义会产生额外的 Shuffle"
+      },
+      "answer": "C",
+      "explanation": "窗口函数中的 PARTITION BY 同样需要 Shuffle 来将相同 key 的数据发送到同一个分区。如果 PARTITION BY 的基数和 GROUP BY 相同，Shuffle 开销类似。窗口函数的优势是能保留原始行，而不是性能上一定更快。C 选项说'不需要 Shuffle'是完全错误的。"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-001",
+      "difficulty": "medium",
+      "stem": "请说明 ROW_NUMBER()、RANK() 和 DENSE_RANK() 的区别，以及各自适用的场景。",
+      "referencePoints": [
+        "ROW_NUMBER 生成连续唯一序号，相同值随机分配",
+        "RANK 相同值同排名，后续跳过",
+        "DENSE_RANK 相同值同排名，后续不跳过",
+        "适用场景：ROW_NUMBER 用于每组取 TOP N（去重），RANK 用于比赛排名，DENSE_RANK 用于需要连续排名的场景",
+        "注意窗口函数中的 ORDER BY 是必须的"
+      ],
+      "sampleAnswer": "ROW_NUMBER() 为每行生成唯一的连续序号（1, 2, 3, 4...），即使排序字段值相同也会分配不同编号。\n\nRANK() 对相同值的行给予相同排名，但后续排名会跳过（如 1, 2, 2, 4）。\n\nDENSE_RANK() 对相同值的行给予相同排名，且后续排名不跳过（如 1, 2, 2, 3）。\n\n使用场景：\n- ROW_NUMBER：每组取 TOP N 场景最常用，如'每个部门工资最高的 3 个人'\n- RANK：比赛排名场景，如'并列第二，下一个是第四名'\n- DENSE_RANK：需要连续排名不跳过的场景，如游戏排行榜"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-002",
+      "difficulty": "hard",
+      "stem": "在 Spark SQL 中，如何使用窗口函数计算每件商品的 7 天移动平均销售额？请写出 SQL 并解释 ROWS 和 RANGE 在此场景下的选择。",
+      "referencePoints": [
+        "SQL 要包含 AVG OVER PARTITION BY product_id ORDER BY dt",
+        "帧定义为 ROWS BETWEEN 6 PRECEDING AND CURRENT ROW",
+        "解释：ROWS 按物理行数计算，RANGE 按逻辑值计算",
+        "如果每天一条记录 → ROWS 合适；如果一天多条 → 需考虑用 RANGE 还是先聚合",
+        "实际场景建议先按天聚合，再用 ROWS"
+      ],
+      "sampleAnswer": "```sql\nSELECT \n  product_id,\n  dt,\n  daily_sales,\n  AVG(daily_sales) OVER (\n    PARTITION BY product_id \n    ORDER BY dt \n    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW\n  ) AS ma_7day\nFROM product_daily_sales\nORDER BY product_id, dt;\n```\n\n选择 ROWS 而非 RANGE：\n1. 因为按天聚合后每天只有一条记录，ROWS 基于物理行数精确取前 6 行 + 当前行 = 7 天数据\n2. 使用 RANGE 会有风险——如果 ORDER BY dt 有重复日期（同一产品一天多条记录），RANGE 会将同一天的所有记录一起计算，导致结果不符合预期\n3. 建议先按产品+日期 GROUP BY 聚合为日级数据，再用 ROWS BETWEEN 6 PRECEDING 确保精确的 7 天窗口"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "componentId": "scala",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "scala-c-001",
+      "difficulty": "easy",
+      "stem": "Scala 中 `def`、`val`、`lazy val` 和 `var` 的区别，以下描述正确的是？",
+      "options": {
+        "A": "val 在定义时立即求值，lazy val 首次访问时求值，两者值都不可变",
+        "B": "val 和 lazy val 完全相同，只是写法不同",
+        "C": "lazy val 可以多次赋值，val 只能一次赋值",
+        "D": "var 定义的值不可变，val 定义的值可变"
+      },
+      "answer": "A",
+      "explanation": "val 在定义时立即求值（eager evaluation），lazy val 在首次访问时求值且结果缓存（lazy evaluation），两者都是不可变的。var 定义的是可变变量。def 定义方法，每次调用都重新计算。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-002",
+      "difficulty": "easy",
+      "stem": "Scala 中 `case class` 相比普通 `class` 自动获得了哪些特性？",
+      "options": {
+        "A": "自动继承所有 trait",
+        "B": "equals、hashCode、toString、copy 方法、伴生对象的 apply/unapply、默认不可变字段",
+        "C": "自动实现所有抽象方法",
+        "D": "只多了 toString 方法"
+      },
+      "answer": "B",
+      "explanation": "Case class 自动获得：1）apply（免 new）；2）unapply（支持模式匹配）；3）equals/hashCode（结构相等）；4）toString（可读的输出）；5）copy（创建修改副本）；6）默认 val 不可变字段；7）实现 Serializable。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-003",
+      "difficulty": "easy",
+      "stem": "Scala 中 `List(1,2,3).map(_ * 2)` 的结果是？",
+      "options": {
+        "A": "List(2, 4, 6)",
+        "B": "List(1, 2, 3, 1, 2, 3)",
+        "C": "6（所有元素乘2的和）",
+        "D": "List(1, 2, 3)"
+      },
+      "answer": "A",
+      "explanation": "map 是一对一转换，对每个元素应用函数，返回新的集合。List(1,2,3).map(_ * 2) = List(2, 4, 6)。区别于 flatMap（一对多展开）和 reduce（归约为一个值）。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-004",
+      "difficulty": "medium",
+      "stem": "Scala 中 `map` 和 `flatMap` 的区别，以下描述正确的是？",
+      "options": {
+        "A": "map 和 flatMap 完全相同",
+        "B": "map 一对一转换，flatMap 一对多转换并将结果展平",
+        "C": "flatMap 只能用于 List，map 可用于所有集合",
+        "D": "map 会改变原集合，flatMap 不会"
+      },
+      "answer": "B",
+      "explanation": "map(f): T => U 是一对一转换。flatMap(f): T => Traversable[U] 将每个元素映射为一个集合，然后展平所有集合。例如 List(\"a b\", \"c d\").flatMap(_.split(\" \")) → List(\"a\", \"b\", \"c\", \"d\")。Scala 集合都是不可变的，不会修改原集合。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-005",
+      "difficulty": "medium",
+      "stem": "Scala 中 `Option[T]` 的主要作用是？",
+      "options": {
+        "A": "提高程序运行速度",
+        "B": "避免空指针异常（NullPointerException），在编译期强制处理缺失值",
+        "C": "减少内存使用",
+        "D": "简化多线程编程"
+      },
+      "answer": "B",
+      "explanation": "Option[T] 有两个子类型：Some(value) 和 None。它在类型系统中显式表达了值可能缺失，强制使用方在编译期处理两种可能，从而避免运行时 NullPointerException。Spark Dataset API 大量使用 Option 表达可空列。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-006",
+      "difficulty": "medium",
+      "stem": "关于 Scala 的 `trait`，以下哪个说法是错误的？",
+      "options": {
+        "A": "一个类可以混入多个 trait",
+        "B": "trait 可以包含抽象方法和具体方法",
+        "C": "trait 可以有构造参数",
+        "D": "trait 可以要求混入它的类具备特定父类型（self type）"
+      },
+      "answer": "C",
+      "explanation": "Scala 2 中 trait 不能有构造参数（Scala 3 才支持）。trait 可以有抽象方法和具体方法、一个类可混入多个 trait、可以用 self type 声明依赖。需要构造参数时，应使用抽象类（abstract class）。"
+    },
+    {
+      "type": "choice",
+      "id": "scala-c-007",
+      "difficulty": "hard",
+      "stem": "Scala 隐式解析的查找顺序是？",
+      "options": {
+        "A": "伴生对象 → 当前作用域 → 显式导入 → 包对象",
+        "B": "当前作用域 → 显式导入 → 伴生对象 → 包对象",
+        "C": "包对象 → 当前作用域 → 显式导入 → 伴生对象",
+        "D": "当前作用域 → 包对象 → 显式导入 → 伴生对象"
+      },
+      "answer": "B",
+      "explanation": "Scala 隐式解析按以下优先级：1）当前作用域直接定义的隐式；2）显式 import 导入的隐式；3）源类型或目标类型的伴生对象；4）当前包对象的隐式。Spark 的 RDD 隐式转换（如 rddToPairRDDFunctions）在 RDD 的伴生对象中定义。"
+    },
+    {
+      "type": "essay",
+      "id": "scala-e-001",
+      "difficulty": "medium",
+      "stem": "请解释 Scala 中 `val`、`var`、`lazy val` 和 `def` 的区别，并结合 Spark 举例说明各自的适用场景。",
+      "referencePoints": [
+        "val：定义时立即求值、不可变",
+        "var：定义时立即求值、可变（尽量避免在 Spark 中使用）",
+        "lazy val：首次访问时求值、不可变",
+        "def：每次调用重新求值",
+        "Spark 中 broadcast 变量用 val，accumulator 用 val，闭包中避免 var",
+        "lazy val 适合初始化成本高的单例"
+      ],
+      "sampleAnswer": "1. val：定义时立即求值，值不可变。Spark 中广播变量 val bc = sc.broadcast(data)，RDD/DataFrame 也都是 val。\n\n2. lazy val：首次访问时求值，求值后缓存。适合初始化成本高的单例——比如懒加载 SparkSession（虽然通常用 builder）。也适用于依赖其他初始化步骤的配置。\n\n3. var：可变变量，定义时立即求值。在 Spark 中尽量避免——分布式环境下 var 无法跨 Executor 共享。如果在闭包中修改 var，每个 Executor 看到的是自己的副本，不会同步回 Driver。\n\n4. def：方法定义，每次调用重新求值。适合定义无状态的纯函数、UDF。\n\nSpark 最佳实践：能用 val 不用 var，能用 lazy val 处理初始化顺序依赖。"
+    },
+    {
+      "type": "essay",
+      "id": "scala-e-002",
+      "difficulty": "hard",
+      "stem": "Spark 中大量使用了 Scala 的隐式转换（implicit），请举例说明隐式转换在 Spark 中的应用，以及隐式转换可能带来的问题。",
+      "referencePoints": [
+        "RDD 隐式转换：rddToPairRDDFunctions，RDD[(K,V)] 自动获得 reduceByKey 等方法",
+        "DataFrame 隐式转换：$ 语法将字符串转为 Column",
+        "Encoder 隐式：编译器自动为常见类型提供 Encoder",
+        "问题：可读性差、命名冲突、调试困难、可能引入意外的中间对象"
+      ],
+      "sampleAnswer": "Spark 中的隐式转换应用：\n\n1. rddToPairRDDFunctions：当 RDD 的元素类型是 (K, V) 的二元组时，编译器自动将其隐式转换为 PairRDDFunctions，从而获得 reduceByKey、groupByKey、join 等方法。\n\n2. Column 转换：import spark.implicits._ 后，字符串前加 $（如 $\"col_name\"）被隐式转换为 Column 对象。\n\n3. Encoder 推导：case class Person(name: String, age: Int)；df.as[Person] 时编译器自动通过隐式参数找到对应的 Encoder[Person]。\n\n隐式转换的潜在问题：\n- 可读性：隐式转换不出现在显式代码中，新成员可能不理解某方法从何而来\n- 冲突：多个同类型隐式在同一作用域会导致编译错误\n- 调试困难：编译器插入的代码不显示在堆栈中\n- 性能：可能创建额外的包装对象（值类可缓解）\n\n最佳实践：尽量使用 implicit class（值类）+ 限定隐式作用域，避免全局隐式。"
+    }
+  ]
+}

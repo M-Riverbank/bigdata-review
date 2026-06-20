@@ -1,0 +1,134 @@
+{
+  "componentId": "yarn",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "yarn-c-001",
+      "difficulty": "easy",
+      "stem": "YARN 中 ResourceManager 的主要职责是？",
+      "options": {
+        "A": "执行具体的 MapReduce 任务",
+        "B": "管理集群资源、调度应用、分配 Container",
+        "C": "存储 HDFS 上的数据",
+        "D": "监控 DataNode 健康状态"
+      },
+      "answer": "B",
+      "explanation": "ResourceManager（RM）是 YARN 的资源总控：管理所有 NodeManager 的资源（CPU/内存），接收客户端提交的应用，为 ApplicationMaster 分配第一个 Container，并在应用运行期间持续调度资源。RM 不执行具体任务——任务由 NodeManager 中的 Container 执行。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-002",
+      "difficulty": "easy",
+      "stem": "YARN 中 ApplicationMaster 的作用是？",
+      "options": {
+        "A": "管理整个集群的所有资源",
+        "B": "管理单个应用的生命周期——申请资源、启动任务、监控进度、处理失败",
+        "C": "存储应用的中间数据",
+        "D": "只负责向 ResourceManager 汇报心跳"
+      },
+      "answer": "B",
+      "explanation": "ApplicationMaster（AM）是应用级的管家：向 RM 申请 Container、在 Container 中启动 Task、监控 Task 执行状态、处理 Task 失败重试。每个应用有一个独立的 AM。AM 运行在分配的 Container 中（通常第一个 Container）。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-003",
+      "difficulty": "medium",
+      "stem": "YARN 的 Capacity Scheduler 和 Fair Scheduler 的根本区别是？",
+      "options": {
+        "A": "没有区别，只是名字不同",
+        "B": "Capacity 保证每队列的最小资源 + 弹性共享，Fair 按权重动态均分",
+        "C": "Capacity 只能在测试环境使用",
+        "D": "Fair 不支持队列结构"
+      },
+      "answer": "B",
+      "explanation": "Capacity Scheduler：每队列保证最小资源（capacity），队列内 FIFO，空闲资源可被其他队列借用（弹性）。Fair Scheduler：按权重（weight）动态均分资源，新应用提交后重新分配，更公平。两者都支持层级队列结构和 ACL 控制。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-004",
+      "difficulty": "medium",
+      "stem": "YARN 中 Container 的概念是？",
+      "options": {
+        "A": "Docker 容器的简称",
+        "B": "封装了 CPU 和内存等资源的逻辑资源单元，Task 在其中运行",
+        "C": "只包含 CPU 资源，不包含内存",
+        "D": "只能运行 MapReduce 任务"
+      },
+      "answer": "B",
+      "explanation": "Container 是 YARN 的资源抽象，封装了 CPU、内存、磁盘等资源。RM 以 Container 为单元分配资源，NM 在本地以 Container 运行 Task。Container 内的 Task 不能超出分配的资源限制（Cgroups 隔离）。Spark Executor 就是在一个 Container 中运行的。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-005",
+      "difficulty": "medium",
+      "stem": "YARN 相比 Hadoop 1.x 的 JobTracker/TaskTracker 架构，最大的改进是？",
+      "options": {
+        "A": "增加了内存管理",
+        "B": "将资源管理和任务调度分离——RM 管资源，AM 管任务",
+        "C": "支持了更多编程语言",
+        "D": "减少了代码行数"
+      },
+      "answer": "B",
+      "explanation": "Hadoop 1.x 的 JobTracker 既管理资源又调度任务——单点瓶颈 + 不支持非 MR 应用。YARN 将两大职责分离：RM 专注全局资源管理，AM 专注单个应用的调度。这使得 YARN 可以同时运行 MR、Spark、Flink、Tez 等多种计算框架。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-006",
+      "difficulty": "hard",
+      "stem": "YARN 的标签调度（Node Label）的主要用途是？",
+      "options": {
+        "A": "仅用于显示节点名称",
+        "B": "将节点标记为不同标签（如 GPU 节点、高内存节点），将特定作业路由到特定硬件",
+        "C": "标记数据的位置",
+        "D": "计算节点的网络延迟"
+      },
+      "answer": "B",
+      "explanation": "Node Label（YARN 2.6+）允许管理员给节点打标签（如 gpu、high-memory、ssd），应用可指定必须或倾向于在特定标签的节点上运行。典型场景：Spark ML 作业指定 gpu 标签节点，批处理作业在普通节点。实现异构硬件资源的精细调度。"
+    },
+    {
+      "type": "choice",
+      "id": "yarn-c-007",
+      "difficulty": "hard",
+      "stem": "关于 YARN 的资源调优，以下哪个做法不是最佳实践？",
+      "options": {
+        "A": "yarn.scheduler.minimum-allocation-mb 和 maximum-allocation-mb 合理设置以避免资源碎片",
+        "B": "为所有应用分配尽可能大的 Container，以提高资源利用率",
+        "C": "设置 yarn.nodemanager.resource.memory-mb 略小于物理内存（给 OS 留余量）",
+        "D": "使用 yarn.scheduler.capacity.maximum-am-resource-percent 限制 AM 占用的总资源"
+      },
+      "answer": "B",
+      "explanation": "Container 不是越大越好——过大的 Container 可能导致资源碎片（一个大 Container 占满节点剩余资源，但小任务不需要那么多）。应根据应用实际需求设置。例如：Spark Executor 的内存和 cores 要匹配 task 的并行度和数据量。为所有应用统一设置大 Container 反而降低整体集群利用率。"
+    },
+    {
+      "type": "essay",
+      "id": "yarn-e-001",
+      "difficulty": "medium",
+      "stem": "请描述 YARN 上运行一个 Spark 应用的完整流程，从 spark-submit 到任务完成。",
+      "referencePoints": [
+        "spark-submit 请求 RM 启动 ApplicationMaster",
+        "RM 在某个 NM 上为 AM 分配 Container（Client 模式 vs Cluster 模式）",
+        "AM 启动后向 RM 注册并申请 Executor 的 Container",
+        "RM 返回可用 NodeManager 的 Container 列表",
+        "AM 在每个分配的 Container 中启动 Executor",
+        "Executor 向 Driver/AM 注册，Driver 调度 Task",
+        "应用结束后注销"
+      ],
+      "sampleAnswer": "YARN Cluster 模式下 Spark 运行流程：\n\n1. 客户端 spark-submit → 向 ResourceManager 提交应用\n2. RM 选择一个 NodeManager，分配一个 Container 启动 ApplicationMaster（Spark 的 AM = SparkAppMaster）\n3. SparkAppMaster 启动后向 RM 注册，准备申请 Executor 资源\n4. AM 根据 spark-submit 指定的 --num-executors --executor-memory --executor-cores 向 RM 申请 Container\n5. RM 根据调度策略（Capacity/Fair）在集群中寻找满足要求的 NM，分配 Container\n6. AM 获得 Container 列表后，在每个 Container 中启动 CoarseGrainedExecutorBackend → 初始化 Executor\n7. 所有 Executor 向 Driver（运行在 AM 中）注册，报告自己的位置\n8. Driver 的 DAGScheduler 开始调度 Task → TaskScheduler 将 Task 分发到就近的 Executor\n9. Executor 执行 Task → 向 Driver 汇报 Task 状态\n10. 所有 Job 完成后 → AM 向 RM 注销自己\n\nClient 模式的区别：Driver 在客户端本地，AM 只是一个轻量的 ExecutorLauncher。适合交互式调试。"
+    },
+    {
+      "type": "essay",
+      "id": "yarn-e-002",
+      "difficulty": "hard",
+      "stem": "请对比 YARN Capacity Scheduler 和 Fair Scheduler 的设计理念、配置方式和适用场景。",
+      "referencePoints": [
+        "Capacity 设计理念：保证最小资源 + 弹性共享",
+        "Fair 设计理念：按权重动态均分",
+        "Capacity 配置：capacity（最小%）、maximum-capacity（上限%）",
+        "Fair 配置：minResources、maxResources、weight",
+        "Capacity 适用：多租户生产集群、SLA 保障需求",
+        "Fair 适用：研究/开发集群、需公平分配的场景"
+      ],
+      "sampleAnswer": "**设计理念**：\n- Capacity Scheduler：以队列为单位，每队列保证最小资源百分比（capacity）。空闲时资源可被其他队列借用，但队列需要时能收回（弹性）。队列内 FIFO 排序。\n- Fair Scheduler：按权重动态均分资源。新应用提交时公平地分配一部分资源，长运行任务不会饿死新任务。支持多种调度策略（FIFO/FAIR/DRF）。\n\n**配置差异**：\n- Capacity：在 capacity-scheduler.xml 中配置队列层级，key 参数包括 capacity（最小%）、maximum-capacity（上限%）、maximum-am-resource-percent（AM 资源上限）。\n- Fair：在 fair-scheduler.xml 中配置，key 参数包括 minResources（最小资源）、maxResources（最大资源）、weight（权重）、schedulingPolicy（队列内调度规则）。\n\n**适用场景**：\n- Capacity Scheduler：生产多租户环境。每个部门有资源保障（SLA），峰值可以借用空闲资源。示例：ETL 队列 40%、Ad-hoc 队列 30%、ML 队列 30%。\n- Fair Scheduler：研究/开发集群。用户期望公平获取资源，不希望因提交顺序影响等待时间。示例：数据科学家每人提交交互式查询，期望即刻获得资源。\n\n**选择建议**：企业生产选 Capacity（SLA 保障），研究环境选 Fair（公平性优先）。"
+    }
+  ]
+}

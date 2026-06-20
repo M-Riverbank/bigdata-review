@@ -1,0 +1,133 @@
+{
+  "componentId": "spark-core",
+  "questions": [
+    {
+      "type": "choice",
+      "id": "score-c-001",
+      "difficulty": "easy",
+      "stem": "RDD 的五大特性不包括以下哪一项？",
+      "options": {
+        "A": "Partition 列表",
+        "B": "compute 函数",
+        "C": "依赖列表（Lineage）",
+        "D": "自动索引"
+      },
+      "answer": "D",
+      "explanation": "RDD 五大特性：1）Partition 列表（数据分片）；2）compute 函数（每个分区如何计算）；3）依赖列表（血缘关系）；4）Partitioner（可选，K-V RDD 才有）；5）PreferredLocations（数据本地性）。RDD 没有自动索引机制。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-002",
+      "difficulty": "easy",
+      "stem": "以下哪个算子是窄依赖（Narrow Dependency）？",
+      "options": {
+        "A": "reduceByKey",
+        "B": "groupByKey",
+        "C": "map",
+        "D": "join（非broadcast）"
+      },
+      "answer": "C",
+      "explanation": "map 是窄依赖——父 RDD 的每个分区只被一个子 RDD 分区使用。reduceByKey、groupByKey、join（非broadcast）都是宽依赖——父 RDD 的一个分区数据被 Shuffle 到多个子 RDD 分区。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-003",
+      "difficulty": "medium",
+      "stem": "Spark Stage 的划分依据是什么？",
+      "options": {
+        "A": "遇到 Action 算子就划分",
+        "B": "遇到宽依赖（ShuffleDependency）就划分",
+        "C": "遇到窄依赖就划分",
+        "D": "固定 200 个 Stage"
+      },
+      "answer": "B",
+      "explanation": "Spark 从后往前（从 Action RDD 回溯），遇到 ShuffleDependency 就切一刀，将 Job 划分为多个 Stage。窄依赖的算子（map、filter）可以在同一 Stage 内流水线执行。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-004",
+      "difficulty": "medium",
+      "stem": "关于 `reduceByKey` 和 `groupByKey`，以下哪个说法是正确的？",
+      "options": {
+        "A": "两者性能完全相同",
+        "B": "groupByKey 更快，因为它不做聚合",
+        "C": "reduceByKey 更快，因为它有 Map 端预聚合（Combiner）",
+        "D": "reduceByKey 只能用于数值类型"
+      },
+      "answer": "C",
+      "explanation": "reduceByKey 在每个 Map Task 内先做本地预聚合（类似 Hadoop 的 Combiner），大幅减少 Shuffle 数据量。groupByKey 将所有原始数据全量 Shuffle 到 Reduce 端再分组，Shuffle 数据量大得多。reduceByKey 可用任何满足结合律的操作，不限于数值。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-005",
+      "difficulty": "medium",
+      "stem": "Spark 的 Broadcast 变量主要用于什么场景？",
+      "options": {
+        "A": "在 Task 间同步计数器",
+        "B": "将只读的大变量高效分发到所有 Executor",
+        "C": "在 Executor 间共享可变状态",
+        "D": "存储 Shuffle 中间数据"
+      },
+      "answer": "B",
+      "explanation": "Broadcast 变量将只读数据高效地分发到每个 Executor（仅一次，不是每个 Task 一次），存于 Executor 内存供所有 Task 共享。最常用于 Map Join——将小表广播避免 Shuffle。Accumulator 用于分布式计数（只能 add，不能读）。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-006",
+      "difficulty": "hard",
+      "stem": "关于 RDD 的 cache 和 persist，以下说法错误的是？",
+      "options": {
+        "A": "cache() 等价于 persist(MEMORY_ONLY)",
+        "B": "MEMORY_AND_DISK 级别在内存不足时会溢写到磁盘",
+        "C": "cache 后的 RDD 不会丢失，因为血缘已被截断",
+        "D": "MEMORY_ONLY_SER 将数据序列化存储，省空间但多 CPU 开销"
+      },
+      "answer": "C",
+      "explanation": "cache/persist 不截断血缘——如果缓存丢失（Executor 挂了或内存被驱逐），Spark 会通过血缘重新计算。只有 checkpoint() 才截断血缘，将 RDD 物化到可靠存储（HDFS）。C 选项混淆了 cache 和 checkpoint 的语义。"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-007",
+      "difficulty": "hard",
+      "stem": "Spark 在处理数据倾斜时，以下哪个方法不是常用的？",
+      "options": {
+        "A": "对倾斜 key 增加随机前后缀，分两阶段聚合",
+        "B": "使用 Map Join 替代 Reduce Join",
+        "C": "增大 spark.executor.cores 的数量",
+        "D": "提高 reduce 端并行度"
+      },
+      "answer": "C",
+      "explanation": "增大 executor cores 只增加并行能力，不解决倾斜——倾斜 key 的数据仍然全进入同一分区，该分区的 Task 依然单线程处理，cores 再多也帮不上忙。正确的倾斜处理：两阶段聚合（加盐）、Map Join（广播）、过滤倾斜 key、调整并行度、自定义 Partitioner。"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-001",
+      "difficulty": "medium",
+      "stem": "请解释 Spark RDD 的血缘（Lineage）机制，以及它在容错中的作用。",
+      "referencePoints": [
+        "血缘记录了每个 RDD 如何从其父 RDD 和原始数据转换而来",
+        "是 DAG 调度的基础",
+        "容错：分区丢失时只需重新计算该分区的依赖链，不需要全局重算",
+        "checkpoint 用于截断过长血缘",
+        "与 Hadoop MR 的差异：MR 每次 Stage 都要落盘，Spark 血缘避免了中间落盘"
+      ],
+      "sampleAnswer": "RDD 血缘（Lineage）是指 RDD 记录了它是如何从其他 RDD 转换而来的完整信息。每个 RDD 对象都包含对其父 RDD 的引用（dependencies）和 compute 函数。\n\n容错机制：\n1. 当某个分区的数据丢失（如 Executor 宕机），Spark 不需要从头开始重新计算\n2. 只需要根据血缘，找到丢失分区的依赖链，从最近的可用父 RDD 开始重新计算该分区\n3. 对于窄依赖，只需重新计算丢失分区对应的父分区\n4. 对于宽依赖，可能需要重新计算多个父分区\n\n血缘优化：\n- 血缘过长时（如迭代算法 1000 轮），重新计算链太长。此时用 checkpoint() 将 RDD 物化到 HDFS，截断血缘\n- cache/persist 将 RDD 缓存到内存/磁盘，也是避免重复计算的方式\n\n与 Hadoop MR 的对比：MR 每个阶段之间必须落盘 HDFS，而 Spark 血缘机制允许多个窄依赖 Stage 流水线在内存中执行，大幅减少了磁盘 IO。"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-002",
+      "difficulty": "hard",
+      "stem": "请详细描述 Spark 数据倾斜的定位方法和解决方案，每种方案说明其适用场景和局限性。",
+      "referencePoints": [
+        "定位：Spark UI 看 Stage 各 Task 运行时间差异、看 Shuffle Read/Write 量",
+        "方案1：两阶段聚合（加盐-聚合-去盐）— 适用 groupBy/reduceBy 倾斜",
+        "方案2：Map Join（Broadcast Join）— 适用大表Join小表",
+        "方案3：倾斜 Join 单独处理 — 识别倾斜 key 单独加盐处理",
+        "方案4：增大并行度 — 简单但治标不治本",
+        "方案5：过滤导致倾斜的少数 key — 适用 null 值或异常值引起倾斜",
+        "每种方案的局限性"
+      ],
+      "sampleAnswer": "**定位方法**：\n1. Spark UI → Stages → 找到执行慢的 Stage → 查看各 Task 的 Duration → 大部分 Task 几秒、个别 Task 几分钟 → 数据倾斜\n2. Spark UI → SQL → 查看 Join/GroupBy 算子的 Shuffle 数据分布\n3. 代码定位：对可疑 key 运行 countByKey 或 groupBy+count 看分布\n\n**解决方案**：\n1. 两阶段聚合（加盐）：key 加随机前缀分散 → 第一轮聚合 → 去掉前缀 → 第二轮聚合。适用 groupBy/reduceBy，但对 Join 需另外处理。局限性：需要两次聚合，计算量增加；需确保聚合操作满足结合律。\n2. Map Join：小表广播到所有 Executor，Map 端完成 Join。最优雅的方案，无 Shuffle 无倾斜。局限性：仅当一端足够小（< broadcast 阈值）时可用。\n3. 倾斜 Join 单独处理：将倾斜 key 的数据分离出来单独加盐处理，非倾斜部分正常 Join，最后 union。适用能事先识别倾斜 key 的场景。局限性：需额外代码，倾斜 key 未知时需先跑一次识别。\n4. 增大并行度：spark.sql.shuffle.partitions 调大。简单但治标不治本——极端倾斜下某个 key 的数据量远超单分区处理能力时无效。\n5. 过滤异常 key：如果倾斜由 null 值或异常值引起，可将其过滤或替换。局限：仅对脏数据有效。\n\n综合推荐：优先 Map Join → 加盐聚合 → 分离倾斜 key → 最后才调并行度。"
+    }
+  ]
+}

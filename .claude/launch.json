@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "bigdata-review-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set NEXT_TELEMETRY_DISABLED=1 && npx next dev --port 3000"],
+      "autoPort": true,
+      "cwd": "E:\\bigdata_review"
+    }
+  ]
+}
