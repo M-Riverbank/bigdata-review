@@ -1,14 +1,27 @@
 import { techComponents, getComponent } from '@/lib/components';
-import { countQuestions, countChoiceQuestions, countEssayQuestions, getQuizSet } from '@/lib/quiz';
+import { countQuestions, countChoiceQuestions, countEssayQuestions, countWritingQuestions, getQuizSet } from '@/lib/quiz';
 import Link from 'next/link';
-import { HelpCircle, ChevronRight, CheckCircle, XCircle } from 'lucide-react';
+import { HelpCircle, ChevronRight, CheckCircle, XCircle, Terminal } from 'lucide-react';
 import type { Metadata } from 'next';
+import fs from 'fs';
+import path from 'path';
 
 export const metadata: Metadata = {
   title: '题库总览 - 大数据面试备战',
 };
 
 export default async function QuizOverviewPage() {
+  // Load writing questions for Spark SQL separately
+  let totalWriting = 0;
+  const writingFilePath = path.join(process.cwd(), 'data', 'spark-sql-writing.json');
+  if (fs.existsSync(writingFilePath)) {
+    try {
+      const writingRaw = fs.readFileSync(writingFilePath, 'utf-8');
+      const writingData = JSON.parse(writingRaw);
+      totalWriting = writingData.questions?.length || 0;
+    } catch {}
+  }
+
   // Filter components that have quiz data
   const componentsWithQuiz = techComponents.filter(c => countQuestions(c.id) > 0);
 
@@ -23,6 +36,7 @@ export default async function QuizOverviewPage() {
       totalEssay += countEssayQuestions(set.questions);
     }
   });
+  totalQuestions += totalWriting;
 
   return (
     <div>
@@ -32,11 +46,11 @@ export default async function QuizOverviewPage() {
           <HelpCircle size={26} className="inline mr-2 mb-0.5 text-amber-400" />
           题库总览
         </h1>
-        <p className="text-gray-400">选择题即时判分，简答题由 DeepSeek AI 评判</p>
+        <p className="text-gray-400">选择题即时判分，简答题和 SQL 笔试题由 DeepSeek AI 评判</p>
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
           <div className="text-3xl font-bold text-gray-100 mb-1">{totalQuestions}</div>
           <div className="text-sm text-gray-500">总题目数</div>
@@ -50,9 +64,17 @@ export default async function QuizOverviewPage() {
         </div>
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
           <div className="flex items-center gap-2 mb-1">
+            <XCircle size={16} className="text-amber-500" />
             <span className="text-3xl font-bold text-gray-100">{totalEssay}</span>
           </div>
           <div className="text-sm text-gray-500">简答题（AI 判分）</div>
+        </div>
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-1">
+            <Terminal size={16} className="text-violet-400" />
+            <span className="text-3xl font-bold text-gray-100">{totalWriting}</span>
+          </div>
+          <div className="text-sm text-gray-500">SQL 笔试题（AI 判分）</div>
         </div>
       </div>
 
@@ -71,16 +93,19 @@ export default async function QuizOverviewPage() {
             if (!set) return null;
             const choice = countChoiceQuestions(set.questions);
             const essay = countEssayQuestions(set.questions);
+            const isSparkSql = comp.id === 'spark-sql';
+            const targetHref = isSparkSql ? '/quiz/spark-sql' : `/quiz/${comp.id}`;
 
             return (
               <Link
                 key={comp.id}
-                href={`/quiz/${comp.id}`}
+                href={targetHref}
                 className="block bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-gray-700 hover:bg-gray-850 transition-all group"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-gray-200 font-medium group-hover:text-amber-400 transition-colors">
                     {comp.subLabel}
+                    {isSparkSql && <span className="ml-2 text-[10px] text-amber-500 bg-amber-500/10 px-1.5 py-0.5 rounded-full">专页</span>}
                   </h3>
                   <ChevronRight size={16} className="text-gray-600 group-hover:text-gray-400" />
                 </div>
@@ -93,6 +118,12 @@ export default async function QuizOverviewPage() {
                     <XCircle size={12} className="text-amber-500" />
                     {essay} 简答题
                   </span>
+                  {isSparkSql && totalWriting > 0 && (
+                    <span className="flex items-center gap-1">
+                      <Terminal size={12} className="text-violet-500" />
+                      {totalWriting} SQL笔试题
+                    </span>
+                  )}
                 </div>
               </Link>
             );

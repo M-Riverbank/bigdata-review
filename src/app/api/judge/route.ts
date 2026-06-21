@@ -4,7 +4,7 @@ import { judgeAnswer } from '@/lib/deepseek';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { stem, userAnswer, referencePoints } = body;
+    const { stem, userAnswer, referencePoints, questionType, tables } = body;
 
     if (!stem || !userAnswer || !referencePoints) {
       return NextResponse.json(
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await judgeAnswer({ stem, userAnswer, referencePoints });
+    const result = await judgeAnswer({ stem, userAnswer, referencePoints, questionType, tables });
     return NextResponse.json(result);
   } catch (error: any) {
     console.error('AI judge error:', error);

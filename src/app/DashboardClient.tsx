@@ -24,7 +24,14 @@ function loadProgress(): UserProgress {
   }
   try {
     const raw = localStorage.getItem('bigdata-review-progress');
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      return {
+        completedArticles: data.completedArticles || {},
+        quizResults: data.quizResults || {},
+        wrongQuestionIds: data.wrongQuestionIds || [],
+      };
+    }
   } catch {}
   return { completedArticles: {}, quizResults: {}, wrongQuestionIds: [] };
 }
@@ -57,7 +64,7 @@ export default function DashboardClient({
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-100 mb-2">
           <LayoutDashboard size={26} className="inline mr-2 mb-0.5 text-emerald-400" />
-          导航大盘
+          学习概览
         </h1>
         <p className="text-gray-400">大数据面试备战全线追踪，选择一个组件开始学习</p>
       </div>

@@ -2,18 +2,20 @@
 
 import { useState } from 'react';
 import { EssayQuestion as EssayQuestionType, QuizResult, JudgeResponse } from '@/types';
-import { Send, Check, X, Loader2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Send, Check, X, Loader2, ChevronDown, ChevronUp, Eye } from 'lucide-react';
 
 interface EssayQuestionProps {
   question: EssayQuestionType;
   onResult: (result: QuizResult) => void;
   existingResult?: QuizResult;
+  useAI?: boolean;
 }
 
 export default function EssayQuestion({
   question,
   onResult,
   existingResult,
+  useAI = true,
 }: EssayQuestionProps) {
   const [answer, setAnswer] = useState(existingResult?.userAnswer ?? '');
   const [judging, setJudging] = useState(false);
@@ -28,8 +30,9 @@ export default function EssayQuestion({
   );
   const [showSample, setShowSample] = useState(false);
   const [error, setError] = useState('');
+  const [selfMode, setSelfMode] = useState<'input' | 'review'>(existingResult ? 'review' : 'input');
 
-  const isSubmitted = judgeResult !== null;
+  const isSubmitted = judgeResult !== null || selfMode === 'review';
 
   const handleSubmit = async () => {
     if (!answer.trim() || judging) return;
@@ -69,6 +72,23 @@ export default function EssayQuestion({
     }
   };
 
+  const handleSelfReview = () => {
+    setSelfMode('review');
+    setShowSample(true);
+    // In self-review mode, don't auto-mark correct/fail;
+    // the result is submitted when user clicks a self-assessment button below.
+  };
+
+  const handleSelfAssess = (passed: boolean) => {
+    const result: QuizResult = {
+      userAnswer: answer,
+      isCorrect: passed,
+      timestamp: Date.now(),
+    };
+    onResult(result);
+    setJudgeResult({ score: passed ? 100 : 0, feedback: '', isPass: passed });
+  };
+
   const difficultyLabel = { easy: '简单', medium: '中等', hard: '困难' };
   const difficultyColor = {
     easy: 'bg-emerald-500/10 text-emerald-400',
@@ -85,7 +105,9 @@ export default function EssayQuestion({
         >
           {difficultyLabel[question.difficulty]}
         </span>
-        <span className="text-xs text-gray-600">简答题（AI 评分）</span>
+        <span className="text-xs text-gray-600">
+          {useAI ? '简答题（AI 评分）' : '简答题（自评）'}
+        </span>
       </div>
 
       {/* Stem */}
@@ -107,8 +129,8 @@ export default function EssayQuestion({
         />
       </div>
 
-      {/* Submit button */}
-      {!isSubmitted && (
+      {/* AI Submit button */}
+      {useAI && !isSubmitted && (
         <button
           onClick={handleSubmit}
           disabled={!answer.trim() || judging}
@@ -128,6 +150,18 @@ export default function EssayQuestion({
         </button>
       )}
 
+      {/* Self-review: "查看答案" button */}
+      {!useAI && !isSubmitted && (
+        <button
+          onClick={handleSelfReview}
+          disabled={!answer.trim()}
+          className="flex items-center gap-2 px-6 py-2.5 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-600 text-gray-200 text-sm font-medium rounded-lg transition-colors"
+        >
+          <Eye size={16} />
+          查看参考答案
+        </button>
+      )}
+
       {/* Error */}
       {error && (
         <div className="mt-4 p-4 rounded-xl bg-red-500/5 border border-red-500/30 text-sm text-red-400">
@@ -135,8 +169,8 @@ export default function EssayQuestion({
         </div>
       )}
 
-      {/* Judge result */}
-      {judgeResult && (
+      {/* Judge result (AI mode) */}
+      {useAI && judgeResult && (
         <div className="mt-6 space-y-4">
           {/* Score banner */}
           <div
@@ -211,6 +245,91 @@ export default function EssayQuestion({
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Self-review: show sample + self-assessment */}
+      {!useAI && selfMode === 'review' && (
+        <div className="mt-6 space-y-4">
+          {/* Sample answer */}
+          <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+            <button
+              onClick={() => setShowSample(!showSample)}
+              className="w-full flex items-center justify-between p-4 text-sm text-gray-400 hover:text-gray-200 transition-colors"
+            >
+              <span className="font-medium">📖 参考答案</span>
+              {showSample ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </button>
+            {showSample && (
+              <div className="px-4 pb-4">
+                <div className="border-t border-gray-800 pt-4 text-sm text-gray-400 leading-relaxed whitespace-pre-wrap">
+                  {question.sampleAnswer}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Reference points */}
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-sm font-medium text-gray-300 mb-2">📋 评分要点</h4>
+            <ul className="space-y-1">
+              {question.referencePoints.map((point, i) => (
+                <li key={i} className="text-sm text-gray-500 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-600" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Self-assessment buttons (only if not already judged) */}
+          {!judgeResult && (
+            <div className="text-center">
+              <p className="text-sm text-gray-500 mb-3">对比参考答案后，请自我评估：</p>
+              <div className="flex items-center justify-center gap-4">
+                <button
+                  onClick={() => handleSelfAssess(true)}
+                  className="flex items-center gap-2 px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  <Check size={16} />
+                  已掌握
+                </button>
+                <button
+                  onClick={() => handleSelfAssess(false)}
+                  className="flex items-center gap-2 px-6 py-2.5 bg-red-600 hover:bg-red-500 text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  <X size={16} />
+                  还需练习
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Self-assessment result badge */}
+          {judgeResult && (
+            <div
+              className={`p-5 rounded-xl border text-center ${
+                judgeResult.isPass
+                  ? 'bg-emerald-500/5 border-emerald-500/30'
+                  : 'bg-amber-500/5 border-amber-500/30'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                {judgeResult.isPass ? (
+                  <Check size={20} className="text-emerald-400" />
+                ) : (
+                  <X size={20} className="text-amber-400" />
+                )}
+                <span
+                  className={`font-medium ${
+                    judgeResult.isPass ? 'text-emerald-400' : 'text-amber-400'
+                  }`}
+                >
+                  {judgeResult.isPass ? '已掌握' : '已加入错题本'}
+                </span>
+              </div>
             </div>
           )}
         </div>

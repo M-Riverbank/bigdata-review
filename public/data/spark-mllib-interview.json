@@ -1,0 +1,1358 @@
+{
+  "componentId": "spark-mllib",
+  "bindings": {
+    "spark-mllib-概览": ["smllib-c-001", "smllib-c-002", "smllib-c-003"],
+    "ml-pipeline": ["smllib-c-004", "smllib-c-005"],
+    "特征工程": ["smllib-c-006", "smllib-c-007", "smllib-c-008", "smllib-e-001"],
+    "分类与回归": ["smllib-c-009", "smllib-c-010", "smllib-c-011", "smllib-e-002"],
+    "聚类": ["smllib-c-012", "smllib-c-013", "smllib-c-014"],
+    "推荐算法-als": ["smllib-c-015", "smllib-c-016", "smllib-e-003"],
+    "模型评估": ["smllib-c-017", "smllib-c-018", "smllib-c-019", "smllib-e-004"],
+    "ml-pipeline-设计理念": ["smllib-c-020", "smllib-e-005"],
+    "pipeline-组件": ["smllib-c-021", "smllib-c-022"],
+    "pipeline-参数管理": ["smllib-c-023"],
+    "pipeline-持久化": ["smllib-c-024", "smllib-e-006"],
+    "自定义-pipeline-stage": ["smllib-c-025", "smllib-c-026"],
+    "特征工程总览": ["smllib-c-027"],
+    "特征编码": ["smllib-c-028", "smllib-c-029", "smllib-c-030"],
+    "特征变换": ["smllib-c-031", "smllib-c-032"],
+    "特征选择": ["smllib-c-033", "smllib-c-034"],
+    "文本特征提取": ["smllib-c-035", "smllib-c-036"],
+    "pca主成分分析": ["smllib-c-037", "smllib-c-038"],
+    "分类模型": ["smllib-c-039", "smllib-c-040", "smllib-c-041"],
+    "回归模型": ["smllib-c-042", "smllib-c-043"],
+    "分类-vs-回归": ["smllib-c-044"],
+    "示例完整的分类-pipeline": ["smllib-c-045", "smllib-e-007"],
+    "k-means-聚类": ["smllib-c-046", "smllib-c-047"],
+    "bisecting-k-means二分-k-means": ["smllib-c-048"],
+    "gaussian-mixture-model高斯混合模型": ["smllib-c-049", "smllib-c-050"],
+    "lda隐含狄利克雷分配": ["smllib-c-051"],
+    "als-推荐算法": ["smllib-c-052", "smllib-c-053", "smllib-e-008"],
+    "频繁模式挖掘frequent-pattern-mining": ["smllib-c-054", "smllib-c-055"],
+    "特征降维": ["smllib-c-056"],
+    "异常检测": ["smllib-c-057", "smllib-c-058"],
+    "模型集成与-pipelines-进阶": ["smllib-c-059", "smllib-c-060"],
+    "mllib-的局限性": ["smllib-c-061", "smllib-c-062"],
+    "模型评估总览": ["smllib-c-063"],
+    "分类评估": ["smllib-c-064", "smllib-c-065"],
+    "回归评估": ["smllib-c-066", "smllib-c-067"],
+    "超参数调优": ["smllib-c-068", "smllib-c-069", "smllib-e-009"],
+    "模型持久化": ["smllib-c-070"],
+    "模型上线流程": ["smllib-c-071", "smllib-e-010"],
+    "pipeline-模型部署": ["smllib-c-072"],
+    "在线预测-vs-离线预测": ["smllib-c-073", "smllib-c-074"],
+    "模型监控": ["smllib-c-075"],
+    "mllib-最佳实践": ["smllib-c-076", "smllib-c-077"]
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "id": "smllib-c-001",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 目前推荐使用哪个 API？",
+      "options": {
+        "A": "spark.mllib（RDD API）",
+        "B": "spark.ml（DataFrame API + Pipeline）",
+        "C": "两者功能完全相同，随意选择",
+        "D": "直接用 Hadoop Mahout"
+      },
+      "answer": "B",
+      "explanation": "Spark 推荐使用 spark.ml（DataFrame API）。spark.mllib（RDD API）处于维护模式，不再增加新功能。DataFrame API 优点：Schema 类型信息、Catalyst 优化、Pipeline 统一工作流、Tungsten 堆外内存。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-002",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 支持以下哪种数据类型作为特征向量？",
+      "options": {
+        "A": "只有稠密向量（DenseVector）",
+        "B": "稠密向量和稀疏向量（SparseVector）",
+        "C": "只有稀疏向量",
+        "D": "Java 原生数组"
+      },
+      "answer": "B",
+      "explanation": "MLlib 的 linalg 模块提供了 DenseVector 和 SparseVector 两种向量表示。稀疏向量在大规模高维稀疏数据（如文本 TF-IDF）中可大幅节省内存和计算开销。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-003",
+      "difficulty": "medium",
+      "stem": "下面哪个不是 Spark MLlib 支持的机器学习任务？",
+      "options": {
+        "A": "分类（Classification）",
+        "B": "回归（Regression）",
+        "C": "深度学习图像识别（Deep Learning Image Recognition）",
+        "D": "聚类（Clustering）"
+      },
+      "answer": "C",
+      "explanation": "Spark MLlib 主要支持分类、回归、聚类、协同过滤、降维、频繁模式挖掘等传统机器学习算法。深度学习图像识别不在 MLlib 范围内，需要使用 Spark 集成的深度学习框架如 TorchDistributor 或 Horovod。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-004",
+      "difficulty": "easy",
+      "stem": "Spark ML Pipeline 中，Transformer 和 Estimator 的区别是？",
+      "options": {
+        "A": "Transformer 和 Estimator 完全相同",
+        "B": "Transformer 输入 DF 输出 DF，Estimator 输入 DF 输出 Model（一个 Transformer）",
+        "C": "Transformer 用于模型训练，Estimator 用于特征转换",
+        "D": "Estimator 不需要 fit，Transformer 需要 fit"
+      },
+      "answer": "B",
+      "explanation": "Transformer = 输入 DataFrame 到 输出 DataFrame（转换器）。如 VectorAssembler、StandardScaler 的 Model。Estimator = 输入 DataFrame 到 输出 Model（学习器/训练器）。如 RandomForestClassifier、KMeans。Model 本身也是一个 Transformer。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-005",
+      "difficulty": "easy",
+      "stem": "在 Spark ML Pipeline 中，Pipeline 本身属于哪种角色？",
+      "options": {
+        "A": "Transformer",
+        "B": "Estimator",
+        "C": "Evaluator",
+        "D": "既可以是 Transformer 也可以是 Estimator"
+      },
+      "answer": "B",
+      "explanation": "Pipeline 本身是 Estimator，它由一系列 Stage（Transformer 或 Estimator）组成。当调用 pipeline.fit() 时，Pipeline 依次对数据执行每个 Stage，遇到 Estimator 时先 fit 再 transform，最后返回 PipelineModel。PipelineModel 是 Transformer。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-006",
+      "difficulty": "medium",
+      "stem": "在 Spark ML 中，StringIndexer 的作用是？",
+      "options": {
+        "A": "为 DataFrame 添加行号索引",
+        "B": "将字符串类型的类别列映射为数值索引（按频率排序）",
+        "C": "对字符串进行排序",
+        "D": "提取字符串中的数字"
+      },
+      "answer": "B",
+      "explanation": "StringIndexer 将字符串类别列转换为数值索引，按出现频率从高到低排序：最常见的类别到 0，第二常见到 1。配合 OneHotEncoder 使用：先 StringIndexer 转索引，再 OneHotEncoder 转稀疏向量。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-007",
+      "difficulty": "medium",
+      "stem": "Spark ML Pipeline 中，VectorAssembler 的输入和输出是什么？",
+      "options": {
+        "A": "输入多个数值列，输出一个特征向量列",
+        "B": "输入一个特征向量列，输出多个数值列",
+        "C": "输入字符串列，输出数值索引",
+        "D": "输入 DataFrame，输出 RDD"
+      },
+      "answer": "A",
+      "explanation": "VectorAssembler 是特征工程中最常用的 Transformer。它将多个数值列或向量列合并为一个单独的向量列（名为 features），作为 ML 算法输入。例如：assembler.transform(df) 将 age、salary、sex_index 三列合并为一个 features 向量。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-008",
+      "difficulty": "hard",
+      "stem": "Spark ML Pipeline 中，如何对训练集和测试集统一做特征工程？",
+      "options": {
+        "A": "在训练集和测试集上分别调用 fit()",
+        "B": "在训练集上 fit Pipeline，得到的 PipelineModel 对测试集 transform()",
+        "C": "在测试集上 fit，在训练集上 transform",
+        "D": "不需要特征工程"
+      },
+      "answer": "B",
+      "explanation": "Pipeline 的核心：在 trainDF 上调用 pipeline.fit() 得到 PipelineModel（包含了所有 Transformer 和 Model），然后用这个 PipelineModel 对 testDF 做 transform()。这样确保 StringIndexer 等使用训练集的词汇表，测试集未知类别可统一处理。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-009",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 支持的分类算法中，哪个是基于集成学习（Ensemble）的？",
+      "options": {
+        "A": "逻辑回归（LogisticRegression）",
+        "B": "随机森林（RandomForestClassifier）",
+        "C": "线性 SVM",
+        "D": "朴素贝叶斯（NaiveBayes）"
+      },
+      "answer": "B",
+      "explanation": "随机森林（RandomForestClassifier）是集成学习算法，通过构建多棵决策树并投票（或平均）得到最终结果。逻辑回归、线性 SVM、朴素贝叶斯都是单一模型。集成方法通常比单一模型有更好的泛化能力和鲁棒性。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-010",
+      "difficulty": "medium",
+      "stem": "逻辑回归（LogisticRegression）在 Spark MLlib 中默认支持哪种正则化？",
+      "options": {
+        "A": "仅 L1 正则化",
+        "B": "仅 L2 正则化",
+        "C": "支持 L1、L2 和 ElasticNet（L1+L2 混合）",
+        "D": "不支持任何正则化"
+      },
+      "answer": "C",
+      "explanation": "Spark 的 LogisticRegression 通过 elasticNetParam 参数控制正则化类型：elasticNetParam=0 为纯 L2 正则化（Ridge），elasticNetParam=1 为纯 L1 正则化（Lasso），0 到 1 之间为 ElasticNet。regParam 控制正则化强度。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-011",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 的 GBTClassifier（梯度提升树）相比 RandomForestClassifier 的特点是什么？",
+      "options": {
+        "A": "GBT 训练速度更快",
+        "B": "GBT 是串行训练弱学习器，RandomForest 是并行训练",
+        "C": "GBT 只能用于回归",
+        "D": "GBT 不需要设置树的数量"
+      },
+      "answer": "B",
+      "explanation": "梯度提升树（GBT）是串行训练：每棵树拟合前一棵树的残差，因此无法完全并行化。随机森林的每棵树是独立训练的，可以完全并行。GBT 通常树更少但更容易过拟合，需要调整 maxIter 和 stepSize。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-012",
+      "difficulty": "medium",
+      "stem": "K-Means 聚类中，k 值通常如何选择？",
+      "options": {
+        "A": "k 必须等于数据的行数",
+        "B": "随机选一个 k 即可",
+        "C": "肘部法则（Elbow Method）：观察不同 k 的 SSE 下降趋势，选拐点",
+        "D": "k 必须等于 Executor 的数量"
+      },
+      "answer": "C",
+      "explanation": "肘部法则：对 k=2 开始递增，记录每个 k 的 SSE（误差平方和），画图找到 SSE 下降趋势由陡转缓的拐点（肘部）。同时也需结合业务解释性，比如用户分群 5 类是否业务上有意义。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-013",
+      "difficulty": "hard",
+      "stem": "Spark MLlib 的 KMeans 实现中，初始化模式（initMode）的默认策略是？",
+      "options": {
+        "A": "完全随机初始化（Random）",
+        "B": "K-Means||（一种并行化的 K-Means++）",
+        "C": "Farthest First（最远优先）",
+        "D": "用户自定义初始中心点"
+      },
+      "answer": "B",
+      "explanation": "Spark KMeans 默认使用 K-Means||（Parallel K-Means++）初始化策略。K-Means++ 因串行选择初始中心点难以分布式实现，K-Means|| 通过多次采样近似 K-Means++ 效果，更适合 Spark 分布式并行计算。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-014",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 的 KMeans 训练完成后，如何评估聚类效果？",
+      "options": {
+        "A": "只能通过可视化人工判断",
+        "B": "使用 WSSSE（组内误差平方和）",
+        "C": "计算准确率",
+        "D": "聚类无法评估"
+      },
+      "answer": "B",
+      "explanation": "Spark KMeans 模型提供 computeCost() 或 summary.trainingCost 计算 WSSSE（Within Set Sum of Squared Errors，组内误差平方和）。WSSSE 衡量样本点到其所属簇中心的距离平方和，值越小说明簇内越紧密。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-015",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 ALS 推荐算法的 rank 参数代表什么？",
+      "options": {
+        "A": "推荐结果排序的优先级",
+        "B": "隐因子（Latent Factor）的维度，即用户和物品向量的长度",
+        "C": "模型的并行度",
+        "D": "物品的排名"
+      },
+      "answer": "B",
+      "explanation": "ALS（Alternating Least Squares）将用户-物品评分矩阵分解为两个低秩矩阵的乘积：User Matrix (m x rank) 和 Item Matrix (rank x n)。rank 就是隐因子的维度，通常取值 10 到 200。rank 越大模型表达能力越强但易过拟合且计算量大。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-016",
+      "difficulty": "medium",
+      "stem": "ALS 推荐算法中，隐式反馈（implicitPrefs）和显式反馈的区别是？",
+      "options": {
+        "A": "没有区别，只是参数名不同",
+        "B": "隐式反馈使用置信度权重（confidence），显式反馈直接预测评分",
+        "C": "隐式反馈只适用于文本数据",
+        "D": "显式反馈不需要训练"
+      },
+      "answer": "B",
+      "explanation": "显式反馈（implicitPrefs=false）直接预测用户对物品的评分（如 1 到 5 星）。隐式反馈（implicitPrefs=true）使用用户行为（如点击次数、观看时长）作为正反馈，通过置信度权重处理未观测数据，适合用户行为日志场景。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-017",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 中 BinaryClassificationEvaluator 默认使用的评估指标是什么？",
+      "options": {
+        "A": "准确率（Accuracy）",
+        "B": "AUC（Area Under ROC Curve）",
+        "C": "F1-Score",
+        "D": "召回率（Recall）"
+      },
+      "answer": "B",
+      "explanation": "BinaryClassificationEvaluator 默认使用 areaUnderROC（AUC）作为评估指标。也可以通过 setMetricName 改为 areaUnderPR 即 PR 曲线下面积。AUC 取值范围 0 到 1，越接近 1 表示分类器性能越好，0.5 表示随机猜测。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-018",
+      "difficulty": "medium",
+      "stem": "MulticlassClassificationEvaluator 默认使用的评估指标是？",
+      "options": {
+        "A": "准确率（f1）",
+        "B": "精确率（weightedPrecision）",
+        "C": "AUC",
+        "D": "RMSE"
+      },
+      "answer": "A",
+      "explanation": "MulticlassClassificationEvaluator 默认使用 f1（加权 F1-Score）进行评估。支持的指标包括：f1、accuracy、weightedPrecision、weightedRecall。多分类评估通过一对一（One-vs-All）策略计算。AUC 只用于 BinaryClassificationEvaluator。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-019",
+      "difficulty": "hard",
+      "stem": "关于 Spark ML 的交叉验证（CrossValidator），以下哪个说法是正确的？",
+      "options": {
+        "A": "交叉验证在单机上运行，不利用 Spark 分布式能力",
+        "B": "CrossValidator 是 Estimator，fit 后产生 CrossValidatorModel",
+        "C": "交叉验证不能与 Pipeline 一起使用",
+        "D": "交叉验证只能用于分类，不能用于回归"
+      },
+      "answer": "B",
+      "explanation": "CrossValidator 本身是 Estimator，调用 fit 后返回 CrossValidatorModel，其中包含最优模型。可以和 Pipeline 结合使用（Pipeline 作为 CrossValidator 的 estimator 属性）。支持分类、回归等所有 Estimator。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-020",
+      "difficulty": "easy",
+      "stem": "Spark ML Pipeline 的核心理念是什么？",
+      "options": {
+        "A": "将所有数据转换为 RDD 操作",
+        "B": "将特征工程和模型训练统一为一个标准化工作流",
+        "C": "替代 Spark SQL",
+        "D": "只用于深度学习"
+      },
+      "answer": "B",
+      "explanation": "Spark ML Pipeline 的核心理念是统一特征工程和模型训练为一个标准化工作流。通过 Transformer（转换器）和 Estimator（训练器）的抽象，将数据从原始格式逐步转换为预测结果，整个过程可重复、可持久化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-021",
+      "difficulty": "easy",
+      "stem": "Spark ML Pipeline Stage 中，Tokenizer 属于哪种角色？",
+      "options": {
+        "A": "Estimator",
+        "B": "Transformer",
+        "C": "Evaluator",
+        "D": "Classifier"
+      },
+      "answer": "B",
+      "explanation": "Tokenizer 是 Transformer，它将文本列分割为单词列，不需要训练（没有 fit 过程），直接调用 transform 即可。类似 Transformer 还包括 StopWordsRemover、HashingTF、RegexTokenizer 等纯数据转换操作。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-022",
+      "difficulty": "medium",
+      "stem": "在 Spark ML Pipeline 中，如果某个 Stage 在训练和预测时行为不同，应该如何处理？",
+      "options": {
+        "A": "不可行，所有 Stage 必须在两个阶段行为一致",
+        "B": "使用 Param 来区分训练/预测模式，Estimator 的 Model 会固化训练时学到的参数",
+        "C": "在代码中手动 if-else 判断",
+        "D": "使用两个不同的 Pipeline"
+      },
+      "answer": "B",
+      "explanation": "Estimator 在训练时 fit 数据学习参数，产生的 Model（Transformer）会固化这些参数。例如：StandardScaler.fit() 学习到均值/标准差存入 Model，predict 时用这些参数做相同的标准化。Pipeline 框架天然保证训练到预测的语义一致性。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-023",
+      "difficulty": "medium",
+      "stem": "Spark ML Pipeline 中，ParamGridBuilder 的作用是什么？",
+      "options": {
+        "A": "构建网格状的数据分区",
+        "B": "生成超参数组合的网格搜索空间",
+        "C": "创建图表的网格布局",
+        "D": "划分训练集和测试集"
+      },
+      "answer": "B",
+      "explanation": "ParamGridBuilder 用于构建超参数的搜索网格。例如：ParamGridBuilder().addGrid(lr.regParam, Array(0.01, 0.1)).addGrid(lr.elasticNetParam, Array(0.0, 0.5)).build() 会生成 2 x 2 = 4 组参数组合，供 CrossValidator 或 TrainValidationSplit 调优。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-024",
+      "difficulty": "medium",
+      "stem": "Spark ML PipelineModel 持久化到 HDFS 后，加载时需要注意什么？",
+      "options": {
+        "A": "直接 spark.read.parquet 读取即可",
+        "B": "使用 PipelineModel.load(path) 加载，运行时需要与训练时相同的依赖",
+        "C": "不需要任何 Spark 依赖",
+        "D": "只能在同一台机器上加载"
+      },
+      "answer": "B",
+      "explanation": "PipelineModel.load(path) 加载持久化的模型。需要注意：加载环境的 Spark 版本应与训练时兼容，自定义 Transformer/Estimator 相关的类必须在 classpath 中。MLlib 使用 Parquet 格式存储模型元数据和参数。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-025",
+      "difficulty": "hard",
+      "stem": "如果要实现一个自定义的 Spark ML Transformer，需要继承哪个类？",
+      "options": {
+        "A": "object Transformer",
+        "B": "继承 Transformer 抽象类或实现 Transformer 接口",
+        "C": "继承 DataFrame",
+        "D": "实现 Estimator 接口"
+      },
+      "answer": "B",
+      "explanation": "自定义 Transformer 需要继承 org.apache.spark.ml.Transformer 抽象类（或扩展已有的 Params 子类如 UnaryTransformer）。必须实现 transform() 方法（核心转换逻辑）、copy() 方法和 transformSchema() 方法（输出 Schema 验证）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-026",
+      "difficulty": "hard",
+      "stem": "在自定义 Spark ML Estimator 时，transformSchema 方法的作用是什么？",
+      "options": {
+        "A": "对数据进行转换",
+        "B": "验证输入列的 Schema 并返回输出 DataFrame 的 Schema",
+        "C": "启动 Spark 任务",
+        "D": "保存模型到磁盘"
+      },
+      "answer": "B",
+      "explanation": "transformSchema() 在 Pipeline 组装阶段被调用，验证输入 DataFrame 包含所需列及正确类型，并计算/声明输出 DataFrame 的 Schema。这使 Pipeline 能在执行任何计算前就发现 Schema 不兼容错误。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-027",
+      "difficulty": "easy",
+      "stem": "特征工程在机器学习流程中的主要目的是什么？",
+      "options": {
+        "A": "增加数据量",
+        "B": "将原始数据转换为更适合模型训练的数值特征",
+        "C": "删除所有数据",
+        "D": "提高模型训练速度以外的目的均不重要"
+      },
+      "answer": "B",
+      "explanation": "特征工程将原始数据（文本、类别、数值等）转换为模型可处理的数值特征。好的特征工程能显著提升模型效果，包括：缺失值处理、类别编码、标准化/归一化、特征组合、特征选择等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-028",
+      "difficulty": "medium",
+      "stem": "OneHotEncoder 在处理高基数（High Cardinality）类别特征时可能带来什么问题？",
+      "options": {
+        "A": "没有影响",
+        "B": "特征维度爆炸，导致稀疏性和计算开销增大",
+        "C": "模型训练速度反而变快",
+        "D": "OneHotEncoder 不支持类别特征"
+      },
+      "answer": "B",
+      "explanation": "OneHotEncoder 将每个类别值映射为一个独热向量，类别数即向量维度。当类别基数很高（如上万个城市代码），OneHotEncoding 会导致特征维度爆炸，使数据极度稀疏。此时可考虑 Hash 编码或 Embedding 方式。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-029",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 StringIndexer 遇到测试集中未出现过的类别时，默认行为是什么？",
+      "options": {
+        "A": "自动添加新类别索引",
+        "B": "抛出异常",
+        "C": "跳过该行数据",
+        "D": "将未类别转换为 null"
+      },
+      "answer": "B",
+      "explanation": "默认情况下（handleInvalid=error），如果测试集包含训练集 StringIndexer 未见过的类别，Spark 会抛出异常。可以设置为 handleInvalid=keep（映射到特殊索引）或 handleInvalid=skip（跳过该行），取决于生产环境的容错需求。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-030",
+      "difficulty": "hard",
+      "stem": "Spark 3.0 引入的 FeatureHasher 相比传统 OneHotEncoder 的优势是？",
+      "options": {
+        "A": "FeatureHasher 不需要 StringIndexer，直接对多列进行哈希编码",
+        "B": "FeatureHasher 能保持所有原始信息",
+        "C": "哈希编码永远不会发生冲突",
+        "D": "FeatureHasher 只支持数值列"
+      },
+      "answer": "A",
+      "explanation": "FeatureHasher 使用哈希技巧（Hashing Trick）将多个数值列或字符串列直接映射到固定大小的特征向量，无需维护词汇表（No State），也不需要先 StringIndexer 再 OneHotEncoder。哈希冲突会轻微损失精度但可接受。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-031",
+      "difficulty": "easy",
+      "stem": "StandardScaler 对数据做了什么处理？",
+      "options": {
+        "A": "将数据范围缩放到 [0,1]",
+        "B": "减去均值并除以标准差（Z-Score 标准化）",
+        "C": "对数据进行排序",
+        "D": "对数据取对数"
+      },
+      "answer": "B",
+      "explanation": "StandardScaler 对每个特征维度计算均值和标准差，然后做 Z-Score 标准化：z = (x - mean) / std。处理后的数据均值=0，标准差=1。可选参数：withMean（是否中心化，稀疏数据不建议）、withStd（是否缩放）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-032",
+      "difficulty": "medium",
+      "stem": "MinMaxScaler 和 StandardScaler 的使用场景区别是？",
+      "options": {
+        "A": "无区别，可以互换",
+        "B": "MinMaxScaler 将数据缩放到 [0,1]，适合有界数据；StandardScaler 标准化为 0 均值 1 标准差，适合有离群值的数据",
+        "C": "MinMaxScaler 只能用于整数",
+        "D": "StandardScaler 速度更慢"
+      },
+      "answer": "B",
+      "explanation": "MinMaxScaler 线性缩放到 [0,1] 区间，对离群值敏感，适合像素值、评分等有界数据。StandardScaler 标准化为 0 均值 1 标准差，受离群值影响较小，适合连续数值特征。如果包含离群值，StandardScaler 更鲁棒。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-033",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 ChiSqSelector（卡方特征选择）的原理是什么？",
+      "options": {
+        "A": "使用 PCA 降维",
+        "B": "通过卡方检验计算每个特征与标签的相关性，选择最相关的 TopK 特征",
+        "C": "随机选择特征",
+        "D": "选择方差最大的特征"
+      },
+      "answer": "B",
+      "explanation": "ChiSqSelector 基于卡方独立性检验，计算每个特征与类别标签之间的关联程度，选择 TopK 个最相关的特征。仅适用于分类问题且特征需非负（如频率或 TF-IDF 值）。优点是计算快、可解释性强。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-034",
+      "difficulty": "hard",
+      "stem": "基于树的模型（如随机森林）天然具有特征选择能力，原因是什么？",
+      "options": {
+        "A": "树模型会自动删除不必要的特征",
+        "B": "树模型在分裂时会自动评估特征重要性（Information Gain / Gini Impurity 减少量）",
+        "C": "树模型不需要特征选择",
+        "D": "树模型只使用第一个特征"
+      },
+      "answer": "B",
+      "explanation": "树模型在每次节点分裂时选择使不纯度（Gini Impurity / Entropy）下降最多的特征。通过汇总每个特征在所有树中作为分裂特征的贡献，可获得特征重要性排序。Spark 的 RandomForestClassifier 训练后可通过 .featureImportances 获取。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-035",
+      "difficulty": "medium",
+      "stem": "HashingTF 和 CountVectorizer 的区别是什么？",
+      "options": {
+        "A": "两者完全相同",
+        "B": "HashingTF 通过哈希得到固定维度特征，无需维护词汇表；CountVectorizer 需要维护词汇表",
+        "C": "CountVectorizer 更快",
+        "D": "HashingTF 只支持英文"
+      },
+      "answer": "B",
+      "explanation": "HashingTF 使用哈希技巧将单词映射到固定维度的特征向量（如 setNumFeatures=2^18），无需提前构建词汇表，适合流式场景。CountVectorizer 需要先 fit 构建词汇表（minDF、vocabSize 等参数），然后 transform 生成词频向量。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-036",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中的 IDF（逆文档频率）主要解决什么问题？",
+      "options": {
+        "A": "文档中的拼写错误",
+        "B": "降低常见词的权重，提高罕见但对文档有区分度的词的权重",
+        "C": "提高所有词的权重",
+        "D": "对文档重新排序"
+      },
+      "answer": "B",
+      "explanation": "IDF 衡量一个词在整个语料中的稀有程度：idf(t) = log((N+1)/(df(t)+1)) + 1。HashingTF 或 CountVectorizer 得到词频后，IDF 对罕见词赋予更高权重、常见词降低权重。TF-IDF = TF x IDF，是文本特征提取的经典方法。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-037",
+      "difficulty": "medium",
+      "stem": "PCA（主成分分析）在 Spark MLlib 中的主要应用场景是什么？",
+      "options": {
+        "A": "数据分类",
+        "B": "高维数据降维，减少特征数量同时保留主要方差信息",
+        "C": "预测连续值",
+        "D": "文本生成"
+      },
+      "answer": "B",
+      "explanation": "PCA 通过正交变换将可能相关的原始特征转换为一组线性不相关的主成分，保留最大的方差信息。Spark MLlib 的 PCA 使用 SVD（奇异值分解）实现。常用场景：高维可视化（降至 2D/3D）、去噪、特征压缩、加速后续模型训练。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-038",
+      "difficulty": "hard",
+      "stem": "PCA 降维后，如何选择合适的 k（主成分数量）？",
+      "options": {
+        "A": "固定 k 必须等于特征数的一半",
+        "B": "选择使得累积方差解释率（Explained Variance Ratio）达到阈值（如 95%）的最小 k",
+        "C": "k 必须等于 2",
+        "D": "不需要选择，PCA 自动确定"
+      },
+      "answer": "B",
+      "explanation": "PCA 输出每个主成分的方差解释率，选择累积方差解释率达到阈值（通常 85% 到 99%）的最小 k。Spark 的 PCA 训练后，可以通过计算 explainedVariance.cumsum 来确定 k。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-039",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 中 LogisticRegression 的 family 参数可设为哪些值？",
+      "options": {
+        "A": "仅 binomial",
+        "B": "auto、binomial 或 multinomial",
+        "C": "仅 multinomial",
+        "D": "不需要设置 family"
+      },
+      "answer": "B",
+      "explanation": "LogisticRegression 的 family 参数：auto（根据 label 列自动推断）、binomial（二分类）、multinomial（多分类）。二分类时默认使用 auto。多分类逻辑回归使用 Softmax 函数替代 Sigmoid。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-040",
+      "difficulty": "medium",
+      "stem": "LinearSVC（线性支持向量机）与 LogisticRegression 相比，主要区别是什么？",
+      "options": {
+        "A": "LinearSVC 只能用于多分类",
+        "B": "LinearSVC 使用 Hinge Loss 损失函数，LogisticRegression 使用 Log Loss",
+        "C": "两者完全相同",
+        "D": "LinearSVC 需要更多数据"
+      },
+      "answer": "B",
+      "explanation": "LinearSVC 使用 Hinge Loss（合页损失）作为损失函数，最大化分类间隔（Margin），输出硬分类结果（0/1）。LogisticRegression 使用 Log Loss（对数损失），输出分类概率（[0,1]）。LinearSVC 通常在高维稀疏数据上表现更好。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-041",
+      "difficulty": "hard",
+      "stem": "NaiveBayes（朴素贝叶斯）在 Spark MLlib 中有哪几种模型类型？",
+      "options": {
+        "A": "只有高斯模型",
+        "B": "多项型（Multinomial）、伯努利型（Bernoulli）和补集型（Complement）",
+        "C": "只有伯努利型",
+        "D": "只有多项型"
+      },
+      "answer": "B",
+      "explanation": "Spark NaiveBayes 支持三种模型类型：multinomial（多项型，适用于词频特征的文本分类）、bernoulli（伯努利型，适用于 0/1 特征）、complement（补集型，适用于不平衡数据集）。默认 multinomial。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-042",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 中 LinearRegression 的训练目标是使哪个损失函数最小化？",
+      "options": {
+        "A": "Hinge Loss",
+        "B": "均方误差（Mean Squared Error）",
+        "C": "交叉熵（Cross Entropy）",
+        "D": "指数损失（Exponential Loss）"
+      },
+      "answer": "B",
+      "explanation": "线性回归最小化均方误差 MSE = (1/N) * sum(y_i - y_pred_i)^2。Spark 的 LinearRegression 使用带 L-BFGS 或 Normal Equation 的优化方法，支持 L1/L2/ElasticNet 正则化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-043",
+      "difficulty": "medium",
+      "stem": "决策树回归（DecisionTreeRegressor）和线性回归的主要适用场景差异是？",
+      "options": {
+        "A": "决策树回归只能处理分类问题",
+        "B": "决策树回归可以捕捉特征间的非线性关系和交互作用，无需手动做特征变换",
+        "C": "线性回归不需要调参",
+        "D": "决策树回归只能处理数值特征"
+      },
+      "answer": "B",
+      "explanation": "决策树回归通过树结构自动学习特征间的高阶交互和非线性关系（如年龄 x 收入对消费金额的影响），不需要手动构造多项式特征或交叉特征。线性回归假设特征与目标线性关系，需要手动做特征工程处理非线性。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-044",
+      "difficulty": "medium",
+      "stem": "在 Spark MLlib 中，分类模型和回归模型最大的输出差异是？",
+      "options": {
+        "A": "没有差异",
+        "B": "分类模型输出离散的类别标签（或概率），回归模型输出连续数值",
+        "C": "分类模型不需要特征工程",
+        "D": "回归模型只能处理单变量"
+      },
+      "answer": "B",
+      "explanation": "分类模型输出离散标签（如 0/1 或多类别）以及每个类别的预测概率（概率校准模型如逻辑回归）。回归模型输出连续数值，没有概率概念。在 Spark ML 中，分类模型的 prediction 是 Double 类型但代表类别索引，回归模型的 prediction 是预测数值本身。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-045",
+      "difficulty": "hard",
+      "stem": "在 Spark 中构建一个完整的二分类 Pipeline，Stage 的正确顺序是？",
+      "options": {
+        "A": "VectorAssembler 到 StringIndexer 到分类器",
+        "B": "StringIndexer 到 OneHotEncoder 到 VectorAssembler 到分类器",
+        "C": "分类器到 StringIndexer 到 VectorAssembler",
+        "D": "VectorAssembler 到分类器到 StringIndexer"
+      },
+      "answer": "B",
+      "explanation": "正确顺序：先 StringIndexer（字符串标签/类别到索引），再 OneHotEncoder（索引到稀疏向量），再 VectorAssembler（合并所有特征列），最后分类器（如 LogisticRegression）。注意标签列也需要 StringIndexer（如果标签是字符串）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-046",
+      "difficulty": "easy",
+      "stem": "K-Means 聚类算法中，每个样本点的归属由什么决定？",
+      "options": {
+        "A": "随机分配",
+        "B": "距离最近的中心点（通常为欧氏距离）",
+        "C": "样本点的名称",
+        "D": "样本加入的先后顺序"
+      },
+      "answer": "B",
+      "explanation": "K-Means 中每个样本点被分配到距离最近的簇中心（Centroid），通常使用欧氏距离。标准 K-Means 步骤：1）选择 k 个初始中心；2）每个点分配到最近中心；3）重新计算中心为簇内均值；4）重复 2-3 步直到收敛。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-047",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 KMeans 的 tol（容忍度）参数作用是什么？",
+      "options": {
+        "A": "控制模型的存储大小",
+        "B": "控制收敛条件，当所有中心点移动距离小于 tol 时停止迭代",
+        "C": "控制初始化速度",
+        "D": "控制数据采样比例"
+      },
+      "answer": "B",
+      "explanation": "tol（Tolerance）控制 KMeans 的收敛条件：当所有簇中心点在当前迭代中的移动距离（欧氏距离）小于 tol 值时，算法认为已收敛并停止迭代。默认值为 1e-4。更小的 tol 值可以得到更精确的结果但需要更多迭代时间。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-048",
+      "difficulty": "hard",
+      "stem": "Bisecting K-Means（二分 K-Means）与标准 K-Means 的主要区别是什么？",
+      "options": {
+        "A": "Bisecting K-Means 更快但聚类质量更差",
+        "B": "Bisecting K-Means 使用自顶向下的分裂策略：从整体作为一个簇开始，逐步二分分裂",
+        "C": "Bisecting K-Means 只能处理二分类",
+        "D": "两者算法完全相同"
+      },
+      "answer": "B",
+      "explanation": "Bisecting K-Means 采用自顶向下策略：第一步将所有数据作为一个簇，用 K=2 的 K-Means 分成两个子簇，然后选择某个簇（通常是 WSSSE 最大的簇）继续二分，直到达到 k 个簇。优点是效率高且结果确定性更强。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-049",
+      "difficulty": "medium",
+      "stem": "Gaussian Mixture Model（高斯混合模型）与 K-Means 聚类的主要区别是什么？",
+      "options": {
+        "A": "GMM 假设每个簇服从高斯分布，输出样本属于每个簇的概率（软聚类）",
+        "B": "GMM 与 K-Means 完全相同",
+        "C": "GMM 只能处理二维数据",
+        "D": "K-Means 也输出概率"
+      },
+      "answer": "A",
+      "explanation": "GMM 假设数据由多个高斯分布混合生成，输出每个样本属于每个簇的后验概率（软聚类）。K-Means 是硬聚类，只输出所属簇 ID。GMM 通过 EM 算法迭代优化，可以拟合椭圆形的簇形状，而 K-Means 假设簇是球形且大小相似。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-050",
+      "difficulty": "hard",
+      "stem": "Spark MLlib 中 GaussianMixture 训练使用什么算法？",
+      "options": {
+        "A": "梯度下降（SGD）",
+        "B": "期望最大化（EM）算法",
+        "C": "遗传算法",
+        "D": "模拟退火"
+      },
+      "answer": "B",
+      "explanation": "Spark 的 GaussianMixture 使用 EM（期望最大化）算法训练 GMM。E 步：根据当前参数计算每个样本属于每个高斯分量的后验概率。M 步：根据后验概率更新各分量的权重、均值和协方差矩阵。迭代直到收敛。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-051",
+      "difficulty": "hard",
+      "stem": "LDA（隐含狄利克雷分配）在 Spark MLlib 中的主要应用场景是？",
+      "options": {
+        "A": "图像分类",
+        "B": "主题建模，从文档集合中自动发现隐含的主题分布",
+        "C": "异常检测",
+        "D": "回归预测"
+      },
+      "answer": "B",
+      "explanation": "LDA 是经典的主题模型（Topic Model），将每篇文档表示为多个主题的混合，每个主题表示为词语的概率分布。Spark MLlib 的 LDA 支持在线变分推断（Online LDA）和期望最大化两种优化算法。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-052",
+      "difficulty": "medium",
+      "stem": "ALS（交替最小二乘）算法在 Spark 中的计算过程描述正确的是？",
+      "options": {
+        "A": "同时优化用户矩阵和物品矩阵",
+        "B": "固定用户矩阵优化物品矩阵，再固定物品矩阵优化用户矩阵，交替迭代",
+        "C": "只优化用户矩阵",
+        "D": "使用梯度下降一次优化所有参数"
+      },
+      "answer": "B",
+      "explanation": "ALS 的核心是交替优化：1）固定物品矩阵（Item Matrix），求解用户矩阵（User Matrix），每个用户的解相互独立可并行；2）固定用户矩阵，求解物品矩阵，每个物品的解也相互独立可并行。交替迭代直到收敛。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-053",
+      "difficulty": "hard",
+      "stem": "Spark ALS 推荐时，冷启动（Cold Start）问题如何处理？",
+      "options": {
+        "A": "ALS 天生支持冷启动",
+        "B": "冷启动用户/物品无法生成推荐，Spark 提供了 coldStartStrategy 参数（如 drop 或 nan）",
+        "C": "用随机向量替代新用户的特征",
+        "D": "冷启动问题无法解决"
+      },
+      "answer": "B",
+      "explanation": "ALS 无法为训练数据中未见过的用户/物品生成推荐（因为没有学到的特征向量）。Spark ALS 提供 coldStartStrategy 参数：drop（删除冷启动用户的预测行）或 nan（返回 NaN）。实际生产中用属性特征或 Bandit 算法处理冷启动。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-054",
+      "difficulty": "medium",
+      "stem": "FP-Growth（频繁模式挖掘）算法的核心思想是？",
+      "options": {
+        "A": "枚举所有可能的项组合",
+        "B": "构建 FP-Tree 压缩表示事务数据库，在不生成候选集的情况下挖掘频繁项集",
+        "C": "随机采样寻找频繁项",
+        "D": "对商品进行聚类"
+      },
+      "answer": "B",
+      "explanation": "FP-Growth（Frequent Pattern Growth）通过两次扫描数据库构建 FP-Tree：第一次扫描计算每个项的频次（剪枝去除不达最小支持度的项），第二次扫描构建树结构（每条事务压缩为树的一条路径）。然后递归挖掘 FP-Tree 提取频繁项集。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-055",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 FP-Growth 的 minConfidence 参数在关联规则挖掘中的作用是？",
+      "options": {
+        "A": "过滤频繁项集的最小出现次数",
+        "B": "过滤关联规则的最小置信度，只有置信度大于等于 minConfidence 的规则被输出",
+        "C": "控制数据采样的概率",
+        "D": "控制树的最大深度"
+      },
+      "answer": "B",
+      "explanation": "minConfidence 控制关联规则挖掘的阈值：置信度（Confidence）= P(Y|X) = support(X 并 Y) / support(X)。只有规则 X 到 Y 的置信度大于等于 minConfidence 才会被输出。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-056",
+      "difficulty": "medium",
+      "stem": "特征降维中，PCA 和奇异值分解（SVD）的关系是？",
+      "options": {
+        "A": "两者无关",
+        "B": "PCA 本质上是 SVD 在数据协方差矩阵上的应用",
+        "C": "SVD 比 PCA 慢",
+        "D": "PCA 和 SVD 结果完全相同"
+      },
+      "answer": "B",
+      "explanation": "PCA 可以通过 SVD 实现：对数据中心化后做 SVD 分解，右奇异向量 V 即为主成分方向。Spark MLlib 的 PCA 底层使用 SVD 实现。MLlib 提供了独立的 SingularValueDecomposition 类，可用于降维、矩阵近似等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-057",
+      "difficulty": "hard",
+      "stem": "在 Spark MLlib 中做异常检测，以下哪种方法更常用？",
+      "options": {
+        "A": "直接调用 AnomalyDetection 类",
+        "B": "使用 Isolation Forest（隔离森林），但 MLlib 没有原生实现，需要第三方库",
+        "C": "MLlib 提供了专门的异常检测算法",
+        "D": "异常检测只能使用深度学习"
+      },
+      "answer": "B",
+      "explanation": "Spark MLlib 原生没有专门的异常检测算法。常用的方法是使用 Isolation Forest（可通过 Spark-Packages 上的第三方实现），或使用聚类（KMeans 距离判断）、统计方法（Z-Score、IQR）检测离群点。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-058",
+      "difficulty": "medium",
+      "stem": "使用 KMeans 做异常检测的基本思路是什么？",
+      "options": {
+        "A": "将所有点标记为异常",
+        "B": "计算每个样本点到最近簇中心的距离，距离远大于大部分样本的点可能是异常",
+        "C": "簇中心本身就是异常点",
+        "D": "KMeans 不能用于异常检测"
+      },
+      "answer": "B",
+      "explanation": "KMeans 异常检测思路：训练 KMeans 得到簇中心后，计算每个样本到其最近簇中心的距离。如果距离显著大于同簇中大部分样本（如超过 3 倍标准差或处于距离分布上尾 1%），则标记为异常点。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-059",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中，OneVsRest（一对多分类器）的作用是什么？",
+      "options": {
+        "A": "将多分类问题分解为多个二分类子问题",
+        "B": "减少模型大小",
+        "C": "加速模型训练",
+        "D": "用于回归问题"
+      },
+      "answer": "A",
+      "explanation": "OneVsRest（One-vs-Rest 或 One-vs-All）将 K 类多分类问题转化为 K 个二分类任务（每个分类器区分属于某类 vs 不属于某类）。Spark MLlib 的 OneVsRest 是 Estimator，内部使用一个基分类器训练 K 个模型，预测时选择置信度最高的类别。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-060",
+      "difficulty": "hard",
+      "stem": "在 Spark ML Pipeline 中嵌套另一个 Pipeline，以下哪个说法正确？",
+      "options": {
+        "A": "不支持嵌套 Pipeline",
+        "B": "可以将一个 Pipeline 作为一个 Stage 添加到另一个 Pipeline 中",
+        "C": "嵌套 Pipeline 只能用于深度学习",
+        "D": "嵌套后性能必定提升"
+      },
+      "answer": "B",
+      "explanation": "Spark ML Pipeline 支持嵌套：可以将一个 Pipeline 实例作为另一个 Pipeline 的 Stage。因为 Pipeline 是 Estimator，PipelineModel 是 Transformer，符合 Stage 的接口定义。嵌套 Pipeline 适用于复杂场景。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-061",
+      "difficulty": "easy",
+      "stem": "Spark MLlib 目前最主要的局限性是什么？",
+      "options": {
+        "A": "完全不支持分布式计算",
+        "B": "深度学习支持有限，主要面向传统机器学习算法",
+        "C": "安装配置太复杂",
+        "D": "不支持 Java API"
+      },
+      "answer": "B",
+      "explanation": "Spark MLlib 主要支持传统机器学习算法（分类、回归、聚类、推荐），对深度学习的支持有限。虽然 Spark 3.x 引入了 TorchDistributor 等深度学习集成工具，但 MLlib 本身不提供 CNN、RNN、Transformer 等深度学习模型。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-062",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 的迭代式算法（如 LR、KMeans）在处理超大规模数据时的主要性能瓶颈？",
+      "options": {
+        "A": "CPU 计算能力不足",
+        "B": "每次迭代需要重新读取数据，Spark 的 Shuffle 和 I/O 开销",
+        "C": "内存永远够用",
+        "D": "网络带宽限制"
+      },
+      "answer": "B",
+      "explanation": "迭代式算法的性能瓶颈在于 Spark 的 Shuffle 开销。每次迭代中，梯度计算或中心点更新都需要在 Executor 间聚合数据，产生大量 Shuffle 读写。优化方案：增加 Executor 内存、调整 shuffle 分区数、使用 Kryo 序列化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-063",
+      "difficulty": "easy",
+      "stem": "模型评估在机器学习中的主要目的是？",
+      "options": {
+        "A": "只能用于选择最好的模型",
+        "B": "评估模型泛化能力、选择最优模型和超参数、发现过拟合/欠拟合",
+        "C": "模型评估可以增加数据量",
+        "D": "评估只是形式，不重要"
+      },
+      "answer": "B",
+      "explanation": "模型评估的核心目的：1）评估模型在未见数据上的泛化能力（不只是训练集表现）；2）比较不同模型/超参数的优劣，选择最优配置；3）诊断过拟合（训练集高、验证集低）或欠拟合（两者都低）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-064",
+      "difficulty": "easy",
+      "stem": "二分类问题中，混淆矩阵（Confusion Matrix）包含哪四个指标？",
+      "options": {
+        "A": "均值、方差、标准差、协方差",
+        "B": "TP（真正例）、FP（假正例）、TN（真负例）、FN（假负例）",
+        "C": "精度、召回率、F1、准确率",
+        "D": "MSE、RMSE、MAE、R2"
+      },
+      "answer": "B",
+      "explanation": "混淆矩阵包含：TP（真阳性，预测为正实际也为正）、FP（假阳性，预测为正实际为负）、TN（真阴性，预测为负实际也为负）、FN（假阴性，预测为负实际为正）。其他指标由混淆矩阵计算得到。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-065",
+      "difficulty": "medium",
+      "stem": "在不平衡分类问题（如欺诈检测，正例仅占 1%）中，以下哪个评估指标更合适？",
+      "options": {
+        "A": "准确率（Accuracy）",
+        "B": "精确率、召回率、F1-Score 或 AUC",
+        "C": "RMSE",
+        "D": "MAE"
+      },
+      "answer": "B",
+      "explanation": "不平衡数据中，准确率是误导性指标，全部预测为负类也有 99% 准确率。精确率（查准率）、召回率（查全率）、F1-Score（调和平均）或 AUC 更能反映模型对少数类的区分能力。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-066",
+      "difficulty": "easy",
+      "stem": "回归评估指标 RMSE（均方根误差）的含义是？",
+      "options": {
+        "A": "预测值与实际值差值的绝对值的平均",
+        "B": "预测值与实际值差值的平方的平均值再开方",
+        "C": "预测值的平均值",
+        "D": "实际值的标准差"
+      },
+      "answer": "B",
+      "explanation": "RMSE = sqrt((1/N) * sum(y_i - y_pred_i)^2)。RMSE 对预测误差取平方再开方，放大了较大误差的影响（惩罚大误差）。Spark RegressionEvaluator 支持 rmse、mse、mae、r2 四个指标。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-067",
+      "difficulty": "medium",
+      "stem": "R2（决定系数）在回归评估中的含义是什么？",
+      "options": {
+        "A": "R2 必须大于 1",
+        "B": "R2 表示模型解释的目标变量方差比例，取值范围 (-inf, 1]，越接近 1 拟合越好",
+        "C": "R2 等价于准确率",
+        "D": "R2 不能用于线性回归以外的模型"
+      },
+      "answer": "B",
+      "explanation": "R2 = 1 - (SS_res / SS_tot)，SS_res 为残差平方和，SS_tot 为总平方和。R2 表示模型解释了目标变量中多大比例的方差。R2=1 表示完美拟合，R2=0 等价于均值预测，R2 为负表示比均值预测还差。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-068",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 中 TrainValidationSplit 和 CrossValidator 的主要区别是什么？",
+      "options": {
+        "A": "两者完全相同",
+        "B": "TrainValidationSplit 使用单次训练/验证划分（更快但结果方差更大），CrossValidator 使用 K 折交叉验证（更稳定但更慢）",
+        "C": "CrossValidator 只能用于回归",
+        "D": "TrainValidationSplit 精度更高"
+      },
+      "answer": "B",
+      "explanation": "TrainValidationSplit 将数据按 trainRatio 比例（默认 0.75）划分为训练集和验证集，只做一次划分，适合大数据场景（速度快）。CrossValidator 将数据分为 K 折（默认 3 折），K 次训练后取平均值，结果更稳定但计算量是 K 倍。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-069",
+      "difficulty": "hard",
+      "stem": "Spark CrossValidator 在并行训练多个参数组合时，任务是如何分配的？",
+      "options": {
+        "A": "串行执行所有参数组合",
+        "B": "每个参数组合 + 每折交叉验证作为一个独立的 Spark Job 并行执行",
+        "C": "只在 Driver 上执行",
+        "D": "只使用一个 Executor"
+      },
+      "answer": "B",
+      "explanation": "CrossValidator 将每个参数组合与每折交叉验证的组合作为独立任务提交。假设 ParamGrid 有 4 个组合、3 折交叉验证，则共产生 12 个训练任务，Spark 将这些任务在不同 Executor 上分布式并行执行。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-070",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 模型持久化到磁盘的文件格式默认是什么？",
+      "options": {
+        "A": "CSV 文本",
+        "B": "Parquet 格式（列式存储，包含 Schema 和元数据）",
+        "C": "JSON 文件",
+        "D": "SequenceFile"
+      },
+      "answer": "B",
+      "explanation": "Spark MLlib 模型持久化使用 Parquet 格式存储元数据和参数，还会包含一个 JSON 文件记录元数据。Parquet 是 Spark 的默认列式存储格式，高效压缩、支持 Schema 演化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-071",
+      "difficulty": "medium",
+      "stem": "Spark ML 模型上线到生产环境的标准流程是什么？",
+      "options": {
+        "A": "在训练环境中每次重新训练并预测",
+        "B": "训练到持久化（save）到生产环境加载（load）到 transform 预测",
+        "C": "复制训练代码到生产环境",
+        "D": "手动导出模型参数"
+      },
+      "answer": "B",
+      "explanation": "标准流程：1）训练环境训练模型；2）model.write.overwrite().save(path) 持久化到共享存储（HDFS/S3）；3）生产应用使用 PipelineModel.load(path) 加载；4）加载后的 Model 对实时/批量数据做 transform()。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-072",
+      "difficulty": "medium",
+      "stem": "Spark PipelineModel 在生产环境中做批量预测时，以下哪种方式效率更高？",
+      "options": {
+        "A": "逐行调用 predict()",
+        "B": "对 DataFrame 整体调用 transform()，利用 Spark 分布式能力",
+        "C": "在单机上循环",
+        "D": "转换为 RDD 后再预测"
+      },
+      "answer": "B",
+      "explanation": "Spark PipelineModel.transform(df) 对整个 DataFrame 进行分布式处理，将 Stage（Transformer 和 Model）以 Pipeline 方式应用到每个分区。逐行 predict() 无法利用 Spark 分布式能力。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-073",
+      "difficulty": "easy",
+      "stem": "Spark ML 在线预测和离线预测的主要区别是什么？",
+      "options": {
+        "A": "在线预测使用实时请求数据（低延迟），离线预测处理大批量历史数据（高吞吐）",
+        "B": "没有区别",
+        "C": "离线预测不需要模型",
+        "D": "在线预测不需要特征工程"
+      },
+      "answer": "A",
+      "explanation": "在线预测（Online Inference）：处理实时请求，延迟要求毫秒级，一次处理少量数据。典型场景：API 服务接收用户请求，实时生成推荐结果。离线预测（Batch Inference）：周期性处理大批量数据，延迟容忍高（分钟到小时），吞吐量优先。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-074",
+      "difficulty": "hard",
+      "stem": "Spark ML 模型做在线预测时，通常使用什么技术方案？",
+      "options": {
+        "A": "直接在 Spark Streaming 中运行整个 Pipeline",
+        "B": "模型转换为 PMML 格式，或使用 MLeap / ONNX 导出到轻量级服务",
+        "C": "每次请求重新训练一次模型",
+        "D": "不推荐 MLlib 模型做在线预测"
+      },
+      "answer": "B",
+      "explanation": "Spark ML PipelineModel 加载延迟较高（秒级），不适合实时在线预测。常用方案：1）MLeap 将 Spark Pipeline 序列化为 Bundle.ML，嵌入 Java/Scala 服务；2）PMML 标准模型交换格式；3）ONNX 跨框架模型交换格式。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-075",
+      "difficulty": "hard",
+      "stem": "在生产环境中部署 Spark ML 模型后，需要监控的主要指标不包括？",
+      "options": {
+        "A": "预测性能指标（准确率、AUC）随时间的变化（Data Drift 检测）",
+        "B": "特征分布变化（Feature Drift / 数据分布偏移）",
+        "C": "模型预测延迟和吞吐量",
+        "D": "模型作者的个人考勤记录"
+      },
+      "answer": "D",
+      "explanation": "模型监控核心指标：1）模型性能指标（AUC、准确率、RMSE 等）用于检测 Concept Drift（概念漂移）；2）特征分布监控检测 Feature Drift；3）预测延迟和吞吐量保证 SLA。模型作者考勤与模型质量无关。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-076",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 最佳实践中，处理大规模数值特征时建议怎么做？",
+      "options": {
+        "A": "直接全部放入模型，让算法自己处理",
+        "B": "使用 StandardScaler 或 MinMaxScaler 归一化/标准化，避免特征尺度差异导致模型偏向",
+        "C": "删除所有数值特征",
+        "D": "不需要任何预处理"
+      },
+      "answer": "B",
+      "explanation": "当特征尺度差异大（如年龄 0-100 和收入 0-10^7），模型（尤其梯度下降类）会偏向尺度大的特征。建议：1）StandardScaler 标准化；2）MinMaxScaler 缩放到 [0,1]；3）对长尾分布特征取 log 变换。树模型则不受特征尺度影响。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "smllib-c-077",
+      "difficulty": "hard",
+      "stem": "Spark MLlib 中处理大规模文本特征的最佳实践是？",
+      "options": {
+        "A": "所有文本特征直接 OneHotEncoding",
+        "B": "使用 HashingTF 配合 IDF 获得固定维度的 TF-IDF 特征（如 2^18 维）",
+        "C": "忽略所有文本特征",
+        "D": "把文本转为图像再处理"
+      },
+      "answer": "B",
+      "explanation": "大规模文本处理最佳实践：1）Tokenizer 分词；2）StopWordsRemover 移除停用词；3）HashingTF 将词映射为固定维度哈希向量（通常设为 2^18，平衡哈希冲突和维度）；4）IDF 降低常见词权重。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-001",
+      "difficulty": "medium",
+      "stem": "请描述 Spark ML Pipeline 的工作流程，包含从原始数据到模型部署的完整步骤。",
+      "referencePoints": [
+        "流程：数据加载、特征转换（StringIndexer/OneHotEncoder/VectorAssembler）、模型训练、评估、部署",
+        "Transformer（输入DF到输出DF）和 Estimator（输入DF到输出Model）的区别",
+        "Pipeline 确保训练和预测使用相同的特征处理",
+        "模型可通过 model.write.overwrite().save() 持久化",
+        "评估指标：分类用 accuracy/f1，回归用 rmse/r2"
+      ],
+      "sampleAnswer": "Spark ML Pipeline 完整工作流程：\n\n1. 数据加载：从 HDFS/Parquet/CSV 等读取为 DataFrame\n\n2. 特征工程（多个 Stage 串联）：\n   - StringIndexer：字符串类别到数值索引\n   - OneHotEncoder：数值索引到稀疏向量\n   - VectorAssembler：多个特征列到一个特征向量列\n   - StandardScaler/Normalizer：标准化/归一化\n\n3. 训练/测试划分：df.randomSplit(Array(0.8, 0.2))\n\n4. Pipeline 组装：new Pipeline().setStages(Array(indexer, encoder, assembler, classifier))\n\n5. 模型训练：pipeline.fit(trainDF) 得到 PipelineModel\n\n6. 模型评估：model.transform(testDF)，用 MulticlassClassificationEvaluator 或 RegressionEvaluator\n\n7. 超参数调优：ParamGridBuilder + CrossValidator 或 TrainValidationSplit\n\n8. 模型部署：model.write.overwrite().save(\"hdfs://models/v1\")，生产环境 PipelineModel.load() 直接做预测\n\n关键点：Pipeline 保证训练和预测使用相同的特征处理逻辑，StringIndexer 的词汇表在训练时确定，预测时不用重新 fit。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-002",
+      "difficulty": "hard",
+      "stem": "Spark MLlib 使用 DataFrame API 相比旧版 RDD API 有哪些优势？从类型安全、性能优化、工作流三个方面分析。",
+      "referencePoints": [
+        "类型安全：DataFrame 有 Schema，运行时验证列名和类型",
+        "性能：Catalyst 优化器全图优化，Tungsten 堆外内存避免 GC",
+        "工作流：Pipeline API 标准化特征工程和模型训练",
+        "互操作性：DataFrame 可无缝衔接 Spark SQL 和 Streaming",
+        "可维护性：不再需要在 RDD 上手动拼接特征向量"
+      ],
+      "sampleAnswer": "类型安全：\n- DataFrame 有显式 Schema，Spark 运行时检查列名和类型\n- 错误在运行时尽早暴露（而不是在模型训练时才发现特征维度不对）\n\n性能优化：\n- Catalyst 优化器：DataFrame 操作经过 Parser、Analyzer、Optimizer、Planner 的完整优化流水线\n- Tungsten 堆外内存：DataFrame 数据以二进制格式存储在堆外，大幅减少 JVM GC 开销\n- 全阶段代码生成（WholeStageCodegen）：将多个算子编译为一个 Java 方法，消除虚函数调用\n\n工作流：\n- Pipeline API：Transformer + Estimator 的统一抽象，特征工程和模型训练整合为一个可重复的 Pipeline\n- 训练/预测一致性：PipelineModel 确保预测时的特征处理与训练时完全相同（词汇表、均值/标准差等均来自训练集）\n- 模型持久化：model.save() 一行代码完成部署\n- 跨组件互操作：DataFrame 可直接用于 Spark SQL 或 Spark Streaming",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-003",
+      "difficulty": "medium",
+      "stem": "请详细解释 ALS 推荐算法（交替最小二乘法）的原理，并说明为什么它适合分布式计算。",
+      "referencePoints": [
+        "ALS 将用户-物品评分矩阵分解为用户矩阵和物品矩阵",
+        "交替固定一个矩阵优化另一个矩阵的原理",
+        "每个用户/物品的优化相互独立，天然可并行",
+        "rank 参数的含义和选择",
+        "Spark 的具体实现特点"
+      ],
+      "sampleAnswer": "ALS 原理：\n\nALS 将评分矩阵 R(m x n) 分解为用户矩阵 U(m x k) 和物品矩阵 V(k x n) 的乘积近似 R 约等于 U x V。目标是使平方误差最小化：min sum(r_ui - u_u^T x v_i)^2 + 正则项。\n\n交替优化：\n1. 固定 V（物品矩阵），求解 U（用户矩阵），对每个用户 u，损失函数变为关于 u_u 的二次函数，有闭式解\n2. 固定 U（用户矩阵），求解 V（物品矩阵），同理对每个物品 i\n3. 重复 1-2 步直到收敛\n\n为什么适合分布式：\n- 当固定 V 优化 U 时，每个用户的 u_u 只依赖于该用户的评分数据和 V，用户之间完全独立\n- Spark 可以将用户/物品分区到不同 Executor 上并行计算\n- 交替优化不需要全局梯度同步，仅需在交替时广播新的 U 或 V 矩阵",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-004",
+      "difficulty": "hard",
+      "stem": "详细解释 Spark ML 中 CrossValidator 的工作原理，说明 paramGrid 与 numFolds 的关系，以及如何选择 TrainValidationSplit 或 CrossValidator。",
+      "referencePoints": [
+        "CrossValidator 将数据集分成 numFolds 折",
+        "paramGrid 每个参数组合做 K 折交叉验证",
+        "总训练任务数 = paramGrid 组合数 x numFolds",
+        "选择策略：数据量、可用集群资源、评估稳定性需求",
+        "CrossValidatorModel 选择最优参数组合重训"
+      ],
+      "sampleAnswer": "CrossValidator 工作原理：\n1. 将训练数据随机均分为 numFolds 份（默认 3）\n2. 对 ParamGrid 中每组参数组合：\n   - 轮流以其中 1 份作为验证集，其余 numFolds-1 份作为训练集\n   - 训练模型，在验证集上评估\n   - 记录该参数组合的 numFolds 次评估结果的平均值\n3. 选出平均评估指标最高的参数组合\n4. 使用该参数组合在整个训练集上重新训练模型\n5. 返回 CrossValidatorModel（包含最优 PipelineModel）\n\n选择策略：\n- CrossValidator（K-Fold）结果更稳定（K 次取平均），适合数据量中等的场景\n- TrainValidationSplit（单次切分 0.75/0.25）速度快很多，适合数据量极大的场景（如数千万行），但单次切分方差较大",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-005",
+      "difficulty": "medium",
+      "stem": "Spark ML Pipeline 的设计理念是什么？请结合 Transformer 和 Estimator 的抽象解释其为什么能够统一特征工程和模型训练。",
+      "referencePoints": [
+        "设计模式角度：Pipeline 是职责链模式（Chain of Responsibility）的体现",
+        "Transformer 抽象了所有数据转换操作",
+        "Estimator 抽象了所有模型训练操作",
+        "Pipeline 保证训练和预测的一致性",
+        "统一的 Param 管理和持久化机制"
+      ],
+      "sampleAnswer": "Spark ML Pipeline 设计理念：\n\nPipeline 借鉴了 sklearn 的 Pipeline 概念，通过两个核心抽象统一整个 ML 流程：\n\n1. Transformer（转换器）：具有 transform() 方法，输入 DataFrame 输出 DataFrame。代表所有数据转换操作，特征编码（OneHotEncoder）、标准化（StandardScaler）、特征组合（VectorAssembler），也包括训练好的模型本身（Model extends Transformer）。\n\n2. Estimator（训练器）：具有 fit() 方法，输入 DataFrame 输出 Model（即 Transformer）。代表所有需要学习的算法，逻辑回归、随机森林、KMeans、ALS。fit 完成后产生一个可做预测的 Model。\n\n为什么能统一工作流：\n- 特征工程和模型训练都表示为统一的 Stage 数组\n- Pipeline 本身是 Estimator（fit 产生 PipelineModel），PipelineModel 是 Transformer（transform 做预测）\n- 同一个 Pipeline 对象，在训练数据上 fit，在测试/生产数据上 transform，保证特征处理逻辑完全一致",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-006",
+      "difficulty": "hard",
+      "stem": "Spark ML PipelineModel 持久化到 HDFS 后，在生产环境加载和使用时需要注意哪些问题？从版本兼容性、自定义组件、冷启动等方面分析。",
+      "referencePoints": [
+        "版本兼容性：训练与预测的 Spark 版本应一致",
+        "自定义组件保证 classpath 可用",
+        "跨环境部署（HDFS/S3 路径一致）",
+        "预测时的特征工程与训练时一致",
+        "冷启动策略选择",
+        "模型更新策略"
+      ],
+      "sampleAnswer": "版本兼容性：\n- Spark ML 使用 Parquet 格式持久化，包含元数据中的 Spark 版本\n- 主版本应一致（训练 3.2 到预测 3.3 通常可用，但 2.4 到 3.1 可能不兼容）\n- 建议训练和预测环境版本完全相同\n\n自定义组件：\n- 自定义 Transformer/Estimator 必须实现 MLWritable 接口\n- 生产环境 classpath 必须包含自定义组件的 jar\n\n存储访问：\n- 模型路径使用 HDFS/S3 等共享存储，确保训练和预测集群都可访问\n\n特征工程一致性：\n- PipelineModel 已固化所有特征的词汇表和参数\n- 生产数据必须包含训练时同名的列（类型也要匹配）\n\n冷启动：\n- ALS 等协同过滤模型无法处理新用户/新物品\n- 需要降级策略：基于内容推荐、热门推荐或探索性策略\n\n模型更新：\n- 新模型与旧模型并行运行对比后再切换\n- 使用模型版本管理（时间戳或语义版本）",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-007",
+      "difficulty": "hard",
+      "stem": "请描述如何使用 Spark ML Pipeline 构建一个完整的二分类模型（如用户流失预测），从特征工程到模型评估的详细步骤。",
+      "referencePoints": [
+        "数据加载与探索：Schema 分析、缺失值分布、类别列统计",
+        "特征工程：类别列 StringIndexer+OneHotEncoder、数值列 StandardScaler、VectorAssembler",
+        "Pipeline 组装：所有 Stage 串联为 Pipeline",
+        "模型选择：LogisticRegression / RandomForestClassifier / GBTClassifier",
+        "评估：AUC、精确率、召回率、F1-Score",
+        "超参数调优：ParamGridBuilder + CrossValidator"
+      ],
+      "sampleAnswer": "Step 1 - 数据加载与探索：\nval df = spark.read.parquet(\"/data/user_behavior\").cache()\ndf.printSchema()\ndf.groupBy(\"churned\").count().show()\n\nStep 2 - 特征工程 Stage：\nval genderIndexer = new StringIndexer().setInputCol(\"gender\").setOutputCol(\"gender_idx\")\nval genderEncoder = new OneHotEncoder().setInputCol(\"gender_idx\").setOutputCol(\"gender_vec\")\nval labelIndexer = new StringIndexer().setInputCol(\"churned\").setOutputCol(\"label\")\nval scaler = new StandardScaler().setInputCol(\"numeric_features\").setOutputCol(\"scaled_features\")\nval assembler = new VectorAssembler().setInputCols(Array(\"gender_vec\", \"education_vec\", \"age\", \"login_freq\")).setOutputCol(\"features\")\n\nStep 3 - 模型选择：\nval lr = new LogisticRegression().setMaxIter(100).setFamily(\"binomial\")\n\nStep 4 - Pipeline 组装与训练：\nval pipeline = new Pipeline().setStages(Array(genderIndexer, genderEncoder, labelIndexer, scaler, assembler, lr))\nval Array(train, test) = df.randomSplit(Array(0.8, 0.2))\nval model = pipeline.fit(train)\n\nStep 5 - 评估：\nval predictions = model.transform(test)\nval evaluator = new BinaryClassificationEvaluator().setLabelCol(\"label\")\nval auc = evaluator.evaluate(predictions)\n\nStep 6 - 超参数调优：\nval paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.01, 0.1)).addGrid(lr.elasticNetParam, Array(0.0, 0.5)).build()\nval cv = new CrossValidator().setEstimator(pipeline).setEvaluator(evaluator).setEstimatorParamMaps(paramGrid).setNumFolds(3)\nval cvModel = cv.fit(train)\n\nStep 7 - 部署：\ncvModel.bestModel.write.overwrite().save(\"/models/churn_prediction_v1\")",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-008",
+      "difficulty": "medium",
+      "stem": "请解释 ALS 推荐算法中的隐式反馈（Implicit Feedback）与显式反馈（Explicit Feedback）的区别，以及 Spark MLlib 如何实现隐式反馈矩阵分解。",
+      "referencePoints": [
+        "显式反馈：直接评分（如 1-5 星），直接预测评分值",
+        "隐式反馈：用户行为（点击、浏览时长、购买次数），使用置信度权重",
+        "隐式反馈没有负反馈，通过置信度区分偏好强度",
+        "Spark ALS 的 implicitPrefs=true 开启隐式反馈模式",
+        "alpha 参数控制置信度增长速度"
+      ],
+      "sampleAnswer": "显式反馈（Explicit Feedback）：\n- 用户明确给出的评分（如 1-5 星、点赞/踩）\n- 直接预测评分值 r_ui 约等于 u_u^T x v_i\n- 损失函数：sum(r_ui - u_u^T x v_i)^2 + 正则项\n- 简单直接，但稀疏度高（大多数用户不会评分）\n\n隐式反馈（Implicit Feedback）：\n- 用户行为数据（点击次数、浏览时长、购买次数、播放时长）\n- 没有负反馈，未点击不一定是讨厌，可能只是没看到\n- 引入置信度权重 c_ui = 1 + alpha x r_ui（r_ui 为行为强度）\n- 损失函数：sum c_ui x (p_ui - u_u^T x v_i)^2 + 正则项\n- 偏好 p_ui = 1 如果 r_ui > 0，否则 p_ui = 0\n\nSpark MLlib 实现：\n- implicitPrefs=true 启用隐式反馈模式\n- alpha 参数控制 c_ui = 1 + alpha x r_ui 的增速\n- alpha 通常设为 10 到 40，值越大高频行为的置信度越高\n- 隐式反馈的 ALS 通常能利用更多数据，推荐质量更高",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-009",
+      "difficulty": "hard",
+      "stem": "在 Spark MLlib 中如何系统地调优超参数？请结合 ParamGridBuilder、CrossValidator 和 TrainValidationSplit，分析各自的优缺点和适用场景。",
+      "referencePoints": [
+        "ParamGridBuilder：构建搜索网格，支持离散值搜索",
+        "CrossValidator：K 折交叉验证，结果稳定但计算量大",
+        "TrainValidationSplit：单次划分，适合大数据",
+        "搜索策略：网格搜索 vs 随机搜索的取舍",
+        "评估指标选择影响最优参数",
+        "资源估算：参数组合数 x 折数 = 训练任务数"
+      ],
+      "sampleAnswer": "1. ParamGridBuilder - 构建搜索空间\nval paramGrid = new ParamGridBuilder()\n  .addGrid(lr.regParam, Array(0.001, 0.01, 0.1, 1.0))\n  .addGrid(lr.elasticNetParam, Array(0.0, 0.5, 1.0))\n  .build()\n共 4 x 3 = 12 种参数组合\n\n2. CrossValidator（K 折交叉验证）\n- 原理：数据分为 K 份，轮流 K-1 份训练、1 份验证，K 次取平均\n- 优点：结果稳定，不易受数据划分随机性影响\n- 缺点：训练 K 倍时间\n- numFolds：常用 3 或 5（数据少用 5，数据多用 3）\n\n3. TrainValidationSplit（单次验证拆分）\n- 原理：按比例（默认 0.75）划分为训练集和验证集\n- 优点：速度快，只需训练一次\n- 缺点：结果方差大，对数据划分敏感\n- 适用：数据量极大（TB 级），或快速探索阶段\n\n4. 资源估算公式\n总训练任务 = numFolds x prod(各参数候选数)\n如：3 折 x 4x3 = 36 个模型训练任务\n建议：先用粗网格（少量值）探索最优区域，再用细网格精确搜索",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "smllib-e-010",
+      "difficulty": "medium",
+      "stem": "Spark MLlib 模型从训练完成到上线部署需要经过哪些步骤？请分析在线预测和离线批量预测部署方案的区别和各自的技术选型。",
+      "referencePoints": [
+        "模型持久化：save() / load() 标准流程",
+        "离线预测：Spark Batch Job 定时执行 transform()",
+        "在线预测：低延迟要求，用 MLeap/PMML/ONNX 导出",
+        "AB 测试：新旧模型并行对比",
+        "监控与告警：性能退化检测",
+        "版本管理与回滚策略"
+      ],
+      "sampleAnswer": "模型上线流程：\n1. 训练与验证：在训练环境（开发集群）完成训练和评估\n2. 模型持久化：model.write.overwrite().save(\"hdfs://path/model_v1\")\n3. 注册：模型版本管理系统（如 MLflow Model Registry）记录版本、参数、评估指标\n4. 部署决策：根据评估指标和业务需求决定是否上线\n5. AB 测试：新模型与基线模型并行运行，对比线上效果\n6. 全量上线：确认新模型效果优于基线后全量切换\n7. 监控：持续监控预测性能、特征分布、延迟\n\n离线批量预测方案：\n- Spark Batch Job（最常用）：定时（每日/每小时）加载 PipelineModel，对整个批数据 transform()\n- 吞吐量大，可处理数亿条数据\n- 延迟分钟到小时级\n- 直接将结果写入 HBase/ES/Redis 供线上查询\n\n在线实时预测方案：\n- Spark 本身不适合毫秒级延迟（PipelineModel.load 秒级）\n- 备选方案：\n  a. MLeap：将 Spark PipelineModel 序列化为 Bundle.ML，嵌入 Java/Scala 微服务，延迟 < 10ms\n  b. PMML：导出为标准 PMML 格式，用开源引擎加载\n  c. ONNX：导出为 ONNX 格式，配合 ONNX Runtime 做推理\n  d. 参数提取：对简单模型（LR 权重 + 预处理参数），手写轻量级计算函数",
+      "source": "大数据面试题库"
+    }
+  ]
+}

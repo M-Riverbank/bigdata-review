@@ -9,7 +9,13 @@ import { XCircle, RefreshCw, Trash2, ArrowRight, BookOpen } from 'lucide-react';
 function loadProgress(): UserProgress {
   try {
     const raw = localStorage.getItem('bigdata-review-progress');
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (!data.completedArticles) data.completedArticles = {};
+      if (!data.quizResults) data.quizResults = {};
+      if (!data.wrongQuestionIds) data.wrongQuestionIds = [];
+      return data;
+    }
   } catch {}
   return { completedArticles: {}, quizResults: {}, wrongQuestionIds: [] };
 }

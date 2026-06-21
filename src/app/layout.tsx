@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/Sidebar";
 import Topbar from "@/components/layout/Topbar";
+import { getAllArticles } from "@/lib/content";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import type { Article } from "@/types";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,17 +27,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let allArticles: Article[] = [];
+  try {
+    allArticles = getAllArticles();
+  } catch (e) {
+    console.error('Failed to load articles:', e);
+  }
+
   return (
     <html
       lang="zh-CN"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full bg-gray-950 text-gray-100">
-        <Sidebar />
+        <Sidebar articles={allArticles} />
         <div className="ml-60 flex flex-col min-h-screen">
           <Topbar />
           <main className="flex-1 p-6">
-            {children}
+            <ErrorBoundary>
+              {children}
+            </ErrorBoundary>
           </main>
         </div>
       </body>

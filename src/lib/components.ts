@@ -9,7 +9,7 @@ export const techComponents: TechComponent[] = [
     description: '掌握函数式编程、隐式转换、模式匹配等大数据基础语言核心特性',
     icon: 'Code2',
     color: 'cyan',
-    topics: ['基础语法', '函数式编程', '隐式转换', '模式匹配', '集合操作', '隐式参数'],
+    topics: ['Scala 基础', '面向对象', 'Trait 与模式匹配', '集合操作', '函数式编程', '隐式转换', '大数据实战'],
   },
   {
     id: 'spark-core',

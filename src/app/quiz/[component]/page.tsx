@@ -7,13 +7,19 @@ import { ChoiceQuestion as ChoiceQuestionType, EssayQuestion as EssayQuestionTyp
 import ChoiceQuestionComp from '@/components/quiz/ChoiceQuestion';
 import EssayQuestionComp from '@/components/quiz/EssayQuestion';
 import QuizProgress from '@/components/quiz/QuizProgress';
-import { ArrowLeft, ChevronLeft, ChevronRight, Shuffle, ListOrdered } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Shuffle, ListOrdered, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
 function loadProgress(): UserProgress {
   try {
     const raw = localStorage.getItem('bigdata-review-progress');
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (!data.completedArticles) data.completedArticles = {};
+      if (!data.quizResults) data.quizResults = {};
+      if (!data.wrongQuestionIds) data.wrongQuestionIds = [];
+      return data;
+    }
   } catch {}
   return { completedArticles: {}, quizResults: {}, wrongQuestionIds: [] };
 }
@@ -22,17 +28,30 @@ function saveProgress(progress: UserProgress) {
   localStorage.setItem('bigdata-review-progress', JSON.stringify(progress));
 }
 
+const BATCH_SIZE = 5;
+
 export default function QuizPage({ params }: { params: Promise<{ component: string }> }) {
   const { component } = use(params);
   const router = useRouter();
   const comp = getComponent(component);
 
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [allQuestions, setAllQuestions] = useState<Question[]>([]);
+  const [batchOffset, setBatchOffset] = useState(0);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [results, setResults] = useState<Record<string, QuizResult>>({});
-  const [mode, setMode] = useState<'sequential' | 'random'>('sequential');
+  const [mode, setMode] = useState<'sequential' | 'random'>('random');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // Visible batch
+  const displayQuestions = mode === 'random'
+    ? allQuestions.slice(batchOffset, batchOffset + BATCH_SIZE)
+    : allQuestions;
+
+  const batchAllAnswered = mode === 'random' && displayQuestions.length > 0 &&
+    displayQuestions.every(q => results[q.id]);
+
+  const hasMoreBatches = mode === 'random' && batchOffset + BATCH_SIZE < allQuestions.length;
 
   useEffect(() => {
     fetch(`/data/${component}.json`)
@@ -42,7 +61,6 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
       })
       .then(data => {
         let qs = data.questions as Question[];
-        // Restore saved results
         const progress = loadProgress();
         const savedResults: Record<string, QuizResult> = {};
         qs.forEach(q => {
@@ -52,9 +70,10 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
         });
         setResults(savedResults);
 
-        // Shuffle if random mode
         if (mode === 'random') qs = shuffleArray([...qs]);
-        setQuestions(qs);
+        setAllQuestions(qs);
+        setBatchOffset(0);
+        setCurrentIdx(0);
         setLoading(false);
       })
       .catch(err => {
@@ -63,22 +82,28 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
       });
   }, [component, mode]);
 
+  const nextBatch = () => {
+    const remaining = allQuestions.slice(batchOffset + BATCH_SIZE);
+    const reshuffled = shuffleArray([...remaining]);
+    setAllQuestions(reshuffled);
+    setBatchOffset(0);
+    setCurrentIdx(0);
+  };
+
   const handleResult = (result: QuizResult) => {
-    const q = questions[currentIdx];
+    const q = displayQuestions[currentIdx];
+    if (!q) return;
     const newResults = { ...results, [q.id]: result };
     setResults(newResults);
 
-    // Persist to LocalStorage
     const progress = loadProgress();
     progress.quizResults[q.id] = result;
 
-    // Track wrong answers
     if (!result.isCorrect) {
       if (!progress.wrongQuestionIds.includes(q.id)) {
         progress.wrongQuestionIds.push(q.id);
       }
     } else {
-      // Remove from wrong list if now correct
       progress.wrongQuestionIds = progress.wrongQuestionIds.filter(id => id !== q.id);
     }
 
@@ -86,7 +111,7 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
   };
 
   const goNext = () => {
-    if (currentIdx < questions.length - 1) {
+    if (currentIdx < displayQuestions.length - 1) {
       setCurrentIdx(currentIdx + 1);
     }
   };
@@ -102,10 +127,13 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
       setMode('random');
     } else {
       setMode('sequential');
-      // Reload sequential
       fetch(`/data/${component}.json`)
         .then(res => res.json())
-        .then(data => setQuestions(data.questions));
+        .then(data => {
+          setAllQuestions(data.questions);
+          setBatchOffset(0);
+          setCurrentIdx(0);
+        });
     }
   };
 
@@ -131,7 +159,7 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
     );
   }
 
-  if (questions.length === 0) {
+  if (allQuestions.length === 0) {
     return (
       <div className="text-center py-16">
         <p className="text-gray-500 mb-4">该组件暂无题目</p>
@@ -142,7 +170,18 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
     );
   }
 
-  const current = questions[currentIdx];
+  if (displayQuestions.length === 0) {
+    return (
+      <div className="text-center py-16">
+        <p className="text-gray-500 mb-4">已无更多题目</p>
+        <Link href={`/quiz/${component}`} className="text-emerald-400 hover:text-emerald-300 text-sm">
+          ← 重新开始
+        </Link>
+      </div>
+    );
+  }
+
+  const current = displayQuestions[currentIdx];
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -176,10 +215,18 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
         </button>
       </div>
 
+      {/* Batch indicator */}
+      {mode === 'random' && (
+        <div className="text-xs text-gray-500 mb-3">
+          第 {Math.floor(batchOffset / BATCH_SIZE) + 1} 组 · 共 {allQuestions.length} 题
+          （每次 {BATCH_SIZE} 题）
+        </div>
+      )}
+
       {/* Progress */}
       <QuizProgress
         current={currentIdx + 1}
-        total={questions.length}
+        total={displayQuestions.length}
         correct={totalCorrect}
         totalAnswered={totalAnswered}
       />
@@ -191,14 +238,15 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
             key={current.id}
             question={current as ChoiceQuestionType}
             onResult={handleResult}
-            existingResult={results[current.id]}
+            existingResult={results?.[current?.id]}
           />
         ) : (
           <EssayQuestionComp
             key={current.id}
             question={current as EssayQuestionType}
             onResult={handleResult}
-            existingResult={results[current.id]}
+            existingResult={results?.[current?.id]}
+            useAI={component === 'spark-sql'}
           />
         )}
       </div>
@@ -215,7 +263,7 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
         </button>
 
         <div className="flex gap-2">
-          {questions.map((q, i) => {
+          {displayQuestions.map((q, i) => {
             const r = results[q.id];
             let dotStyle = 'bg-gray-800';
             if (r) {
@@ -238,7 +286,7 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
 
         <button
           onClick={goNext}
-          disabled={currentIdx === questions.length - 1}
+          disabled={currentIdx === displayQuestions.length - 1}
           className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-gray-700 text-sm text-gray-400 hover:text-gray-200 hover:border-gray-600 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
           下一题
@@ -246,13 +294,54 @@ export default function QuizPage({ params }: { params: Promise<{ component: stri
         </button>
       </div>
 
-      {/* Summary at end */}
-      {totalAnswered === questions.length && (
+      {/* Batch completion — show "next batch" button */}
+      {batchAllAnswered && (
+        <div className="mt-6 text-center">
+          {hasMoreBatches ? (
+            <button
+              onClick={nextBatch}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-sm font-medium transition-colors"
+            >
+              <RefreshCw size={16} />
+              下一组（{Math.min(BATCH_SIZE, allQuestions.length - batchOffset - BATCH_SIZE)} 题）
+            </button>
+          ) : (
+            <div className="mt-8 bg-gray-900 border border-emerald-500/20 rounded-xl p-6 text-center">
+              <h3 className="text-lg font-semibold text-gray-100 mb-2">🎉 全部完成！</h3>
+              <p className="text-gray-400 mb-4">
+                正确率：{Math.round((totalCorrect / allQuestions.length) * 100)}%
+                （{totalCorrect} / {allQuestions.length}）
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <Link
+                  href={`/quiz/${component}`}
+                  onClick={() => {
+                    setCurrentIdx(0);
+                    setResults({});
+                  }}
+                  className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg text-sm hover:bg-gray-700 transition-colors"
+                >
+                  重新答题
+                </Link>
+                <Link
+                  href="/wrong"
+                  className="px-4 py-2 bg-amber-600 text-white rounded-lg text-sm hover:bg-amber-500 transition-colors"
+                >
+                  查看错题
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Summary at end (sequential mode) */}
+      {mode === 'sequential' && totalAnswered === allQuestions.length && (
         <div className="mt-8 bg-gray-900 border border-emerald-500/20 rounded-xl p-6 text-center">
           <h3 className="text-lg font-semibold text-gray-100 mb-2">🎉 全部完成！</h3>
           <p className="text-gray-400 mb-4">
-            正确率：{Math.round((totalCorrect / questions.length) * 100)}%
-            （{totalCorrect} / {questions.length}）
+            正确率：{Math.round((totalCorrect / allQuestions.length) * 100)}%
+            （{totalCorrect} / {allQuestions.length}）
           </p>
           <div className="flex items-center justify-center gap-4">
             <Link

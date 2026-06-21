@@ -11,7 +11,7 @@ export interface TechComponent {
 }
 
 // 题目类型
-export type Question = ChoiceQuestion | EssayQuestion;
+export type Question = ChoiceQuestion | EssayQuestion | WritingQuestion;
 
 export interface ChoiceQuestion {
   type: 'choice';
@@ -28,6 +28,23 @@ export interface EssayQuestion {
   id: string;
   difficulty: 'easy' | 'medium' | 'hard';
   stem: string;
+  referencePoints: string[];
+  sampleAnswer: string;
+}
+
+// SQL 笔试题 — 表结构描述
+export interface WritingTable {
+  name: string;
+  schema: string;   // Markdown 格式的表结构
+  data?: string;    // Markdown 格式的样例数据
+}
+
+export interface WritingQuestion {
+  type: 'writing';
+  id: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  stem: string;
+  tables: WritingTable[];
   referencePoints: string[];
   sampleAnswer: string;
 }
@@ -59,6 +76,9 @@ export interface Article {
   title: string;
   component: string;
   order: number;
+  difficulty: '入门' | '基础' | '进阶' | '高阶' | '综合';
+  group: string;
+  groupLabel: string;
 }
 
 // AI 判题
@@ -66,6 +86,8 @@ export interface JudgeRequest {
   stem: string;
   userAnswer: string;
   referencePoints: string[];
+  questionType?: 'essay' | 'writing';
+  tables?: WritingTable[];
 }
 
 export interface JudgeResponse {

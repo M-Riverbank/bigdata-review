@@ -1,0 +1,166 @@
+{
+  "componentId": "hbase",
+  "bindings": {
+    "为什么-rowkey-设计至关重要": [
+      "hbase-c-002",
+      "hbase-c-003",
+      "hbase-c-006",
+      "hbase-c-007",
+      "hbase-e-002"
+    ],
+    "核心设计原则": [
+      "hbase-c-004",
+      "hbase-e-001"
+    ],
+    "经典设计模式": [],
+    "region-热点诊断": [
+      "hbase-c-005"
+    ],
+    "常见错误案例": [],
+    "面试高频考点": [],
+    "小结": [],
+    "_unmatched": [
+      "hbase-c-001"
+    ]
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "id": "hbase-c-001",
+      "difficulty": "easy",
+      "stem": "HBase 中数据是如何排序存储的？",
+      "options": {
+        "A": "按列名排序",
+        "B": "按写入时间排序",
+        "C": "按 RowKey 字典序排序",
+        "D": "随机存储，不排序"
+      },
+      "answer": "C",
+      "explanation": "HBase 是一个按 RowKey 字典序排序的分布式 KV 存储。所有数据按 RowKey 的字节序排列后分布在各个 Region 中。这个特性决定了 RowKey 设计的重要性——查询最频繁的维度应该放在 RowKey 前缀，以便利用前缀扫描（Prefix Scan）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-002",
+      "difficulty": "easy",
+      "stem": "以下哪种 RowKey 设计最容易导致 HBase 写入热点？",
+      "options": {
+        "A": "user_id + timestamp",
+        "B": "hash(user_id) % 100 + user_id",
+        "C": "单调递增的时间戳作为 RowKey",
+        "D": "随机 UUID 作为 RowKey"
+      },
+      "answer": "C",
+      "explanation": "单调递增的时间戳作为 RowKey 会导致所有新写入都落在最后一个 Region 上（因为时间戳一直在增大，始终在 RowKey 区间的末尾），造成严重的写入热点。解决方案：反转时间戳、加盐（Salting）、Hash 前缀等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-003",
+      "difficulty": "medium",
+      "stem": "HBase RowKey 设计中，'加盐（Salting）'的含义是？",
+      "options": {
+        "A": "对 RowKey 进行 MD5 加密",
+        "B": "在 RowKey 前添加随机前缀使其分散到不同 Region",
+        "C": "将 RowKey 转换为大写",
+        "D": "压缩 RowKey 的长度"
+      },
+      "answer": "B",
+      "explanation": "加盐（Salting）是在 RowKey 前缀添加哈希或随机值（如 `hash(user_id) % 100`），使得原本连续的 RowKey 均匀分散到多个 Region。优点是彻底解决热点问题，缺点是按原始 key 查询时需要扫描多个前缀（salt 的 N 个取值）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-004",
+      "difficulty": "medium",
+      "stem": "关于 HBase RowKey 的长度设计原则，以下哪个是正确的？",
+      "options": {
+        "A": "RowKey 越长越好，方便存储更多信息",
+        "B": "RowKey 长度对性能没有影响",
+        "C": "RowKey 建议在 16-64 字节内，越短越好",
+        "D": "RowKey 必须固定为 128 字节"
+      },
+      "answer": "C",
+      "explanation": "RowKey 越短越好，原因：1）HFile 中 RowKey 不被压缩，存在于每个 KeyValue 中；2）MemStore 和 BlockCache 中都存有 RowKey 副本；3）较短的 RowKey 意味着更高的索引效率和更少的内存/磁盘开销。行业经验建议控制在 16-64 字节。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-005",
+      "difficulty": "medium",
+      "stem": "以下哪个不是 HBase 避免热点写入的有效方法？",
+      "options": {
+        "A": "反转时间戳（reverse timestamp）",
+        "B": "加盐（Salting）",
+        "C": "使用无意义的 UUID 作为 RowKey",
+        "D": "Hash 前缀 + 原始 key"
+      },
+      "answer": "C",
+      "explanation": "虽然无意义的 UUID 确实均匀分布，能避免热点，但它不是一个'有效'的方法——因为完全随机导致无法利用 HBase 的前缀扫描特性，基本丧失了按业务维度查询的能力。有效的 RowKey 设计应该既分散又能支撑业务查询。反转时间戳、加盐和 Hash 前缀都能在分散数据和保持查询能力之间找到平衡。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-006",
+      "difficulty": "easy",
+      "stem": "HBase 中 Region 的数量是由什么决定的？",
+      "options": {
+        "A": "固定 256 个",
+        "B": "RowKey 的分布范围和数据量共同决定",
+        "C": "由列族数量决定",
+        "D": "由 HDFS 的 Block 大小决定"
+      },
+      "answer": "B",
+      "explanation": "HBase 的 Region 是按 RowKey 范围划分的。初始可以是一个 Region，随着数据增长达到阈值（`hbase.hregion.max.filesize`，默认 10GB）会自动分裂（Split）。预分区（Pre-splitting）可以在建表时手动指定 Split Keys 提前划分 Region。Region 的数量 = RowKey 范围划分的数量。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hbase-c-007",
+      "difficulty": "hard",
+      "stem": "在 HBase 中设计一张'按用户和按时间都要能查询'的表，以下哪种方案最推荐？",
+      "options": {
+        "A": "只用一张表，RowKey = user_id + timestamp，时间查全表扫描",
+        "B": "设计两张表，RowKey 分别为 user_id+timestamp 和 date+user_id",
+        "C": "RowKey = timestamp + user_id，用户和时间都能高效查询",
+        "D": "在 HBase 上直接使用 SQL 查询"
+      },
+      "answer": "B",
+      "explanation": "HBase 的 RowKey 前缀决定了扫描方向。如果既要高效按用户查（前缀 user_id），又要高效按时间查（前缀 date），单表无法同时满足两个不同前缀的扫描需求。推荐方案：1）冗余设计——建两张表，RowKey 分别为不同维度的前缀（空间换时间）；2）使用 Phoenix 的二级索引；3）用 ElasticSearch 做索引层，HBase 做存储层。一个 RowKey 无法同时满足互斥的查询方向。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "hbase-e-001",
+      "difficulty": "medium",
+      "stem": "请总结 HBase RowKey 设计的原则，并举例说明如何为一个订单表设计 RowKey。订单表的查询需求：1）按用户 ID 查询其所有订单；2）按用户 ID + 时间倒序查询最近订单。",
+      "referencePoints": [
+        "四大原则：长度短、散列好、业务前缀、避免单调递增",
+        "长度 16-64 字节",
+        "user_id 作为前缀满足查询需求",
+        "时间倒序可用 Long.MAX_VALUE - timestamp",
+        "需要防止热点（如果 user_id 分布不均）",
+        "考虑预分区"
+      ],
+      "sampleAnswer": "RowKey 设计四大原则：\n1. 短：16-64 字节，控制存储开销\n2. 散列：避免热点，均匀分布到各 Region\n3. 业务优先：最常用的查询维度作为前缀\n4. 非单调：避免单调递增的时间戳做前缀\n\n订单表 RowKey 设计：\n\nRowKey = user_id + (Long.MAX_VALUE - orderTime)\n\n例如：userId=1001，orderTime=2024-01-15 12:00:00\n→ RowKey = 1001_9223370404895807999\n\n设计理由：\n- user_id 作为前缀 → 查询需求1：Scan '1001_' 即可获得所有订单\n- Long.MAX_VALUE - orderTime → 时间自动倒序，Scan 结果天然按最近在前\n- 如果 user_id 分布不均导致热点，可加盐：hash(user_id)%100 + '_' + user_id + '_' + (MAX - ts)\n- 建议建表时预分区 split 为 50-100 个 Region",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "hbase-e-002",
+      "difficulty": "hard",
+      "stem": "请解释 HBase 中 LSM Tree 的读写流程，并说明 RowKey 设计如何影响读写性能。",
+      "referencePoints": [
+        "LSM Tree = Log-Structured Merge Tree",
+        "写流程：WAL → MemStore → HFile（磁盘）",
+        "读流程：BlockCache → MemStore → HFile（可能多个）",
+        "RowKey 短 → MemStore 可容纳更多数据 → 减少 Flush",
+        "RowKey 散列好 → 读请求均匀分布",
+        "预分区与 RowKey 设计配合避免热点",
+        "Compact 与 RowKey 设计的关系"
+      ],
+      "sampleAnswer": "LSM Tree 读写流程：\n\n**写流程**：\n1. 写 WAL（Write Ahead Log）保证数据不丢失\n2. 数据写入 MemStore（内存）\n3. MemStore 满了触发 Flush → 生成 HFile（磁盘上的不可变文件）\n4. 多个 HFile 通过 Compact 合并\n\n**读流程**：\n1. 先查 BlockCache（读缓存）\n2. 再查 MemStore（内存中的最新数据）\n3. 最后查 HFile（可能有多个，通过 BloomFilter 跳过无关文件）\n\n**RowKey 设计对性能的影响**：\n- 短的 RowKey → MemStore/BlockCache 中可存更多数据 → 减少 Flush 和磁盘 IO\n- 散列均匀 → 读写请求分布到所有 RegionServer → 无热点瓶颈\n- 好前缀设计 → Scan 请求只需打开少量 HFile → 读性能提升\n- 配合预分区 → Region 提前划分，避免自动分裂导致的短暂不可用\n\n**Compact**：大量随机写的 RowKey 会影响 Compaction 效率（多个 HFile 的 Key 范围重叠大），有序的 RowKey 让 Compaction 更高效。",
+      "source": "大数据面试题库"
+    }
+  ]
+}

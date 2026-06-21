@@ -1,0 +1,1995 @@
+{
+  "componentId": "scala",
+  "bindings": {
+    "scala-是什么": [
+      "si-001",
+      "si-002",
+      "si-003"
+    ],
+    "大数据生态为什么选-scala": [
+      "si-004",
+      "si-005",
+      "si-006"
+    ],
+    "搭建-scala-开发环境": [
+      "si-007",
+      "si-008",
+      "si-009"
+    ],
+    "变量和数据类型": [
+      "si-010",
+      "si-011",
+      "si-012",
+      "si-013"
+    ],
+    "特殊类型：any-anyval-anyref-与-null-nothing-nil-none": [
+      "si-014",
+      "si-015"
+    ],
+    "if-else-表达式": [
+      "si-016",
+      "si-017"
+    ],
+    "for-循环与-for-推导式": [
+      "si-018"
+    ],
+    "while-与-do-while": [
+      "si-019"
+    ],
+    "match-表达式": [
+      "si-020",
+      "si-021"
+    ],
+    "方法定义与参数": [
+      "si-022",
+      "si-023"
+    ],
+    "高阶函数": [
+      "si-024",
+      "si-025",
+      "si-026"
+    ],
+    "匿名函数与闭包": [
+      "si-027",
+      "si-028"
+    ],
+    "类与对象：面向对象编程": [
+      "si-029",
+      "si-030",
+      "si-031"
+    ],
+    "伴生对象与-apply-方法": [
+      "si-032",
+      "si-033"
+    ],
+    "继承与抽象类": [
+      "si-034",
+      "si-035",
+      "si-036"
+    ],
+    "sealed-密封类": [
+      "si-037"
+    ],
+    "抽象类与-trait-的对比": [
+      "si-038",
+      "si-039",
+      "si-040"
+    ],
+    "trait-的混入顺序与线性化": [
+      "si-041",
+      "si-042"
+    ],
+    "自身类型-self-type": [
+      "si-043"
+    ],
+    "case-class-是什么": [
+      "si-044",
+      "si-045",
+      "si-046"
+    ],
+    "模式匹配基础": [
+      "si-047",
+      "si-048"
+    ],
+    "option-与模式匹配": [
+      "si-049",
+      "si-050"
+    ],
+    "不可变集合-vs-可变集合": [
+      "si-051",
+      "si-052"
+    ],
+    "常用不可变集合：list-set-map-tuple": [
+      "si-053",
+      "si-054",
+      "si-055"
+    ],
+    "mapflatmapfilter-高级操作": [
+      "si-056",
+      "si-057",
+      "si-058"
+    ],
+    "reducefoldaggregate-归约操作": [
+      "si-059"
+    ],
+    "集合性能考量与互相转换": [
+      "si-060"
+    ],
+    "不可变性与纯函数": [
+      "si-061",
+      "si-062"
+    ],
+    "柯里化与偏函数": [
+      "si-063",
+      "si-064"
+    ],
+    "尾递归优化": [
+      "si-065"
+    ],
+    "for-推导式背后的-monad-操作": [
+      "si-066"
+    ],
+    "隐式转换三剑客：隐式函数-隐式类-隐式参数": [
+      "si-067",
+      "si-068",
+      "si-069"
+    ],
+    "隐式的查找优先级": [
+      "si-070"
+    ],
+    "view-bound-与-context-bound": [
+      "si-071"
+    ],
+    "隐式转换最佳实践：spark-中的应用": [
+      "si-072",
+      "si-073"
+    ],
+    "spark-中的-scala-闭包与序列化": [
+      "si-074",
+      "si-075",
+      "si-076"
+    ],
+    "拓展：flink-和-kafka-中的-scala": [
+      "si-077"
+    ],
+    "面试高频-scala-题串讲": [
+      "si-078"
+    ],
+    "scala-vs-java代码对比": [
+      "si-079",
+      "si-080"
+    ],
+    "scala-在大数据面试中的地位": [
+      "si-081"
+    ],
+    "学习路线概览": [
+      "si-082"
+    ],
+    "环境准备": [
+      "si-083"
+    ],
+    "第一个-scala-程序": [
+      "si-084"
+    ],
+    "ide-选择": [
+      "si-085"
+    ],
+    "快速自测": [
+      "si-086"
+    ],
+    "val-与-var不可变-vs-可变": [
+      "si-087"
+    ],
+    "基本数据类型": [
+      "si-088"
+    ],
+    "类型推断": [
+      "si-089"
+    ],
+    "string-操作": [
+      "si-090"
+    ],
+    "类型转换": [
+      "si-091"
+    ],
+    "与-java-类型的差异总结": [
+      "si-092"
+    ],
+    "ifelse-是表达式": [
+      "si-093"
+    ],
+    "while-和-do-while": [
+      "si-094"
+    ],
+    "for-推导式scala-的灵魂": [
+      "si-095"
+    ],
+    "实战用-for-推导式处理数据": [
+      "si-096"
+    ],
+    "for-推导式-vs-mapflatmapfilter": [
+      "si-097"
+    ],
+    "scala-没有-breakcontinue": [
+      "si-098"
+    ],
+    "函数基本定义": [
+      "si-099"
+    ],
+    "匿名函数lambda": [
+      "si-100"
+    ],
+    "部分应用函数": [
+      "si-101"
+    ],
+    "柯里化currying": [
+      "si-063"
+    ],
+    "函数-vs-方法": [
+      "si-102"
+    ],
+    "class定义类": [
+      "si-103"
+    ],
+    "object单例对象": [
+      "si-104"
+    ],
+    "apply-方法": [
+      "si-105"
+    ],
+    "方法-vs-函数再次对比": [
+      "si-106"
+    ],
+    "实战构建一个简单的数据模型": [
+      "si-107"
+    ],
+    "extends-继承": [
+      "si-108"
+    ],
+    "抽象类": [
+      "si-109"
+    ],
+    "override-规则总结": [
+      "si-110"
+    ],
+    "访问修饰符": [
+      "si-111"
+    ],
+    "类型检查和转换": [
+      "si-112"
+    ],
+    "sealed--密封类": [
+      "si-037"
+    ],
+    "实战设计一个简单的计算模型": [
+      "si-113"
+    ],
+    "trait-是什么": [
+      "si-114"
+    ],
+    "混入mixin多个-trait": [
+      "si-115"
+    ],
+    "trait-中的字段": [
+      "si-116"
+    ],
+    "动态混入": [
+      "si-117"
+    ],
+    "自身类型self-type": [
+      "si-118"
+    ],
+    "线性化linearization方法调用顺序": [
+      "si-119"
+    ],
+    "sealed-trait--封闭的代数数据类型": [
+      "si-120"
+    ],
+    "trait-vs-abstract-class": [
+      "si-121"
+    ],
+    "case-class一行搞定数据模型": [
+      "si-122"
+    ],
+    "模式匹配pattern-matching": [
+      "si-123"
+    ],
+    "option-类型告别-null": [
+      "si-124"
+    ],
+    "either--try--犯错处理": [
+      "si-125"
+    ],
+    "实战用模式匹配处理-json": [
+      "si-126"
+    ],
+    "scala-集合体系一览": [
+      "si-127"
+    ],
+    "list--最常用的不可变集合": [
+      "si-128"
+    ],
+    "vector--随机访问更快": [
+      "si-129"
+    ],
+    "set--不重复元素集合": [
+      "si-130"
+    ],
+    "map--键值对": [
+      "si-131"
+    ],
+    "range--数值区间": [
+      "si-132"
+    ],
+    "tuple--元组": [
+      "si-133"
+    ],
+    "可变集合mutable": [
+      "si-134"
+    ],
+    "集合选择速查表": [
+      "si-135"
+    ],
+    "核心高阶函数速览": [
+      "si-136"
+    ],
+    "map--一对一转换": [
+      "si-137"
+    ],
+    "flatmap--一对一或多然后展平": [
+      "si-138"
+    ],
+    "filter--filternot--保留排除": [
+      "si-139"
+    ],
+    "reduce--reduceleft--reduceright": [
+      "si-140"
+    ],
+    "fold--带初始值的归约": [
+      "si-141"
+    ],
+    "groupby--分组": [
+      "si-142"
+    ],
+    "链式组合实战": [
+      "si-143"
+    ],
+    "sortby--sortwith": [
+      "si-144"
+    ],
+    "distinct--distinctby": [
+      "si-145"
+    ],
+    "函数式编程核心原则": [
+      "si-146"
+    ],
+    "高阶函数进阶": [
+      "si-147"
+    ],
+    "闭包": [
+      "si-027",
+      "si-028"
+    ],
+    "偏函数partial-function": [
+      "si-148"
+    ],
+    "传名参数byname": [
+      "si-149"
+    ],
+    "实战用-fp-风格统计日志": [
+      "si-150"
+    ],
+    "函数式-vs-命令式": [
+      "si-151"
+    ],
+    "隐式转换初探": [
+      "si-152"
+    ],
+    "隐式转换的三大使用场景": [
+      "si-153"
+    ],
+    "隐式解析规则": [
+      "si-154"
+    ],
+    "context-bound上下文界定": [
+      "si-155"
+    ],
+    "spark-源码中的隐式转换": [
+      "si-156"
+    ],
+    "隐式转换的注意事项": [
+      "si-157"
+    ],
+    "ordering-实战自定义排序": [
+      "si-158"
+    ],
+    "spark-中的-scala-模式": [
+      "si-159"
+    ],
+    "case-class-在大数据中的角色": [
+      "si-160"
+    ],
+    "模式匹配处理异构数据": [
+      "si-161"
+    ],
+    "option-处理-null-数据": [
+      "si-162"
+    ],
+    "隐式转换与-spark-编码器": [
+      "si-163"
+    ],
+    "大数据面试-scala-高频考点": [
+      "si-164"
+    ],
+    "综合实战练习": [
+      "si-165"
+    ]
+  },
+  "questions": [
+    {
+      "id": "si-001",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 名字的由来是什么？它属于哪种编程范式？",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "Scala 名字来源于 **Scalable Language**（可伸缩的语言），由 Martin Odersky 教授于 2004 年发布。\n\nScala 是一门**多范式编程语言**，同时支持：\n- **面向对象编程**（OOP）：一切皆对象，class/object/trait\n- **函数式编程**（FP）：函数是一等公民，不可变集合，模式匹配"
+    },
+    {
+      "id": "si-002",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 编译后的字节码运行在什么平台上？与 Java 的关系是什么？",
+      "source": "知乎 · 150+ 赞",
+      "sampleAnswer": "Scala 编译后生成 **JVM 字节码**（.class 文件），运行在 **JVM（Java Virtual Machine）** 上。\n\n与 Java 的关系：\n- Scala 可以直接调用任何 Java 类库（JDK、Hadoop、HBase 等），**100% 兼容**\n- Scala 代码可以编译后和 Java 代码一起打包运行\n- Scala 和 Java 的互操作性是 Spark 能成功的关键——可以混合编写"
+    },
+    {
+      "id": "si-003",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 的 REPL 是什么？",
+      "options": {
+        "A": "一种编译优化技术",
+        "B": "Read-Eval-Print Loop，交互式编程环境",
+        "C": "Scala 的包管理器",
+        "D": "一种性能测试工具"
+      },
+      "answer": "B",
+      "explanation": "REPL = Read-Eval-Print Loop，逐行读取 → 求值 → 打印。Spark Shell 就是增强版 Scala REPL（预加载 SparkContext 和 SparkSession）。",
+      "source": "CSDN · 100+ 赞"
+    },
+    {
+      "id": "si-004",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "为什么大数据生态（尤其是 Spark）选择 Scala 而不是 Java？说出 3 个关键原因。",
+      "source": "牛客网 · 400+ 赞",
+      "sampleAnswer": "1. **函数式编程天然适合数据管道**：Spark 的 RDD 操作（map/flatMap/reduce）本身就是高阶函数链式调用，Scala 的语法糖让代码简洁 50%+。\n\n2. **JVM 兼容**：Scala 编译成 JVM 字节码，可以无缝调用 Hadoop/HDFS/HBase 等所有 Java API，不需要重写已有组件。\n\n3. **高级语言特性**：\n   - 模式匹配 → 处理多种数据格式\n   - 隐式转换 → Spark 优雅的 API 扩展（如 PairRDDFunctions）\n   - case class → 序列化友好的数据对象\n   - 类型推断 → 减少样板代码\n\n面试加分点：Spark 本身 80% 代码是 Scala 写的。"
+    },
+    {
+      "id": "si-005",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Spark RDD 中 `.flatMap(_.split(\" \"))` 用到的 Scala 特性是？",
+      "options": {
+        "A": "继承和多态",
+        "B": "匿名函数（函数字面量）+ 高阶函数",
+        "C": "反射机制",
+        "D": "泛型编程"
+      },
+      "answer": "B",
+      "explanation": "`_.split(\" \")` 是匿名函数（Lambda），flatMap 是接收函数作为参数的高阶函数——这是 Scala 函数式编程最核心的用法。",
+      "source": "知乎 · 120+ 赞"
+    },
+    {
+      "id": "si-006",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的「可伸缩性」体现在哪些方面？",
+      "source": "牛客网 · 150+ 赞",
+      "sampleAnswer": "Scala 的\"可伸缩\"体现在三个维度：\n\n1. **语言可伸缩**：从小脚本到大型分布式系统，同一门语言搞定。Spark 既有 `spark-shell`（一行行交互），也支撑了上万行的核心引擎。\n\n2. **语法可伸缩**：基础语法像 Java（易上手），高级特性（隐式转换、高阶类型、宏）也支撑了顶级框架开发者。\n\n3. **生态可伸缩**：JVM 生态 + 类型安全 + 函数式编程 → 从单机到千节点集群都能胜任。\n\nScala 的设计目标本身就不是\"小语言\"，而是随需求增长的 \"Scalable Language\"。"
+    },
+    {
+      "id": "si-007",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "请说明 IDEA 中搭建 Scala + Spark 开发环境的关键步骤。",
+      "source": "CSDN · 80+ 赞",
+      "sampleAnswer": "1. 安装 IntelliJ IDEA + Scala 插件（Settings → Plugins → 搜索 Scala）\n2. 安装 JDK 8/11/17（推荐 JDK 8 兼容 Spark 2.x-3.x）\n3. 创建 SBT 项目，build.sbt 添加：\n   ```scala\n   name := \"spark-app\"\n   scalaVersion := \"2.12.18\"  // Spark 3.x 默认 Scala 2.12\n   libraryDependencies += \"org.apache.spark\" %% \"spark-core\" % \"3.5.0\"\n   libraryDependencies += \"org.apache.spark\" %% \"spark-sql\" % \"3.5.0\"\n   ```\n4. 在 src/main/scala 下编写代码，sbt assembly 打包，spark-submit 提交。\n\n生产建议：Scala 2.12 + Spark 3.x 是最稳的组合（Spark 4.0 才推进 Scala 2.13）。"
+    },
+    {
+      "id": "si-008",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 官方构建工具叫什么？",
+      "options": {
+        "A": "Maven",
+        "B": "Gradle",
+        "C": "SBT（Scala Build Tool）",
+        "D": "npm"
+      },
+      "answer": "C",
+      "explanation": "SBT（Scala Build Tool）是 Scala 官方构建工具，提供增量编译、交互式控制台、Scala 特有的编译优化。虽然也可用 Maven/Gradle，但 SBT 对 Scala 支持最好。",
+      "source": "知乎 · 80+ 赞"
+    },
+    {
+      "id": "si-009",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "scala 命令和 scalac 命令的区别是什么？",
+      "source": "CSDN · 60+ 赞",
+      "sampleAnswer": "- **scalac**：Scala 编译器，将 .scala 源文件编译成 .class 字节码（类似 javac）\n- **scala**：Scala 程序启动器，运行编译后的程序或启动 REPL\n\n类比：scalac = javac（编译），scala = java（运行）。\nSpark Shell 内部就是启动了一个预加载 SparkContext 的 scala REPL。"
+    },
+    {
+      "id": "si-010",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 val、var、lazy val 和 def 的区别是什么？结合 Spark 举例。",
+      "source": "牛客网 · 500+ 赞",
+      "sampleAnswer": "| 关键字 | 求值时机 | 可变性 | Spark 中典型用法 |\n|--------|---------|--------|----------------|\n| **val** | 定义时立即求值 | 不可变 | `val spark = SparkSession.builder()...` |\n| **var** | 定义时立即求值 | 可变 | 避免使用（分布式不安全） |\n| **lazy val** | 首次访问时求值 | 不可变 | `lazy val config = parseLargeFile(path)` |\n| **def** | 每次调用重新求值 | - | UDF、无状态纯函数 |\n\n关键面试点：\n- **val** 只保证引用不可变，对象内部状态可能可变（如 ArrayBuffer 作为 val）\n- **lazy val** 在 Spark 中常用于延迟初始化重量级对象\n- **var** 在闭包中每个 Executor 持有独立副本，不会同步回 Driver"
+    },
+    {
+      "id": "si-011",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "以下代码会输出什么？\n```scala\nval x = 10\nx = 20\nprintln(x)\n```",
+      "options": {
+        "A": "20",
+        "B": "10",
+        "C": "编译错误: reassignment to val",
+        "D": "运行时异常"
+      },
+      "answer": "C",
+      "explanation": "val 的引用不可变，尝试重新赋值编译阶段就报错 `reassignment to val`。这是函数式编程不可变性的基础保障。",
+      "source": "知乎 · 200+ 赞"
+    },
+    {
+      "id": "si-012",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 中类型推断发生在哪个阶段？影响运行时性能吗？",
+      "options": {
+        "A": "运行时，会影响性能",
+        "B": "编译期，不影响运行时性能",
+        "C": "不存在的功能",
+        "D": "只在 IDE 中有效"
+      },
+      "answer": "B",
+      "explanation": "Scala 的类型推断发生在**编译期**，是纯编译特性。运行时字节码和显式类型声明完全相同，零性能影响。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-013",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中有哪些基本数据类型？它们和 Java 的类型对应关系是？",
+      "source": "CSDN · 100+ 赞",
+      "sampleAnswer": "Scala 的基本类型完全对应 Java 基本类型，但 Scala 中一切都是对象：\n\n| Scala | Java | 说明 |\n|-------|------|------|\n| Int | int | 32 位有符号整数 |\n| Long | long | 64 位 |\n| Double | double | 64 位浮点 |\n| Float | float | 32 位浮点 |\n| Boolean | boolean | true/false |\n| Char | char | 16 位 Unicode |\n| Byte | byte | 8 位 |\n| Short | short | 16 位 |\n| Unit | void | 表示无返回值 |\n| String | java.lang.String | 就是 Java 的 String |\n\nSpark 中 UDF 返回值时必须用 Scala 类型（如 Int 而非 int），因为 Spark 需要类型信息做 Encoder 推导。"
+    },
+    {
+      "id": "si-014",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "请解释 Scala 类型体系：Any、AnyVal、AnyRef、Null、Nothing、Nil、None 的关系和区别。",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "类型层次（从顶到底）：\n```\nAny（所有类型的父类）\n├── AnyVal（值类型：Int, Double, Boolean, Unit...）\n└── AnyRef（引用类型：String, List, 所有 Java 类...）\n       └── Null（所有引用类型的子类，唯一实例 null）\n```\n**Nothing** 是所有类型的子类型（底类型），无实例，用作抛异常方法的返回类型。\n\n概念对比（面试高频混淆点）：\n| 概念 | 含义 | 场景 |\n|------|------|------|\n| Null | 引用类型的空（trait） | Java 互操作返回 null |\n| null | Null 的唯一实例 | 避免使用，用 Option[T] 替代 |\n| Nothing | 所有类型的子类型 | 异常返回类型、空集合类型参数 |\n| Nil | 空 List 单例 | `case Nil =>`、`1 :: Nil` |\n| None | Option 的空值标识 | `def find(): Option[T] = None` |"
+    },
+    {
+      "id": "si-015",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 Nothing 类型的正确描述是？",
+      "options": {
+        "A": "Nothing 是 AnyVal 的别名",
+        "B": "Nothing 是所有类型的子类型（底类型），无实例",
+        "C": "Nothing 等价于 Java 的 void",
+        "D": "Nothing 只能用于 List"
+      },
+      "answer": "B",
+      "explanation": "Nothing 是 Scala 类型体系的底类型，属于所有类型的子类型（包括值类型和引用类型），但没有任何实例。通常用作异常方法的返回类型或空集合的类型参数。",
+      "source": "知乎 · 120+ 赞"
+    },
+    {
+      "id": "si-016",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 if/else 和 Java 有什么本质区别？",
+      "source": "CSDN · 100+ 赞",
+      "sampleAnswer": "最核心区别：**Scala 的 if/else 是表达式，有返回值**。\n\n```scala\n// Scala：if/else 有返回值\nval result = if (x > 0) \"正数\" else \"非正数\"\n\n// Java：需要写三元运算符\nString result = x > 0 ? \"正数\" : \"非正数\";\n```\n\n所以 Scala 不需要 `?:` 三元运算符——if/else 本身就是它的替代品。Scala 中几乎所有控制结构（if、match、try-catch、for-yield）都是表达式。"
+    },
+    {
+      "id": "si-017",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 中 `if (x > 0) 1` 的类型是什么？",
+      "options": {
+        "A": "Int",
+        "B": "Unit",
+        "C": "AnyVal（Int 和 Unit 的共同父类）",
+        "D": "String"
+      },
+      "answer": "C",
+      "explanation": "if 分支返回 Int，else 分支（隐含）返回 Unit。两个分支类型的共同父类是 AnyVal（更准确说是 Any）。编译器会自动推导最近共同父类型。这是面试中常考的\"为何 if 不加 else 类型变了\"。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-018",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "写出一个 Scala for 推导式，生成两个列表的笛卡尔积中元素和大于 5 的组合。",
+      "source": "CSDN · 100+ 赞",
+      "sampleAnswer": "```scala\nval xs = List(1, 2, 3)\nval ys = List(3, 4, 5)\n\nval result = for {\n  x <- xs\n  y <- ys\n  if x + y > 5\n} yield (x, y)\n// → List((1,5), (2,4), (2,5), (3,3), (3,4), (3,5))\n\n// 等价写法（for 推导式的脱糖版本）\nval result2 = xs.flatMap(x => ys.withFilter(y => x + y > 5).map(y => (x, y)))\n```\n\n关键知识点：带 yield 的 for 返回新集合；if 守卫等价于 withFilter。"
+    },
+    {
+      "id": "si-019",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 中 while 循环返回值的类型是什么？",
+      "options": {
+        "A": "Int",
+        "B": "Boolean",
+        "C": "Unit",
+        "D": "最后一行表达式的类型"
+      },
+      "answer": "C",
+      "explanation": "while 是纯副作用循环（依赖 var 改变条件），始终返回 Unit（即 ()）。函数式编程风格中应优先用递归或 for-yield 而非 while。",
+      "source": "CSDN · 80+ 赞"
+    },
+    {
+      "id": "si-020",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 的 match 表达式比 Java 的 switch 强在哪里？至少说出 5 点。",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "1. **有返回值**：match 是表达式，可以赋给变量\n2. **无 fall-through**：不需要 break 关键字\n3. **类型匹配**：`case s: String =>` 可匹配类型\n4. **模式守卫**：`case x if x > 0 =>` 附加条件\n5. **解构提取**：`case Person(name, age) =>` 自动提取 case class 字段\n6. **编译器 exhaustiveness check**：sealed trait + match，编译器检查是否遗漏 case\n7. **通配符**：`case _ =>` 兜底\n\nSpark 中 match 广泛用于 DAG 解析、表达式求值、数据格式分发。"
+    },
+    {
+      "id": "si-021",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 模式匹配中 `case _` 和 `case x` 的区别是？",
+      "options": {
+        "A": "完全相同",
+        "B": "_ 匹配任意但不绑定变量，x 匹配任意并绑定到变量 x",
+        "C": "_ 只匹配 null",
+        "D": "x 只匹配非 null 值"
+      },
+      "answer": "B",
+      "explanation": "`case _ =>` 是通配符模式，匹配任意值但不绑定。`case x =>` 是变量模式，匹配任意值并绑定到 x，后续代码可引用。需要值但不需要判断时用变量模式。",
+      "source": "知乎 · 80+ 赞"
+    },
+    {
+      "id": "si-022",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的方法（method）和函数（function）的区别是什么？如何将方法转为函数？",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "| | 方法（method） | 函数（function） |\n|---|-------------|----------------|\n| 定义 | def 在 class/object/trait 中 | val f: A => B = ... 或匿名函数 |\n| 是否一等公民 | 否（不能直接赋给变量） | 是 |\n| 类型参数 | 可以有 [T] | 不能有 |\n| JVM 内存 | 方法区 | 堆（FunctionN 实例） |\n\n方法转函数（ETA expansion）：\n```scala\ndef add(x: Int, y: Int) = x + y\nval f = add _         // 显式_占位符\nval g: (Int,Int)=>Int = add  // 类型标注触发自动展开\n```\n\nSpark 中所有 RDD 算子参数都是函数而非方法，编译器会自动做 ETA 展开。"
+    },
+    {
+      "id": "si-023",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 中 `def add(x: Int)(y: Int) = x + y` 这种写法叫什么？",
+      "options": {
+        "A": "闭包",
+        "B": "柯里化（Currying）",
+        "C": "偏应用",
+        "D": "隐式转换"
+      },
+      "answer": "B",
+      "explanation": "柯里化：多参数函数转为单参数函数链。add(1) 返回一个 Int => Int 的函数，再应用于 2。常用于与隐式参数配合。",
+      "source": "知乎 · 150+ 赞"
+    },
+    {
+      "id": "si-024",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是高阶函数？用 Spark 中的例子说明至少 4 个。",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "高阶函数：**接收函数作为参数，或返回函数作为结果**的函数。\n\nSpark 中的高阶函数：\n```scala\n// 1. map(func: T => U) — 每个元素一对一转换\nrdd.map(row => (row(0).toString, row(1).asInstanceOf[Int]))\n\n// 2. filter(pred: T => Boolean) — 保留满足谓词的元素\nrdd.filter(_.length > 5)\n\n// 3. flatMap(func: T => TraversableOnce[U]) — 一对多展平\nlines.flatMap(_.split(\" \"))\n\n// 4. reduceByKey(func: (V,V) => V) — 按 key 聚合\npairRDD.reduceByKey(_ + _)\n\n// 5. aggregateByKey — 更通用的聚合，带分区内和分区间两个函数\n```\n\n高阶函数是 Spark 函数式 API 的灵魂，比 for 循环更声明式、更易并行。"
+    },
+    {
+      "id": "si-025",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "`List(1,2,3).map(_ * 2)` 中 `_ * 2` 是什么？",
+      "options": {
+        "A": "占位符语法写法的匿名函数，等价于 `(x: Int) => x * 2`",
+        "B": "一个字符串字面量",
+        "C": "类型标注",
+        "D": "方法引用"
+      },
+      "answer": "A",
+      "explanation": "下划线 `_` 是 Scala 的占位符语法，`_ * 2` 展开为 `(x: Int) => x * 2`。每个 `_` 代表函数的不同参数。Spark 中大量使用此语法。",
+      "source": "知乎 · 120+ 赞"
+    },
+    {
+      "id": "si-026",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 `call-by-name`（=>）参数的特点是？",
+      "options": {
+        "A": "参数在函数调用前求值",
+        "B": "参数在函数体中每次被引用时重新求值（延迟求值）",
+        "C": "参数会被缓存起来",
+        "D": "和 call-by-value 没有区别"
+      },
+      "answer": "B",
+      "explanation": "`def f(x: => Int)` 是 call-by-name：参数延迟求值，每次引用都重新计算。用于自定义控制结构（while/if-like）、日志（只在需要时计算），以及短路求值场景。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-027",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是闭包？Spark 中闭包有什么风险？",
+      "source": "牛客网 · 300+ 赞",
+      "sampleAnswer": "闭包 = **函数体 + 外部自由变量**。函数可访问在外部定义但不在参数列表中的变量。\n\n```scala\nval factor = 10\nval multiply: Int => Int = x => x * factor  // factor 被闭包捕获\n```\n\nSpark 中闭包的风险——**序列化失败**：\n```scala\n// ❌ conn 和闭包一起被序列化发送到 Executor\nval conn = DriverManager.getConnection(url)\nrdd.foreach(row => conn.execute(sql))  // NotSerializableException!\n\n// ✅ 在 Executor 端创建连接\nrdd.foreachPartition { partition =>\n  val conn = DriverManager.getConnection(url)\n  partition.foreach(row => ...)\n  conn.close()\n}\n```\n\n面试重点：每个 Task 对闭包独立序列化 → Executor 反序列化 → 执行 → GC。"
+    },
+    {
+      "id": "si-028",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Spark 中以下哪种写法可以避免闭包序列化问题？",
+      "options": {
+        "A": "在 map 函数中直接用 Driver 端创建的 JDBC Connection",
+        "B": "用 foreachPartition，在每个分区内创建连接",
+        "C": "用全局变量存储连接",
+        "D": "将连接标记为 transient"
+      },
+      "answer": "B",
+      "explanation": "foreachPartition 在 Executor 端为每个分区创建独立的连接，避免了将连接从 Driver 序列化传输。这是处理 JDBC/Redis/Kafka Producer 等不可序列化资源的标准模式。",
+      "source": "牛客网 · 250+ 赞"
+    },
+    {
+      "id": "si-029",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 object 关键字有哪些用法？各举一个例子。",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "Scala 中 object 的四种用法：\n\n1. **单例对象**（替代 Java static）：\n   ```scala\n   object Config { val APP_NAME = \"MyApp\" }\n   ```\n\n2. **伴生对象**（与 class 同名同文件）：\n   ```scala\n   class Person(val name: String)\n   object Person { def apply(name: String) = new Person(name) }\n   ```\n\n3. **程序入口**：\n   ```scala\n   object Main extends App { println(\"Hello\") }\n   ```\n\n4. **工具函数库**：\n   ```scala\n   object MathUtils { def square(x: Double) = x * x }\n   ```\n\nScala 没有 static 关键字，object 就是替代方案。"
+    },
+    {
+      "id": "si-030",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 类的构造参数默认可见性是什么？",
+      "options": {
+        "A": "public val（公开不可变）",
+        "B": "private val（仅类内部可见）",
+        "C": "public var（公开可变）",
+        "D": "protected var"
+      },
+      "answer": "B",
+      "explanation": "不加 val/var 的构造参数默认 private val，只类内部可访问。对外暴露需加 val（只读 getter）或 var（读写 getter+setter）。注意 case class 默认 public val。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-031",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 中 `class Person(val name: String)` 这行实现了什么？",
+      "options": {
+        "A": "只定义了一个 private 构造函数",
+        "B": "自动生成 name 的 getter 方法",
+        "C": "生成 name 的 getter 和 setter",
+        "D": "什么也没生成"
+      },
+      "answer": "B",
+      "explanation": "构造参数前加 val → 自动生成 public getter，值不可变（只有 getter 没有 setter）。如果是 var → getter + setter。不加 val/var → private val，不对外暴露。",
+      "source": "CSDN · 80+ 赞"
+    },
+    {
+      "id": "si-032",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 apply 和 unapply 方法分别是什么作用？伴生对象有什么特殊权限？",
+      "source": "牛客网 · 180+ 赞",
+      "sampleAnswer": "apply 和 unapply：\n- **apply**：工厂方法，`Person(\"Alice\", 25)` 等价于 `Person.apply(\"Alice\", 25)`\n- **unapply**：提取器，`case Person(name, age) =>` 调用 `Person.unapply(p)` 解构\n\n伴生对象特殊权限：\n1. **互访私有成员**：伴生对象可访问类的 private 字段，反之亦然\n2. **自动进入隐式作用域**：伴生对象内的 implicit val/def 无需导入即可被编译器找到\n3. **Spark 中的应用**：Encoder 的隐式推导正是利用了伴生对象的作用域\n\n```scala\nclass Person(private val name: String)\nobject Person {\n  def secret(p: Person) = p.name  // ✅ 可访问 private 字段\n}\n```"
+    },
+    {
+      "id": "si-033",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 伴生对象中的 apply 方法主要作用是什么？",
+      "options": {
+        "A": "垃圾回收",
+        "B": "工厂方法，省去 new 关键字",
+        "C": "序列化对象",
+        "D": "多线程同步"
+      },
+      "answer": "B",
+      "explanation": "apply 是伴生对象的工厂方法，`Foo(args)` 实际调用 `Foo.apply(args)`。对于 case class，编译器自动生成 apply 和 unapply——这就是为什么 case class 不用 new。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-034",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中继承一个类与 Java 有哪些不同？override 关键字必须加吗？",
+      "source": "CSDN · 120+ 赞",
+      "sampleAnswer": "与 Java 的主要不同：\n1. 使用 `extends` 继承（相同），第一个 trait 也用 extends（Java 用 implements）\n2. 调用父类构造：`class Child(name: String) extends Parent(name)`（而非 super 写在方法体内）\n3. **override 强制**：重写父类具体方法必须加 override，否则编译报错（重写抽象方法可选）\n4. 可以 override val 和 def\n5. sealed 关键字限制子类范围\n\n```scala\nclass Animal { def speak = \"...\" }\nclass Dog extends Animal {\n  override def speak = \"woof\"  // 必须写 override\n}\n\nabstract class Shape { val sides: Int }\nclass Triangle extends Shape {\n  override val sides: Int = 3  // override val\n}\n```"
+    },
+    {
+      "id": "si-035",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 abstract class 最大的特点是什么？（与 trait 的区别）",
+      "options": {
+        "A": "可以有多实现继承",
+        "B": "可以有带参数的构造函数",
+        "C": "不能被实例化",
+        "D": "方法默认是 abstract"
+      },
+      "answer": "B",
+      "explanation": "abstract class **可以有构造参数**，这是与 trait 最大的区别（Scala 2 的 trait 不能有构造参数）。抽象类只能单继承。B 和 C 都正确，但面试中\"与 trait 的区别\"首选 B——构造参数是分水岭。",
+      "source": "知乎 · 120+ 赞"
+    },
+    {
+      "id": "si-036",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 sealed 关键字的作用是？",
+      "options": {
+        "A": "禁止类被实例化",
+        "B": "限制所有子类必须在同一源文件中定义",
+        "C": "标记为不可变",
+        "D": "阻止方法被重写"
+      },
+      "answer": "B",
+      "explanation": "sealed 限制子类必须在同一源文件。配合模式匹配时，编译器知道所有可能的子类型，能检查 exhaustiveness——如果 match 遗漏了某个 case，编译器会警告。Spark 中大量用 sealed trait 定义 ADT。",
+      "source": "牛客网 · 150+ 赞"
+    },
+    {
+      "id": "si-037",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是 ADT（代数数据类型）？用 sealed trait + case class 写一个 Spark 数据源的 ADT。",
+      "source": "知乎 · 150+ 赞",
+      "sampleAnswer": "ADT（Algebraic Data Type）= 用 sealed trait 定义类型，case class 作为具体变体。\n\n```scala\n// Spark 数据源类型的 ADT\nsealed trait DataSource\ncase class HiveSource(table: String, partition: Option[String]) extends DataSource\ncase class ParquetSource(path: String) extends DataSource\ncase class JdbcSource(url: String, table: String, predicates: List[String]) extends DataSource\ncase object UnknownSource extends DataSource\n\n// 编译器检查 match 完备性\ndef readConfig(source: DataSource): String = source match {\n  case HiveSource(table, None) => s\"hive:$table\"\n  case HiveSource(table, Some(p)) => s\"hive:$table partition $p\"\n  case ParquetSource(path) => s\"parquet:$path\"\n  case JdbcSource(url, table, _) => s\"jdbc:$url/$table\"\n  case UnknownSource => \"unknown\"\n  // 如果遗漏某个 case，编译器 WARNING\n}\n```\n\n这其实就是 Spark 内部 `DataSourceV2` 等接口的设计思路。"
+    },
+    {
+      "id": "si-038",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "trait 和 abstract class 的区别是什么？什么时候用哪个？",
+      "source": "牛客网 · 400+ 赞",
+      "sampleAnswer": "| 特性 | trait | abstract class |\n|------|-------|----------------|\n| 多重混入 | 可 with 多个 | 只能单继承 |\n| 构造参数 | ❌（Scala 2） | ✅ |\n| Java 互操作 | 有具体方法 → Java 接口 | 正常抽象类 |\n| 初始化顺序 | 线性化（右到左） | 常规继承链 |\n\n**选择原则**：\n- 优先用 **trait**：定义行为、混入复用功能（Logging、Serializable）\n- 用 **abstract class**：需要构造参数、语义上\"是什么\"而非\"能做什么\"\n\nSpark 中 SparkContext 混入的 Logging、Serializable 就是 trait，而 ShuffleDependency 继承自 abstract class Dependency（有构造参数）。"
+    },
+    {
+      "id": "si-039",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 2 中，trait 不能做什么？",
+      "options": {
+        "A": "包含具体方法",
+        "B": "包含抽象方法",
+        "C": "有带参数的构造函数",
+        "D": "被多个类混入"
+      },
+      "answer": "C",
+      "explanation": "Scala 2 中的 trait 不能有构造参数（`trait Foo(val x: Int)` 非法）。需要带参构造时用 abstract class。Scala 3 放宽了此限制。A/B/D 都是 trait 支持的。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-040",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "trait 线性化（linearization）的原理是什么？写出一个菱形继承例子。",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "线性化规则：从类自身开始，按照 extends 和 with **从右到左**列出 trait，每个 trait 只保留第一次出现。\n\n```scala\ntrait A { def msg = \"A\" }\ntrait B extends A { override def msg = \"B\" + super.msg }\ntrait C extends A { override def msg = \"C\" + super.msg }\nclass D extends B with C { override def msg = \"D\" + super.msg }\n\nval d = new D\nd.msg  // \"DCBA\"\n// 线性化：D → C → B → A → AnyRef → Any\n// super.msg 沿链从右到左传递\n```\n\nSpark 中用线性化解决模块组合问题：SparkEnv 混入了 SecurityManager、SerializerManager、BroadcastManager 等，通过 trait 堆叠构建功能丰富的环境对象。"
+    },
+    {
+      "id": "si-041",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "两个 trait 有同名方法时，类混入后调用结果的规则是？",
+      "options": {
+        "A": "编译报错",
+        "B": "按 with 顺序，最右边的 trait 覆盖左边的",
+        "C": "随机选择",
+        "D": "按 with 顺序，最左边的优先"
+      },
+      "answer": "B",
+      "explanation": "`class C extends A with B with C` 中，最右边 trait 的方法优先级最高。这是线性化规则 —— super 调用链从右往左传递。这是 Scala 解决菱形继承的标准方式。",
+      "source": "知乎 · 150+ 赞"
+    },
+    {
+      "id": "si-042",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "Scala trait 中 self-type（自身类型）的作用是？",
+      "options": {
+        "A": "限制 trait 只能被特定类型的类混入",
+        "B": "让 trait 调用自身方法",
+        "C": "防止 trait 被实例化",
+        "D": "提高方法调用性能"
+      },
+      "answer": "A",
+      "explanation": "Self-type（`self: RequiredType =>`）声明了 trait 对被混入类的类型要求——\"我只能混入到 RequiredType 的子类中\"。这是编译期的依赖注入，更适合模块化设计。",
+      "source": "牛客网 · 150+ 赞"
+    },
+    {
+      "id": "si-043",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "用 self-type 写一个编译期依赖注入的例子（Cake Pattern 简化版）。",
+      "source": "知乎 · 200+ 赞",
+      "sampleAnswer": "```scala\n// 抽象组件定义\ntrait UserRepositoryComponent {\n  val userRepo: UserRepository\n  trait UserRepository { def find(id: Long): Option[String] }\n}\n\n// 具体实现\ntrait UserRepositoryComponentImpl extends UserRepositoryComponent {\n  override val userRepo: UserRepository = new UserRepositoryImpl\n  class UserRepositoryImpl extends UserRepository {\n    def find(id: Long): Option[String] = Some(s\"user_$id\")\n  }\n}\n\n// 业务逻辑 — 需要 UserRepository 的 self-type\ntrait UserService { self: UserRepositoryComponent =>\n  def getUser(id: Long): String = userRepo.find(id).getOrElse(\"not found\")\n}\n\n// 组装（\"蛋糕\"）\nobject Application extends UserRepositoryComponentImpl with UserService {\n  def run() = println(getUser(42L))\n}\n\nApplication.run()  // \"user_42\"\n```\n\n对比 Spring DI：编译期检查 → 零反射开销 → 但灵活性不如运行时注入。大数据项目中更常用手动注入 + trait。"
+    },
+    {
+      "id": "si-044",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "case class 相比普通 class 自动获得了哪些能力？为什么 Spark 推荐 case class？",
+      "source": "牛客网 · 350+ 赞",
+      "sampleAnswer": "case class 自动获得的 7 大能力：\n1. **apply** — 免 new 构造\n2. **unapply** — 模式匹配解构\n3. **equals & hashCode** — 值比较\n4. **toString** — 可读输出\n5. **copy** — 不可变修改\n6. **默认 val 字段**\n7. **Serializable** — 序列化支持\n\nSpark 推荐 case class 的原因：\n- Dataset Encoder 自动推导（`df.as[Person]` 不需要手写 Encoder）\n- 不可变 → 分布式线程安全\n- copy 方便创建修改副本\n- equals 基于值比较，符合数据处理的预期\n\n面试重点：case class 在 Spark 中可以直接作为 Dataset 的类型参数，Encoder 在编译期通过隐式查找自动生成。"
+    },
+    {
+      "id": "si-045",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "关于 case class，哪个说法是错误的？",
+      "options": {
+        "A": "构造参数默认是 val",
+        "B": "自动实现 equals、hashCode、toString",
+        "C": "不能定义自己的方法",
+        "D": "自动生成伴生对象的 apply 和 unapply"
+      },
+      "answer": "C",
+      "explanation": "case class **可以有自己的方法**！`case class Circle(r: Double) { def area = math.Pi * r * r }` 完全合法。它只是自动获得额外功能，不限制添加自定义行为。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-046",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "case class 的 copy 方法有什么用途？",
+      "options": {
+        "A": "复制文件",
+        "B": "创建不可变实例的修改副本（可选择性改名参数）",
+        "C": "深拷贝对象",
+        "D": "克隆一个可变对象"
+      },
+      "answer": "B",
+      "explanation": "copy 方法创建新实例，允许通过命名参数选择性修改部分字段：`person.copy(age = 30)`。这是不可变数据结构中\"修改\"的标准方式——返回新副本。Spark Dataset 转换中很常用。",
+      "source": "知乎 · 120+ 赞"
+    },
+    {
+      "id": "si-047",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用模式匹配写一个函数，递归计算 List 中所有元素的和。",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "```scala\ndef sum(list: List[Int]): Int = list match {\n  case Nil => 0          // 空列表 → 和为 0\n  case head :: tail => head + sum(tail)  // 头元素 + 尾列表的和\n}\n\nsum(List(1, 2, 3, 4, 5))  // 15\n```\n\n这是经典的 List 模式匹配：使用 `::`（cons）分解头尾。配合 @tailrec 优化：\n```scala\n@annotation.tailrec\ndef sumTail(list: List[Int], acc: Int = 0): Int = list match {\n  case Nil => acc\n  case head :: tail => sumTail(tail, acc + head)\n}\n```\n\nSpark 中 match 常用于处理 DataFrame Row 的不同列类型、Task 执行结果分发。"
+    },
+    {
+      "id": "si-048",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 `List(1, 2, 3) match { case x :: y :: Nil => x + y }` 结果是什么？",
+      "options": {
+        "A": "编译错误",
+        "B": "3（匹配失败抛异常）",
+        "C": "3（1 + 2）",
+        "D": "MatchError"
+      },
+      "answer": "D",
+      "explanation": "`x :: y :: Nil` 匹配恰好 2 个元素的列表（1 :: 2 :: Nil），而 List(1,2,3) 是 3 个元素 = 1 :: 2 :: 3 :: Nil，不是 3 :: Nil。类型匹配不上 → MatchError。应加 case _ => 兜底。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-049",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Option[T] 的作用是什么？getOrElse / map / 模式匹配 三种处理方式有什么区别？",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "Option[T] 在类型系统中显式表达值可能缺失，**NPE 防护**从运行时提前到编译期。\n\n```scala\nval map = Map(\"a\" -> 1)\nval opt: Option[Int] = map.get(\"b\")  // None\n\n// 方式1：getOrElse — 提供默认值\nopt.getOrElse(0)  // 0\n\n// 方式2：map — 有值才执行，空值则跳过\nopt.map(v => s\"result: $v\")  // None（不会执行）\n\n// 方式3：模式匹配 — 分别处理有值和空值\nopt match {\n  case Some(v) => println(s\"found: $v\")\n  case None => println(\"not found\")\n}\n```\n\nSpark Dataset 的空列类型自动用 Option[U] 表示，Encoder 处理 null → None 转换。"
+    },
+    {
+      "id": "si-050",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 Option[T] 的两个子类型是？",
+      "options": {
+        "A": "Some[T] 和 Empty",
+        "B": "Some[T] 和 None",
+        "C": "Just[T] 和 None",
+        "D": "Present[T] 和 Missing"
+      },
+      "answer": "B",
+      "explanation": "Option[T] 有两个子类型：Some(value) 表示有值，None 是单例对象表示无值。这类似于 Java Optional 的 of() 和 empty()，但 Option 更早出现且更融入语言。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-051",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 immutable 和 mutable 集合区别是什么？大数据开发为什么用不可变集合？",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "| 特性 | immutable | mutable |\n|------|-----------|--------|\n| 修改操作 | 返回新集合 | 原地修改 |\n| 线程安全 | ✅ 天然安全 | ❌ 需要锁 |\n| 默认导入 | 自动导入 | 需 import scala.collection.mutable._ |\n\n大数据用不可变集合的 4 大理由：\n1. **线程安全**：多 Task 同时读取无需锁\n2. **函数式链式调用**：每次 map/filter 返回新集合建立管道\n3. **分布式友好**：序列化后各 Executor 独立持有副本\n4. **Spark 本身的哲学**：RDD/DataFrame/Dataset 全部不可变"
+    },
+    {
+      "id": "si-052",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 默认导入的是哪种集合？",
+      "options": {
+        "A": "mutable 可变集合",
+        "B": "immutable 不可变集合",
+        "C": "java.util 集合",
+        "D": "两种都导入"
+      },
+      "answer": "B",
+      "explanation": "Scala 默认导入 scala.collection.immutable._（如 List、Map、Set 等）。可变集合（mutable.ArrayBuffer、mutable.HashMap）需显式导入。这体现了 Scala 对不可变性的偏好。",
+      "source": "知乎 · 80+ 赞"
+    },
+    {
+      "id": "si-053",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 Array 和 List 的区别是什么？各在什么时候用？",
+      "source": "CSDN · 120+ 赞",
+      "sampleAnswer": "| 特性 | Array | List |\n|------|-------|------|\n| 底层 | Java 数组（JVM 原生） | 单向链表 |\n| 随机访问 | O(1) | O(n) |\n| 头部操作 | O(n) | O(1) |\n| 可变性 | 长度不变，元素可变 | 不可变 |\n\n使用建议：\n- **Array**：需要高性能随机访问、与 Java API 交互时\n- **List**：函数式编程、模式匹配（case head::tail）、递归、纯函数管道\n\nSpark 中：RDD 的 collect() 返回 Array，内部处理 Lazy 风格类似 List 操作。"
+    },
+    {
+      "id": "si-054",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "`::` 操作符在 Scala 中是什么作用？时间复杂度是多少？",
+      "options": {
+        "A": "在 List 头部添加元素，O(1)",
+        "B": "在 List 尾部添加元素，O(n)",
+        "C": "拼接两个 List",
+        "D": "乘法运算符"
+      },
+      "answer": "A",
+      "explanation": "`::`（cons）在 List 头部添加元素，O(1)。List 是单向链表，头部插入最快。`1 :: 2 :: 3 :: Nil` 等同于 `List(1, 2, 3)`。注意 `::` 是右结合操作符（调用右边操作数的方法）。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-055",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 Tuple 有什么特点？最多能有多少个元素？",
+      "source": "CSDN · 80+ 赞",
+      "sampleAnswer": "Tuple（元组）的特点：\n1. 可以容纳**不同类型**的元素，不可变\n2. 最多 **22 个元素**（Tuple22）——这是函数式编程语言的设计传统\n3. 访问方式：`tuple._1`, `tuple._2`（从 1 开始索引，不是 0！）\n\n```scala\nval t = (1, \"hello\", 3.14)\nt._1  // 1\nt._2  // \"hello\"\n```\n\nSpark 中的应用：RDD 的 pair 操作天然就是 (key, value) 二元组，groupByKey/reduceByKey 等算子的输入就是 `RDD[(K, V)]`。"
+    },
+    {
+      "id": "si-056",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 map 和 flatMap 的区别是什么？各举一个 Spark 中的例子。",
+      "source": "牛客网 · 300+ 赞",
+      "sampleAnswer": "核心区别：\n```scala\n// map:   T => U（1:1）\nList(1,2,3).map(x => List(x, x*10))\n// → List(List(1,10), List(2,20), List(3,30))\n\n// flatMap: T => Traversable[U]（1:多 + 展平）\nList(1,2,3).flatMap(x => List(x, x*10))\n// → List(1, 10, 2, 20, 3, 30)\n```\n\nSpark 中的对比：\n- **map**：`rdd.map(row => row(0))` → 每条记录返回一个值，RDD 元素数不变\n- **flatMap**：`lines.flatMap(_.split(\" \"))` → 每行返回多个单词并展平，RDD 元素数变多\n\nflatMap = map + flatten。在链式操作中 flatMap 非常强大——文本分词、数据展开等。"
+    },
+    {
+      "id": "si-057",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "`List(1,2,3).flatMap(x => List(x, x*10))` 的结果是？",
+      "options": {
+        "A": "List(List(1,10), List(2,20), List(3,30))",
+        "B": "List(1, 10, 2, 20, 3, 30)",
+        "C": "List(1, 2, 3)",
+        "D": "编译错误"
+      },
+      "answer": "B",
+      "explanation": "map 返回嵌套 List(List(1,10), ...)，flatMap 在 map 后自动展平一层 → List(1,10,2,20,3,30)。用 map 试试就能对比出区别。",
+      "source": "知乎 · 150+ 赞"
+    },
+    {
+      "id": "si-058",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中 reduce 和 fold 的区别是？",
+      "options": {
+        "A": "完全相同",
+        "B": "reduce 不需要初始值（用第一个元素），fold 需要显式赋予初值",
+        "C": "fold 比 reduce 快",
+        "D": "reduce 是惰性的"
+      },
+      "answer": "B",
+      "explanation": "reduce 以第一个元素为初始累加值，空集合抛异常；fold 显式提供初值，空集合返回初值。Spark 中 aggregate 是更通用的版本（分区内 + 分区间两个函数）。",
+      "source": "知乎 · 150+ 赞"
+    },
+    {
+      "id": "si-059",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 foldLeft 实现 groupBy 并计数（模拟 WordCount）。",
+      "source": "CSDN · 100+ 赞",
+      "sampleAnswer": "```scala\nval words = List(\"hello\", \"world\", \"hello\", \"scala\", \"spark\", \"hello\", \"scala\")\n\nval count = words.foldLeft(Map.empty[String, Int].withDefaultValue(0)) {\n  (acc, word) => acc + (word -> (acc(word) + 1))\n}\n// → Map(hello -> 3, world -> 1, scala -> 2, spark -> 1)\n\n// 对比 foldLeft 和 foldRight：\n// foldLeft:  从左到右，尾递归优化友好（推荐）\n// foldRight: 从右到左，可能导致栈溢出\n```\n\n大数据场景 Spark 已经提供了 groupByKey/reduceByKey/aggregateByKey，但理解 foldLeft 有助于理解底层聚合原理。"
+    },
+    {
+      "id": "si-060",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是 lazy view？和 Spark 的懒执行有什么相似之处？",
+      "source": "知乎 · 120+ 赞",
+      "sampleAnswer": "Scala 的 view 是惰性集合视图：\n```scala\n// 即刻（eager）：每次产生中间集合 → 内存开销大\nlist.map(f).filter(g).map(h)  // 3 个新集合！\n\n// 惰性（lazy）：所有操作用 force 时一次性执行\nlist.view.map(f).filter(g).map(h).force  // 1 个新集合\n```\n\n和 Spark 的相似之处：\n- **Transform**（map/filter）是懒的，只构建 DAG\n- **Action**（collect/count）触发实际计算\n- Scala view 的 force() ≈ Spark 的 Action 算子\n\n这是理解\"懒执行优化\"的入门模型。面试时常被问：Spark 为什么用懒执行？— 因为可以整体优化执行计划（如 filter push-down）。"
+    },
+    {
+      "id": "si-061",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是纯函数？Scala 如何支持纯函数编程？",
+      "source": "CSDN · 100+ 赞",
+      "sampleAnswer": "纯函数的两个条件：\n1. **相同输入永远产生相同输出**（确定性）\n2. **无副作用**（不修改外部状态、不 IO、不抛异常）\n\nScala 支持纯函数的方式：\n- **不可变集合**：map/filter 返回新集合，不修改原集合\n- **val > var**：默认不可变引用\n- **Option 代替 null**：避免 NPE 副作用\n- **Try 代替 try-catch**：将异常封装为值\n\nSpark 中 UDF 应该是纯函数：相同输入 → 相同输出。如果 UDF 依赖外部可变状态（如当前时间），结果不确定且无法缓存优化。"
+    },
+    {
+      "id": "si-062",
+      "type": "choice",
+      "difficulty": "medium",
+      "stem": "Scala 中以下哪种写法不是纯函数？",
+      "options": {
+        "A": "`(x: Int) => x * 2`",
+        "B": "`(x: Int) => { println(x); x }`",
+        "C": "`(x: Int) => x + 1`",
+        "D": "`(a: Int, b: Int) => a + b`"
+      },
+      "answer": "B",
+      "explanation": "B 有副作用（println 是 IO 操作），不是纯函数。A、C、D 都是纯函数：相同输入永远相同输出，无副作用。Spark UDF 中应避免 B 这种写法——日志在分布式环境下也难追踪。",
+      "source": "知乎 · 80+ 赞"
+    },
+    {
+      "id": "si-063",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "柯里化和偏应用函数有什么区别？分别举例。",
+      "source": "牛客网 · 150+ 赞",
+      "sampleAnswer": "柯里化（Currying）：多参数函数转为单参数函数链\n```scala\ndef add(x: Int)(y: Int) = x + y       // 柯里化定义\nval add2 = add(2)_                      // 偏应用：固定 x\nadd2(3)  // 5\n```\n\n偏应用函数（Partially Applied Function）：不改变函数定义，只绑定部分参数\n```scala\ndef add(x: Int, y: Int, z: Int) = x + y + z  // 普通多参数\nval add5 = add(5, _: Int, _: Int)     // 只绑定第一个参数\nadd5(3, 2)  // 10\n```\n\nSpark 中的应用：隐式参数 + 柯里化 → 优雅的依赖注入模式。"
+    },
+    {
+      "id": "si-064",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是偏函数（PartialFunction）？在 Spark 的 collect 算子中如何使用？",
+      "source": "牛客网 · 180+ 赞",
+      "sampleAnswer": "偏函数：只对输入域**部分值**有定义的函数。\n\n```scala\n// 定义偏函数\ntype Action = (String, String)\nval purchases: PartialFunction[Action, String] = {\n  case (userId, \"purchase\") => userId\n}\n\n// Spark RDD collect 用偏函数过滤 + 转换\nval data = sc.parallelize(Seq(\n  (\"u1\", \"click\"), (\"u1\", \"purchase\"), (\"u2\", \"view\")\n))\nval purchaseUsers = data.collect { case (userId, \"purchase\") => userId }\npurchaseUsers.collect()  // Array(\"u1\") — 自动过滤了 click 和 view\n```\n\ncollect = filter（保留 isDefinedAt 返回 true 的） + map（应用偏函数转换）。\nAkka 的 Receive 也是偏函数：Actor 只处理它能处理的消息类型。"
+    },
+    {
+      "id": "si-065",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是尾递归？@tailrec 注解的作用是什么？写一个尾递归阶乘。",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "尾递归：所有计算在递归调用**之前**完成，递归调用是函数最后一步。\n\n```scala\nimport scala.annotation.tailrec\n\n// ❌ 非尾递归 —— 递归后还有乘法\n// def fact(n: Int): Int = if (n <= 1) 1 else n * fact(n-1)\n\n// ✅ 尾递归 —— 用累加器\n@tailrec\ndef fact(n: Int, acc: BigInt = 1): BigInt = {\n  if (n <= 1) acc else fact(n - 1, n * acc)\n}\n\nfact(5)    // 120\nfact(1000) // ✅ 不爆栈\n```\n\n@tailrec 的作用：**让编译器验证**方法是尾递归。不是尾递归 → 编译失败。验证通过后编译成类似 while 循环的字节码，常数栈空间。\n\nSpark 的 DAG 递归遍历、RDD 血统链追回中处处可见递归处理的影子。"
+    },
+    {
+      "id": "si-066",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "Scala for-yield 推导式的底层实现是什么？",
+      "options": {
+        "A": "while 循环",
+        "B": "flatMap / map / withFilter 组合调用",
+        "C": "递归",
+        "D": "Java for 循环"
+      },
+      "answer": "B",
+      "explanation": "for { x <- xs; y <- ys; if p } yield f ↔ xs.flatMap(x => ys.withFilter(y => p).map(y => f))。这要求集合类型实现这些方法（即 Monad 操作）。这就是 Scala 的\"Monad 糖\"。",
+      "source": "牛客网 · 200+ 赞"
+    },
+    {
+      "id": "si-067",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 隐式转换（implicit）有哪三种用法？各写一个例子。",
+      "source": "牛客网 · 400+ 赞",
+      "sampleAnswer": "**1. 隐式参数 — 自动注入**\n```scala\ndef greet(name: String)(implicit greeting: String) = s\"$greeting, $name\"\nimplicit val g: String = \"Hello\"\ngreet(\"Scala\")  // \"Hello, Scala\"\n```\n\n**2. 隐式转换函数 — 类型增强**\n```scala\nimplicit def intToString(n: Int): String = n.toString\nval s: String = 42  // 自动调用 intToString\n```\n\n**3. 隐式类 — 推荐方式**\n```scala\nimplicit class RichString(s: String) {\n  def shout: String = s.toUpperCase + \"!\"\n}\n\"hello\".shout  // \"HELLO!\"\n```\n\nSpark 中 import spark.implicits._ 就导入了隐式类和隐式转换（$ 语法、Encoder 推导等）。"
+    },
+    {
+      "id": "si-068",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "Scala 隐式转换的查找优先级顺序是？",
+      "options": {
+        "A": "伴生对象 → 当前作用域 → 显式导入 → 包对象",
+        "B": "当前作用域 → 显式导入 → 伴生对象 → 包对象",
+        "C": "随机查找",
+        "D": "包对象 → 显式导入 → 当前作用域 → 伴生对象"
+      },
+      "answer": "B",
+      "explanation": "隐式查找优先级：1) 当前作用域 → 2) 显式 import → 3) 伴生对象 → 4) 包对象。Spark 的 rddToPairRDDFunctions 在 RDD 伴生对象中定义，就是在第(3)步被找到的。",
+      "source": "牛客网 · 200+ 赞"
+    },
+    {
+      "id": "si-069",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "关于隐式类（implicit class），正确的是？",
+      "options": {
+        "A": "可以定义在包层级",
+        "B": "有且只有一个构造参数，必须写在 object/class/trait 内部",
+        "C": "不能包含任何方法",
+        "D": "可以被继承"
+      },
+      "answer": "B",
+      "explanation": "隐式类必须：(1) 有且只有 1 个构造参数；(2) 定义在 object/class/trait 内部（不能顶级）。配合 extends AnyVal 可实现 zero-allocation 类型增强。",
+      "source": "知乎 · 100+ 赞"
+    },
+    {
+      "id": "si-070",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Spark SQL 中 `import spark.implicits._` 做了什么？列出实际效果。",
+      "source": "牛客网 · 250+ 赞",
+      "sampleAnswer": "`import spark.implicits._` 导入了 **SparkSession 内部定义的隐式**，主要效果：\n\n1. **$ 字符串 → Column**（隐式类）：`df.select($\"name\", $\"age\" + 1)`\n2. **Encoder 推导**：`df.as[Person]` 编译器自动找 Encoder[Person]\n3. **本地 Seq → Dataset**：`Seq(1,2,3).toDS()`\n4. **RDD → DataFrame 隐式转换**：`rdd.toDF(\"col1\", \"col2\")`\n\n```scala\nval spark = SparkSession.builder().getOrCreate()\nimport spark.implicits._  // ← 必须在需要的地方导入\n\nval df = spark.read.parquet(\"data.parquet\")\ncase class Person(name: String, age: Int)\nval ds: Dataset[Person] = df.as[Person]  // 隐式 Encoder 推导\nds.select($\"name\")  // $ 语法\n```\n\n为什么必须 import？隐式定义**限定在 Session 实例作用域**，避免全局隐式污染。这是最佳实践。"
+    },
+    {
+      "id": "si-071",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "什么是 view bound（<% 已废弃）和 context bound（:）？Spark 中哪里用到了？",
+      "source": "知乎 · 120+ 赞",
+      "sampleAnswer": "Context Bound（`[T: Ordering]`）= 要求存在一个隐式 `Ordering[T]`：\n```scala\ndef sort[T: Ordering](list: List[T]): List[T] = list.sorted\n// 等价于：\ndef sort[T](list: List[T])(implicit ev: Ordering[T]): List[T] = list.sorted\n\n// Spark 中的实际使用：\ndef reduceByKey(func: (V, V) => V)(implicit ord: Ordering[K]): RDD[(K, V)]\n// 需要隐式 Ordering[K] 来排序 key\n```\n\nView Bound（`<%` 在 Scala 2.12+ 已废弃）：\n```scala\n// 旧写法（废弃）\ndef max[T <% Ordered[T]](a: T, b: T) = if (a > b) a else b\n// 新写法（用隐式参数替代）\ndef max[T](a: T, b: T)(implicit ev: T => Ordered[T]) = if (a > b) a else b\n```\n\nSpark 的 reduceByKey/sortByKey 等算子用到隐式 Ordering 对 key 排序。"
+    },
+    {
+      "id": "si-072",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "隐式转换有哪些潜在问题？如何写出安全的隐式代码？",
+      "source": "牛客网 · 200+ 赞",
+      "sampleAnswer": "隐式转换的 5 大问题：\n1. **可读性差**：编译器自动插入的代码\"魔法\"多，新人看不懂\n2. **命名冲突**：两个同类型隐式在同一作用域 → 编译歧义\n3. **调试困难**：隐式调用不显示在堆栈跟踪中\n4. **编译变慢**：编译器需搜索隐式作用域\n5. **性能开销**：可能创建额外对象（值类可缓解）\n\n最佳实践：\n```scala\n// ✅ 推荐：隐式类 + 值类（零分配）\nimplicit class RichInt(val n: Int) extends AnyVal {\n  def square: Int = n * n\n}\n\n// ✅ 限定作用域：import spark.implicits._（局部导入）\n// ❌ 避免：全局隐式、隐式转换函数（非隐式类）\n```\n\n原则：只对\"显然\"的转换添加隐式，不要让代码充满惊喜。Spark 的做法就是最佳范例——隐式限定在 session 实例内。"
+    },
+    {
+      "id": "si-073",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "Spark 中 PairRDDFunctions 的隐式转换过程中，RDD[(K,V)] 如何获得 reduceByKey？",
+      "options": {
+        "A": "通过反射注入方法",
+        "B": "编译器在 RDD 伴生对象找到隐式转换函数 rddToPairRDDFunctions",
+        "C": "运行时动态代理",
+        "D": "reduceByKey 在 RDD 类中定义"
+      },
+      "answer": "B",
+      "explanation": "RDD 本身没有 reduceByKey 方法。编译器看到你调用 reduceByKey 时，在 RDD 伴生对象中找到隐式转换 rddToPairRDDFunctions，将 RDD[(K,V)] 转为 PairRDDFunctions，后者有 reduceByKey。整个过程在**编译期**完成。",
+      "source": "牛客网 · 200+ 赞"
+    },
+    {
+      "id": "si-074",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Spark 闭包序列化失败怎么排查？写出 foreachPartition 的正确模式。",
+      "source": "牛客网 · 300+ 赞",
+      "sampleAnswer": "排查方法：\n1. 看 NotSerializableException 堆栈，定位是哪个对象不可序列化\n2. 在 Driver 端用 ObjectOutputStream 测试序列化\n\n正确模式：\n```scala\n// ❌ 错误：conn 随闭包序列化\nval conn = DriverManager.getConnection(url)\nrdd.foreach(row => { conn.createStatement().execute(sql) })\n// → NotSerializableException: JDBC Connection\n\n// ✅ 正确：Executor 端创建连接\nrdd.foreachPartition { partition =>\n  val conn = DriverManager.getConnection(url)\n  val stmt = conn.createStatement()\n  try {\n    partition.foreach { row =>\n      stmt.execute(s\"INSERT INTO t VALUES (${row(0)}, ${row(1)})\")\n    }\n  } finally {\n    stmt.close()\n    conn.close()\n  }\n}\n```\n\n这个模式适用于：JDBC、Redis、Kafka Producer、Elasticsearch 客户端等**所有不可序列化的连接**。"
+    },
+    {
+      "id": "si-075",
+      "type": "choice",
+      "difficulty": "hard",
+      "stem": "Spark 中要用 Accumulator 而不是 var 做分布式累加，原因是？",
+      "options": {
+        "A": "var 比 Accumulator 慢",
+        "B": "var 在每个 Executor 上是独立副本，不会同步回 Driver",
+        "C": "Accumulator 自动并行计算",
+        "D": "var 不支持 int 类型"
+      },
+      "answer": "B",
+      "explanation": "var 作为局部变量的副本被序列化到每个 Executor，Executor 上修改的是自己的副本，Driver 端的 var 不受影响。Accumulator 专门解决了此问题——Executor 端只能 add，Driver 端读 value。",
+      "source": "牛客网 · 250+ 赞"
+    },
+    {
+      "id": "si-076",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "从用户提交 Spark 作业到 Executor 执行 Scala 闭包的完整流程是怎样的？",
+      "source": "牛客网 · 300+ 赞",
+      "sampleAnswer": "1. **Driver 建 DAG**：用户代码 RDD transformation 构建逻辑执行计划。Action 触发 Job，DAGScheduler 按宽窄依赖划分 Stage。\n\n2. **闭包 Clean + 序列化**：SparkContext.clean(f) 移除不可序列化引用（如 SparkContext 自身）。Java/Kryo Serializer 将闭包函数对象 + 捕获的外部变量序列化为字节数组。\n\n3. **Task 分发**：TaskScheduler 通过 RPC 将序列化的 Task 发送给 CoarseGrainedExecutorBackend。Broadcast 变量也在此阶段分发。\n\n4. **Executor 反序列化**：TaskRunner 线程反序列化恢复闭包对象。\n\n5. **执行**：对 RDD 分区数据逐条应用闭包函数。结果写回（Shuffle 磁盘 / Result 回传 Driver）。\n\n排查要点：第(2)步的 Clean + 序列化 + 闭包引用的外部变量是否可序列化。\n\n面试加分点：broadcast 变量的 TorrentBroadcast 机制（分块传输避免单点瓶颈）。"
+    },
+    {
+      "id": "si-077",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 在 Flink 和 Kafka Streams 中的角色与在 Spark 中有何不同？",
+      "source": "知乎 · 150+ 赞",
+      "sampleAnswer": "| | Spark | Flink | Kafka Streams |\n|---|-------|-------|--------------|\n| 核心语言 | Scala 原生的 | Java 为主，Scala 包装层 | Java 原生 |\n| Scala API 完整度 | ⭐⭐⭐ 最完整 | ⭐⭐ 良好 | ⭐ 需 wrapper |\n| 隐式转换使用 | 大量（rddToPairRDDFunctions 等） | 少（主要用 Java API） | 少 |\n\n统一优势：函数式编程 + 不可变数据结构 + 简洁语法在流处理中同样有用。\n\n面试时可以这样说：**\"Scala 在 Spark 中是第一公民，在 Flink/KS 中这是二等公民但也能用——核心业务逻辑的函数式写法价值依然存在。\"**"
+    },
+    {
+      "id": "si-078",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "请用一句话概括 Scala 核心优势，并列出 3 个 Spark 中体现 Scala 特性的代码片段（各一句话点评）。",
+      "source": "牛客网 · 300+ 赞",
+      "sampleAnswer": "Scala 核心优势：**JVM 上编程范式的\"瑞士军刀\"——用 Java 的生态、Haskell 的优雅，写出类型安全且简洁的分布式程序。**\n\nSpark 中 3 个体现：\n\n1. **函数式链式调用**（val rdd = sc.textFile(...).flatMap(...).map(...).reduceByKey(...)）\n   → Scala 通过高阶函数 + 类型推断让数据管道写成\"声明式\"\n\n2. **隐式转换**（import spark.implicits._; df.select($\"name\"); rdd.toDF()）\n   → 通过隐式增强扩展已有类型，API 设计灵活优雅\n\n3. **case class + Dataset**（val ds: Dataset[Person] = df.as[Person]）\n   → 编译期类型安全 + Encoder 自动推导 = 零反射类型安全\n\n面试结束亮点：Scala 的简洁 + Spark 的分布式能力 = 大数据开发效率的代差优势。"
+    },
+    {
+      "id": "si-079",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 和 Java 在代码简洁性上有什么主要区别？请举例说明。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Scala 比 Java 更简洁，主要体现在：\n\n1. **类型推断**：`val x = 10` 而不是 `int x = 10;`\n2. **函数式风格**：`list.filter(_ > 0).map(_ * 2)` 而不是循环\n3. **case class**：一行定义 POJO，自动生成 getter/setter/toString/equals\n4. **伴生对象**：替代 static，更优雅\n5. **模式匹配**：替代冗长的 if-else / switch\n\nScala 代码量通常是 Java 的 40%-60%。"
+    },
+    {
+      "id": "si-080",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 和 Java 的互操作性体现在哪些方面？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "1. **完全兼容**：Scala 编译为 JVM 字节码，可直接调用 Java 类库\n2. **混合编译**：同一个项目中 .scala 和 .java 可以互相调用\n3. **继承 Java 类**：Scala 类可以 extends Java 类\n4. **实现 Java 接口**：Scala 类可以 extends Java 接口\n5. **集合互转**：scala.jdk.CollectionConverters 方便两种集合互转\n\n这是 Spark 能成功的基础——Spark 用 Scala 写，但能无缝调用 Hadoop/HDFS/HBase。"
+    },
+    {
+      "id": "si-081",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 在大数据面试中为什么重要？Spark 和 Scala 有什么关系？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Scala 在大数据面试中的重要性：\n\n1. **Spark 就是用 Scala 写的**，Spark 源码 80%+ 是 Scala\n2. **Spark 核心 API（RDD/DataFrame）**的 Scala API 是最原生、最完整的\n3. **函数式编程**（高阶函数、不可变性）与大数据处理天然契合\n4. **面试常考题**：闭包序列化、隐式转换、模式匹配、集合操作\n\n面试官考察 Scala 是想了解你是否能深入理解 Spark 的底层机制，而不仅是会用 API。"
+    },
+    {
+      "id": "si-082",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 学习路线应该如何规划？从入门到大数据开发需要掌握哪些核心知识点？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "推荐学习路线：\n\n**第一阶段（基础）**：\n- val/var、基本类型、控制结构（if/for/while）\n- 函数定义、匿名函数、高阶函数\n- 面向对象：class、object、继承\n\n**第二阶段（进阶）**：\n- trait、混入机制、线性化\n- case class、模式匹配、Option\n- 集合体系（不可变集合操作）\n\n**第三阶段（高阶）**：\n- 函数式编程：纯函数、柯里化、闭包\n- 隐式转换（理解 Spark implicits 的基础）\n- 类型系统\n\n**第四阶段（大数据实战）**：\n- Spark RDD/DataFrame API 中的 Scala 用法\n- 闭包序列化问题排查\n- Spark 源码阅读"
+    },
+    {
+      "id": "si-083",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "搭建 Scala 开发环境需要安装哪些软件？JDK 版本有什么要求？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "- **JDK 8/11/17**：Scala 运行在 JVM 上，推荐 JDK 8（与 Spark 兼容性最好）\n- **IntelliJ IDEA**：社区版即可，安装 Scala 插件\n- **SBT/Maven**：构建工具，SBT 是 Scala 官方推荐\n- **可选**：Spark 开发还需安装 Hadoop 依赖\n\nSpark 3.x 推荐 Scala 2.12 + JDK 8 组合。"
+    },
+    {
+      "id": "si-084",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "写一个 Scala 的 Hello World 程序，并说明 scalac 和 scala 命令的作用。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nobject Hello {\n  def main(args: Array[String]): Unit = {\n    println(\"Hello, Scala!\")\n  }\n}\n```\n\n- **scalac**：编译器，将 .scala 编译为 .class 字节码（类似 javac）\n- **scala**：运行器，执行编译后的字节码或启动 REPL（类似 java）\n- 也支持 `scala Hello.scala` 直接运行脚本模式"
+    },
+    {
+      "id": "si-085",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "IntelliJ IDEA 中开发 Scala 项目需要安装什么插件？推荐哪些设置？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "- **Scala 插件**：官方插件，提供语法高亮、代码补全、重构、导航\n- **SBT Executor**（可选）：直接在 IDEA 中运行 sbt 命令\n- 推荐设置：Settings → Editor → Code Style → Scala → 设置正确缩进（2空格）\n- 创建项目时选择 SBT 模板，build.sbt 定义依赖"
+    },
+    {
+      "id": "si-086",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 object Hello 和 class Hello 有什么区别？Hello.scala 没有 main 方法能运行吗？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nobject Hello { def main(args: Array[String]): Unit = println(\"Hi\") }\n// ✅ 可以运行：object 创建单例，其 main 是程序入口\n\nclass Hello { def main(args: Array[String]): Unit = println(\"Hi\") }\n// ❌ 不能作为入口：class 的 main 不是静态方法——Scala 没有 static\n```\n\nobject 编译为 JVM 上的单例类，main 方法生成静态转发。"
+    },
+    {
+      "id": "si-087",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 val 和 var 的核心区别是什么？在大数据开发中推荐用哪个？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "- **val**（value）：引用不可变，赋值后不能重新指向新对象（但对象内部状态可变）\n- **var**（variable）：引用可变，可以重新赋值\n- 大数据开发**推荐 val**，原因：\n  1. 不可变引用在分布式环境下更安全（多个 Task 不会互相影响）\n  2. 函数式编程风格更纯净\n  3. Spark 的 RDD/DataFrame 本身就是不可变的\n\n```scala\nval arr = new Array[Int](3)\narr(0) = 1  // ✅ 对象内部可变\narr = ...   // ❌ 编译错误\n\nvar x = 1\nx = 2  // ✅\n```"
+    },
+    {
+      "id": "si-088",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 有哪些基本数据类型？它们与 Java 的对应关系是怎样的？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| Scala | Java | 说明 |\n|-------|------|------|\n| Int | int | 32位 |\n| Long | long | 64位 |\n| Float | float | 32位浮点 |\n| Double | double | 64位浮点 |\n| Boolean | boolean | true/false |\n| Char | char | 16位Unicode |\n| Byte | byte | 8位 |\n| Short | short | 16位 |\n| String | String | 就是 Java 的 String |\n\nScala 没有基本类型和包装类型的区分——一切都是对象，但编译时编译器会优化为基本类型以避免装箱开销。"
+    },
+    {
+      "id": "si-089",
+      "type": "choice",
+      "difficulty": "easy",
+      "stem": "Scala 的类型推断影响运行时性能吗？",
+      "answer": "",
+      "source": "大数据面试题库"
+    },
+    {
+      "id": "si-090",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中字符串插值（String Interpolation）有哪几种？有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval name = \"Spark\"\nval version = 3.5\n\n// s 插值：直接嵌入变量\nprintln(s\"$name version $version\")\n\n// f 插值：格式化\nprintln(f\"$name%s version $version%1.1f\")\n\n// raw 插值：不转义\nprintln(raw\"Hello\\\\nWorld\")  // 原样输出 \\\\n\n```\n\ns 插值最常用，f 插值适合数值格式化输出。"
+    },
+    {
+      "id": "si-091",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中类型转换是怎么做的？和 Java 的类型转换有什么不同？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Scala 使用方法来转换：\n```scala\nval x: Int = 42\nval y: Long = x.toLong   // 不是 (Long)x\nval s: String = x.toString\nval i: Int = \"42\".toInt\n```\n\n特点：\n- **一切都是方法调用**（toInt、toDouble、toString 等）\n- 没有 Java 的 `(Type)value` 强制转换语法\n- 引用类型转换用 asInstanceOf[T]\n- 推荐用模式匹配替代 isInstanceOf/asInstanceOf"
+    },
+    {
+      "id": "si-092",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中的 Unit 和 Java 的 void 有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ndef f(): Unit = println(\"hi\")\nval u: Unit = f()  // Unit 可以赋值给变量\n```\n\n- **Unit 是一个类型，有实例 ()**，可以用变量接收\n- **void 是关键字**，不是类型\n- Scala 中一切表达式都有返回值"
+    },
+    {
+      "id": "si-093",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "为什么说 Scala 的 if/else 是表达式？Scala 有 Java 的三元运算符吗？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Scala 的 if/else 有返回值，可以直接赋值：\n```scala\nval max = if (a > b) a else b  // ✅ 表达式\nprintln(if (x > 0) \"正\" else \"负\")  // ✅\n```\n\n所以 **Scala 不需要 Java 的 ?: 三元运算符**——if/else 就是更好的替代品。\n\n如果缺了 else，编译器会推断缺失分支返回 Unit。"
+    },
+    {
+      "id": "si-094",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 while 循环在函数式编程中有什么局限性？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nvar i = 0\nwhile (i < 10) {  // while 返回 Unit，纯副作用\n  println(i)\n  i += 1\n}\n// 函数式替代\n(0 until 10).foreach(println)\n```\n\nwhile 的局限性：\n1. **返回 Unit**，不能组合成表达式链\n2. **依赖 var**，可变引用在分布式下不安全\n3. **不利于并行**：循环体的迭代之间有依赖"
+    },
+    {
+      "id": "si-095",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 的 for 推导式（for-yield）是如何工作的？和普通的 for 循环有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// for 循环（带副作用）\nfor (x <- 1 to 3) println(x)  // 返回 Unit\n\n// for 推导式（带 yield，有返回值）\nval result = for (x <- 1 to 3) yield x * 2  // Vector(2, 4, 6)\n\n// 多生成器 + 守卫\nval pairs = for {\n  x <- 1 to 3\n  y <- 1 to 3\n  if x + y > 4\n} yield (x, y)\n```\n\n底层实现：for-yield 被编译为 flatMap/map/withFilter 的链式调用。这就是 Monad 语法糖。"
+    },
+    {
+      "id": "si-096",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 for 推导式从一个学生列表中筛选出成绩大于 80 分的女生姓名。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ncase class Student(name: String, gender: String, score: Int)\n\nval students = List(\n  Student(\"Alice\", \"女\", 92),\n  Student(\"Bob\", \"男\", 75),\n  Student(\"Carol\", \"女\", 88)\n)\n\nval result = for {\n  s <- students\n  if s.score > 80\n  if s.gender == \"女\"\n} yield s.name\n// List(\"Alice\", \"Carol\")\n```\n\nfor 推导式在处理多个条件的过滤和转换时更易读。"
+    },
+    {
+      "id": "si-097",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "for 推导式和 map/flatMap/filter 链式调用之间的关系是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "for 推导式是 flatMap/map/withFilter 的语法糖：\n```scala\nval r1 = for { x <- xs; y <- ys; if p } yield f(x,y)\n// 等价于\nval r2 = xs.flatMap(x => ys.withFilter(y => p).map(y => f(x,y)))\n```\n\n这种设计的价值：\n1. **更易读**：类似命令式代码的嵌套书写\n2. **不依赖具体集合类型**：只要实现了 map/flatMap/withFilter 就可以使用\n3. **Option/Future 也能用**：`for { a <- optA; b <- optB } yield a + b`"
+    },
+    {
+      "id": "si-098",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 没有 break 和 continue，如何实现提前退出循环的效果？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "方法一：**使用 return**（在函数内）\n```scala\ndef findFirst[T](list: List[T], pred: T => Boolean): Option[T] = {\n  for (x <- list) { if (pred(x)) return Some(x) }\n  None\n}\n```\n\n方法二：**使用递归**（函数式方式）\n```scala\n@tailrec\ndef findFirst[T](list: List[T], pred: T => Boolean): Option[T] = list match {\n  case Nil => None\n  case head :: _ if pred(head) => Some(head)\n  case _ :: tail => findFirst(tail, pred)\n}\n```\n\n方法三：**使用 find**（最推荐）\n```scala\nlist.find(_ > 0)  // 找到第一个 > 0 的元素就停止\n```"
+    },
+    {
+      "id": "si-099",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中如何定义一个函数？默认参数和命名参数有什么作用？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// 基本定义\ndef add(x: Int, y: Int): Int = x + y\n\n// 默认参数\ndef connect(url: String, timeout: Int = 5000): Unit = ...\nconnect(\"jdbc:...\")  // timeout 默认 5000\n\n// 命名参数\ndef greet(name: String, greeting: String = \"Hello\"): String = s\"$greeting $name\"\ngreet(greeting = \"Hi\", name = \"Scala\")  // 顺序可以调换\n```"
+    },
+    {
+      "id": "si-100",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中匿名函数（Lambda）有几种写法？下划线占位符怎么用？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// 完整写法\nval f1 = (x: Int) => x * 2\n\n// 类型可推断时省略\nlist.map((x) => x * 2)\n\n// 花括号写法\nlist.map { x => x * 2 }\n\n// 下划线占位符（最简洁）\nlist.map(_ * 2)  // 等价于 x => x * 2\n\n// 多个参数\nlist.reduce(_ + _)  // 等价于 (a, b) => a + b\n```\n\n下划线占位符的限制：每个参数在函数体中只能出现一次。"
+    },
+    {
+      "id": "si-101",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是 Scala 的偏应用函数（Partially Applied Function）？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "偏应用函数：**固定部分参数**，产生一个新函数。\n```scala\ndef connect(host: String, port: Int, ssl: Boolean): Unit = ...\n\n// 固定 host 和 ssl\nval toLocalhost = connect(\"localhost\", _: Int, false)\ntoLocalhost(8080)  // 等价于 connect(\"localhost\", 8080, false)\n```\n\n与柯里化的区别：\n- 偏应用函数**不改写原函数定义**，只是绑定部分实参\n- 柯里化需要在**定义时**将参数写成多个参数列表"
+    },
+    {
+      "id": "si-102",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中函数（function）和方法（method）有什么区别？如何相互转换？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| 特性 | 方法 (method) | 函数 (function) |\n|------|-------------|----------------|\n| 定义 | def 关键字 | val f = (x: Int) => ... |\n| 一等公民 | 否 | 是 |\n| 类型参数 | 支持 [T] | 不支持 |\n| JVM表示 | 实例方法 | FunctionN 对象 |\n\n方法转函数（ETA 展开）：\n```scala\ndef add(x: Int, y: Int) = x + y\nval f1 = add _     // 显式 ETA\nval f2: (Int,Int)=>Int = add  // 类型标注触发自动展开\n```"
+    },
+    {
+      "id": "si-103",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中构造参数的可见性规则是什么？val、var、不加修饰符各代表什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nclass Person(name: String, val age: Int, var addr: String)\n```\n\n构造参数可见性：\n- **不加 val/var**：private val，只在类内部可访问\n- **加 val**：public getter（只读）\n- **加 var**：public getter + setter（读写）\n- **private 修饰**：`private val name`"
+    },
+    {
+      "id": "si-104",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 object 的作用是什么？如何用它替代 Java 的 static？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// 1. 工具方法\nobject MathUtils { def square(x: Double) = x * x }\n\n// 2. 伴生对象（与 class 同名同文件）\nclass Person(val name: String)\nobject Person { def apply(name: String) = new Person(name) }\n\n// 3. 程序入口\nobject Main extends App { println(\"Hello\") }\n```\n\nobject 编译为 JVM 上的单例类，用 MODULE$ 静态字段持有唯一实例。"
+    },
+    {
+      "id": "si-105",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 apply 和 unapply 方法分别是什么作用？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nclass Person(val name: String)\nobject Person {\n  def apply(name: String) = new Person(name)  // 工厂方法，省去 new\n  def unapply(p: Person): Option[String] = Some(p.name)  // 提取器\n}\n\n// 使用\nval p = Person(\"Alice\")  // 等价于 Person.apply(\"Alice\")\np match { case Person(name) => println(name) }  // 调用 unapply\n\n// Case class 自动生成 apply 和 unapply\ncase class Circle(r: Double)\nval c = Circle(5.0)  // 不用 new\n```"
+    },
+    {
+      "id": "si-106",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中方法和函数在 Spark 开发中应该如何选择？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "性能上差别微乎其微。\n\n```scala\n// 方法（推荐给简单的转换）\ndef cleanName(s: String): String = s.trim.toLowerCase\nrdd.map(cleanName)  // ETA 展开为函数\n\n// 函数（推荐给复杂的业务逻辑）\nval processor: String => String = (s) => {\n  if (s.trim.isEmpty) \"unknown\" else s.trim\n}\nrdd.map(processor)\n```\n\nSpark 大多数算子参数都是函数类型，方法传进去会自动做 ETA 展开。"
+    },
+    {
+      "id": "si-107",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 Scala class 和 object 构建一个表示订单的数据模型，包含订单项列表和总价计算。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nclass OrderItem(val product: String, val price: Double, val quantity: Int) {\n  def subtotal: Double = price * quantity\n}\n\nclass Order(val id: String, val items: List[OrderItem]) {\n  def total: Double = items.map(_.subtotal).sum\n}\n\nobject Order {\n  def apply(id: String, items: List[OrderItem]) = new Order(id, items)\n}\n\n// 使用\nval items = List(new OrderItem(\"iPhone\", 6999.0, 2))\nval order = Order(\"ORD-001\", items)\nprintln(order.total)  // 13998.0\n```"
+    },
+    {
+      "id": "si-108",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中如何使用 extends 实现继承？子类如何调用父类构造参数？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nclass Animal(val name: String) {\n  def speak: String = \"...\"\n}\n\nclass Dog(name: String, val breed: String) extends Animal(name) {\n  override def speak: String = \"Woof!\"\n}\n\nval d = new Dog(\"Buddy\", \"Golden\")\nd.name   // \"Buddy\"\nd.speak  // \"Woof!\"\n```\n\n关键点：\n- extends 后跟父类构造参数（`Animal(name)`）\n- 重写非抽象方法必须加 override\n- Scala 是单继承\n- 额外特征用 with TraitName 混入"
+    },
+    {
+      "id": "si-109",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 abstract class 的特点是什么？和 trait 的主要区别在哪里？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nabstract class Shape(val sides: Int) {\n  def area: Double  // 抽象方法\n  def description: String = s\"Shape with $sides sides\"\n}\n```\n\nabstract class 特点：\n1. **可以有构造参数**（与 trait 最大区别）\n2. 可以同时有抽象方法和具体方法\n3. **单继承**\n\n| 特性 | abstract class | trait |\n|------|---------------|-------|\n| 构造参数 | ✅ | ❌ (Scala 2) |\n| 多重继承 | ❌ | ✅ |\n| 语义 | \"是什么\" | \"能做什么\" |"
+    },
+    {
+      "id": "si-110",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 override 关键字的使用规则是什么？为什么强制要求写 override？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "规则：\n1. **重写非抽象方法必须加 override**（编译器强制检查）\n2. 重写抽象方法可以省略 override（推荐加上）\n3. override 可以修饰 val 和 def\n\n强制 override 的好处：\n- **防止拼写错误**：本想重写但写错了方法名，编译器报错\n- **明确意图**：告诉读者这是重写而不是新方法\n- **安全重构**：父类方法改名或删除时，子类编译报错"
+    },
+    {
+      "id": "si-111",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中有哪些访问修饰符？protected 在 Scala 中和 Java 有什么不同？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| 修饰符 | 可见范围 |\n|--------|---------|\n| 默认（无修饰符）| public |\n| private | 仅类内部和伴生对象 |\n| protected | 仅类及其子类（Java 中还包含同包） |\n| private[this] | 仅当前实例（对象私有） |\n\n```scala\nclass Parent {\n  private[this] val d = 4  // 同一类的不同实例也不能访问！\n}\n```\n\nScala 的 protected 比 Java 更严格（排除了同包访问）。"
+    },
+    {
+      "id": "si-112",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中类型检查和转换的推荐方式是什么？为什么用模式匹配替代 isInstanceOf？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval x: Any = \"hello\"\n\n// 不推荐\nif (x.isInstanceOf[String]) {\n  val s = x.asInstanceOf[String]; println(s.length)\n}\n\n// 推荐：模式匹配\nx match {\n  case s: String => println(s.length)\n  case _ =>\n}\n```\n\n模式匹配的优势：类型检查和转换一次完成、编译器检查 exhaustiveness、更简洁。"
+    },
+    {
+      "id": "si-113",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 Scala 的抽象类和继承设计一个表达式求值系统，支持数字、加法、乘法。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nsealed trait Expr { def eval: Int }\n\ncase class Num(value: Int) extends Expr {\n  override def eval: Int = value\n}\n\ncase class Add(left: Expr, right: Expr) extends Expr {\n  override def eval: Int = left.eval + right.eval\n}\n\ncase class Mul(left: Expr, right: Expr) extends Expr {\n  override def eval: Int = left.eval * right.eval\n}\n\n// (1 + 2) * 3 = 9\nval expr = Mul(Add(Num(1), Num(2)), Num(3))\nprintln(expr.eval)  // 9\n```\n\n这个模式在 Spark SQL 的表达式系统中广泛使用。"
+    },
+    {
+      "id": "si-114",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 trait 是什么？它和 Java 的接口有什么本质区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Trait = Java 接口的增强版，可以包含：\n1. 抽象方法\n2. 具体方法（带实现体）\n3. 字段（val/var）\n\n```scala\ntrait Logging {\n  def log(msg: String): Unit = println(s\"[LOG] $msg\")\n  def getLoggerName: String\n}\n```\n\nJava 8 接口虽然有了 default 方法，但 trait 支持字段、线性化、自身类型等更强大的功能。"
+    },
+    {
+      "id": "si-115",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中如何使用 with 关键字混入多个 trait？混入的顺序重要吗？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ntrait A { def msg = \"A\" }\ntrait B { def msg = \"B\" }\nclass C extends A with B  // 最右优先\n\nval c = new C\nc.msg  // \"B\"（B 覆盖 A）\n```\n\n混入顺序重要！规则：**最右边的 trait 方法优先级最高**。\n\n```scala\nclass Service extends BaseService with Logging with Monitoring\n// 方法查找顺序：Service → Monitoring → Logging → BaseService\n```"
+    },
+    {
+      "id": "si-116",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Trait 中可以定义字段吗？初始化顺序有什么需要注意的？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ntrait Logging {\n  val loggerName: String\n  def log(msg: String): Unit = println(s\"[$loggerName] $msg\")\n}\n```\n\n注意初始化顺序陷阱：\n```scala\ntrait A { val x: Int; println(s\"A: $x\") }\nclass B extends A { override val x: Int = 42; println(s\"B: $x\") }\nnew B  // 输出 \"A: 0\" 然后 \"B: 42\"\n```\n\n在父 trait 构造时，子类的 val 还没赋值。可用 lazy val 解决。"
+    },
+    {
+      "id": "si-117",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 支持在实例化时动态混入 trait 吗？有什么应用场景？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ntrait Logging { def log(msg: String): Unit = println(msg) }\nclass Service { def process = println(\"processing\") }\n\n// 动态混入——只在实例化时添加\nval svc = new Service with Logging\nsvc.log(\"hello\")\n```\n\n应用场景：\n1. **临时给对象加功能**（日志、监控）\n2. **Mock 测试**：混入 Mock trait\n3. **AOP 风格**：在实例化时织入横切关注点"
+    },
+    {
+      "id": "si-118",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 自类型（Self-Type）的语法和作用是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ntrait UserService { self: UserRepositoryComponent =>\n  def getUser(id: Long): String = userRepo.find(id)\n}\n```\n\n自类型声明：\"这个 trait 只能混入到 UserRepositoryComponent 的子类中\"。\n\n作用：\n- **编译期依赖注入**（Cake Pattern 的核心）\n- 无需 Spring DI 等框架\n- 编译期保证依赖存在，无需运行时注入"
+    },
+    {
+      "id": "si-119",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala trait 的线性化（Linearization）机制是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "线性化定义了 trait 中 super 调用链的路径。\n\n**规则**：从类自身开始，按照 extends/with **从右到左**遍历，每个 trait 只保留第一次出现。\n\n```scala\ntrait A { def m = \"A\" }\ntrait B extends A { override def m = \"B-\" + super.m }\ntrait C extends A { override def m = \"C-\" + super.m }\nclass D extends B with C { override def m = \"D-\" + super.m }\n\nnew D().m  // \"D-C-B-A\"\n```"
+    },
+    {
+      "id": "si-120",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "sealed trait 在模式匹配中有什么优势？什么是 ADT？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "sealed trait 限制所有子类必须在同一源文件中定义：\n\n优势——**编译器 exhaustiveness 检查**：\n```scala\nsealed trait Status\ncase class Success(msg: String) extends Status\ncase class Error(code: Int) extends Status\ncase object Pending extends Status\n\ndef handle(s: Status): String = s match {\n  case Success(msg) => msg\n  case Error(code) => s\"error $code\"\n  // 忘记处理 Pending → 编译器 WARNING!\n}\n```\n\n这就是**代数数据类型（ADT）**的 Scala 实现方式。"
+    },
+    {
+      "id": "si-121",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 trait 和 abstract class 的实际选择原则是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "**优先用 trait**，除非：\n\n| 场景 | 选择 |\n|------|------|\n| 需要构造参数 | abstract class |\n| 多重混入 | trait |\n| 初始化顺序敏感 | abstract class（更可预测） |\n\n```scala\n// ✅ trait：定义行为\ntrait Logging\nclass Service extends Logging with Serializable\n\n// ✅ abstract class：需要构造参数\nabstract class ShuffleDependency[K, V](val partitioner: Partitioner)\n```"
+    },
+    {
+      "id": "si-122",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Case class 自动生成了哪些方法？为什么 Spark 推荐使用 case class？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "自动生成的 7 大方法：\n1. **apply** — 免 new\n2. **unapply** — 模式匹配解构\n3. **equals** — 值比较\n4. **hashCode** — 基于字段值\n5. **toString** — 可读输出\n6. **copy** — 不可变修改\n7. **Product trait** — productArity/productElement\n\nSpark 推荐原因：\n- **Encoder 自动推导**：`df.as[Person]` 不需手写 Encoder\n- **不可变**：分布式安全\n- **值比较**：符合数据处理直觉\n\n```scala\ncase class Person(name: String, age: Int)\nval p1 = Person(\"Alice\", 25)\nval p2 = p1.copy(age = 26)\n```"
+    },
+    {
+      "id": "si-123",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 的模式匹配可以匹配哪些模式？至少举出 5 种。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nx match {\n  case 0 => \"zero\"                    // 常量模式\n  case n => s\"${n}\"                   // 变量模式\n  case s: String => s\"string\"         // 类型匹配\n  case Person(name, age) => s\"$name\"  // 解构匹配\n  case head :: tail => s\"$head\"       // 序列模式\n  case (a, b) => s\"pair\"              // 元组模式\n  case n: Int if n > 0 => \"positive\"  // 模式守卫\n  case _ => \"default\"                 // 通配符\n}\n```"
+    },
+    {
+      "id": "si-124",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Option[T] 类型的作用是什么？如何安全地从 Option 中获取值？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Option[T] 显式表达值可能不存在，将 NPE 从运行时提升到编译期。\n\n```scala\nval opt: Option[Int] = Map(\"a\" -> 1).get(\"b\")  // None\n\n// 安全取值\nopt.getOrElse(0)              // 默认值\nopt.map(_ * 2)                // 有值才转换\nopt.filter(_ > 0)             // 有值才过滤\n\n// 模式匹配\nopt match {\n  case Some(v) => s\"found $v\"\n  case None => \"not found\"\n}\n\n// ❌ 不推荐：opt.get（None 时抛异常）\n```\n\nSpark 中空列自动映射为 Option 类型。"
+    },
+    {
+      "id": "si-125",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 中的 Either 和 Try 分别用于什么错误处理场景？有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// Try：用于可能抛异常的代码\nimport scala.util.{Try, Success, Failure}\nval result: Try[Int] = Try(\"42\".toInt)\nresult match {\n  case Success(n) => println(n)\n  case Failure(e) => println(e.getMessage)\n}\n\n// Either：两个可能的结果（左错误，右成功）\nval result2: Either[String, Int] =\n  if (true) Right(42) else Left(\"error\")\n```\n\n区别：\n| | Try | Either |\n|---|-----|--------|\n| 异常类型 | Throwable 固定 | 任意类型 |\n| 适用场景 | 外部 API 调用 | 业务逻辑错误 |"
+    },
+    {
+      "id": "si-126",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "用 Scala 的 case class 和模式匹配解析 JSON 数据。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nimport scala.util.parsing.json.JSON\n\ncase class User(name: String, age: Int, tags: List[String])\n\ndef parseUser(jsonStr: String): Option[User] = {\n  JSON.parseRaw(jsonStr) match {\n    case Some(json: Map[String, Any]) =>\n      for {\n        name <- json.get(\"name\").map(_.toString)\n        age <- json.get(\"age\").map {\n          case d: Double => d.toInt\n          case s: String => s.toInt\n        }\n        tags <- json.get(\"tags\").map {\n          case l: List[_] => l.map(_.toString)\n          case _ => Nil\n        }\n      } yield User(name, age, tags)\n    case _ => None\n  }\n}\n```\n\n实践中 Spark 处理 JSON 用 spark.read.json() + Dataset[User]。"
+    },
+    {
+      "id": "si-127",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的集合体系分为哪两大类？默认导入的是哪种？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "两类：\n- **immutable**（不可变）：默认导入，修改返回新集合\n- **mutable**（可变）：需要 import scala.collection.mutable._\n\n```scala\n// 默认就是 immutable\nval list = List(1,2,3)  // scala.collection.immutable.List\n```\n\n继承层次：Iterable → Seq (IndexedSeq/LinearSeq) / Set / Map。"
+    },
+    {
+      "id": "si-128",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 List 是基于什么数据结构实现的？时间复杂度如何？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "List 是**单向链表**（LinkedList）：\n```scala\nval list = 1 :: 2 :: 3 :: Nil\n```\n\n| 操作 | 复杂度 | 说明 |\n|------|--------|------|\n| 头部插入 :: | O(1) | |\n| 头部访问 .head | O(1) | |\n| 尾部访问 .last | O(n) | |\n| 随机访问 (n) | O(n) | |\n\nList 适合头部操作，不适合随机访问。需要 O(1) 随机访问用 Vector。"
+    },
+    {
+      "id": "si-129",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 Vector 和 List 有什么区别？什么时候用 Vector？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| 特性 | List | Vector |\n|------|------|--------|\n| 底层 | 单链表 | 分支树（32-way Trie） |\n| 头部操作 | O(1) | O(log32) |\n| 随机访问 | O(n) | O(log32) |\n| 尾部追加 | O(n) | O(log32) |\n\n- **List**：模式匹配 + 头部操作\n- **Vector**：需要随机访问、尾部追加\n\n```scala\nval vec = (1 to 1000000).toVector\nvec(500000)  // O(log32) ≈ 常数时间\n```"
+    },
+    {
+      "id": "si-130",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 Set 的特点是什么？HashSet 和 TreeSet 有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Set 存储不重复元素，常用于去重、成员检查、集合运算。\n\n| | HashSet | TreeSet |\n|--|---------|---------|\n| 底层 | 哈希表 | 红黑树 |\n| 元素顺序 | 无序 | 有序 |\n| 性能 | O(1) | O(log n) |\n\n```scala\nList(1,1,2,2,3).toSet  // Set(1, 2, 3)\n```"
+    },
+    {
+      "id": "si-131",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 中 Map 的常用操作有哪些？如何安全地从 Map 中取值？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval map = Map(\"a\" -> 1, \"b\" -> 2)\n\n// 取值\nmap(\"a\")             // 1（key 不存在抛异常）\nmap.get(\"a\")          // Some(1)\nmap.getOrElse(\"c\", 0) // 0（安全）\nmap.filter(_._2 > 1)  // Map(\"b\" -> 2)\n```\n\nSpark 中广播变量和 Accumulator 的底层实现大量依赖 Map 结构。"
+    },
+    {
+      "id": "si-132",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 Range 是什么？to 和 until 有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Range 表示一个数值区间，**惰性**（不实际存储所有元素）：\n```scala\n1 to 5      // Range(1, 2, 3, 4, 5)\n1 until 5   // Range(1, 2, 3, 4)（不包含 5）\n1 to 10 by 2  // Range(1, 3, 5, 7, 9)\n```"
+    },
+    {
+      "id": "si-133",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的 Tuple 最多支持多少个元素？如何访问元组中的元素？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// Tuple2 到 Tuple22\nval t = (1, \"hello\", 3.14)  // Tuple3[Int, String, Double]\nt._1  // 1（索引从 1 开始！）\n\n// 解构赋值\nval (a, b, c) = t\n```\n\nSpark RDD pair 操作就是 RDD[(K, V)]——Tuple2 是默认的键值对容器。"
+    },
+    {
+      "id": "si-134",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 的可变集合（mutable）有哪些？和不可变集合如何选择？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nimport scala.collection.mutable\nval buf = mutable.ArrayBuffer(1,2,3)\nbuf += 4  // 原地修改\n```\n\n选择原则：\n- **默认用不可变**——函数式、线程安全\n- **内部可变，外部不可变**：方法内用 mutable 收集，返回时转 immutable"
+    },
+    {
+      "id": "si-135",
+      "type": "essay",
+      "difficulty": "easy",
+      "stem": "Scala 集合中 Seq、IndexedSeq、LinearSeq 的区别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```\nIterable\n  ├── Seq\n  │   ├── IndexedSeq → Vector, ArraySeq, Range\n  │   └── LinearSeq → List, LazyList\n  ├── Set → HashSet, TreeSet\n  └── Map → HashMap, TreeMap\n```\n\n| 需求 | 选择 |\n|------|------|\n| 随机访问 | Vector |\n| 头部操作 | List |\n| 去重检查 | Set |\n| 键值对 | Map |"
+    },
+    {
+      "id": "si-136",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 集合中 map、flatMap、filter、reduce、fold 的核心区别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| 函数 | 作用 |\n|------|------|\n| map | 1:1 转换 |\n| flatMap | 1:多 + 展平 |\n| filter | 保留满足条件的 |\n| reduce | 以第一个元素为初值归约（空集合抛异常） |\n| fold | 提供初值归约（空集合安全） |\n\n```scala\nList(1,2,3).reduce(_ + _)  // 6\nList(1,2,3).fold(10)(_ + _) // 16\n```"
+    },
+    {
+      "id": "si-137",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 map 操作在 Spark 中对应什么算子？map 和 mapPartitions 有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// map：每条记录单独处理\nrdd.map(x => x * 2)\n\n// mapPartitions：每个分区整体处理\nrdd.mapPartitions { iter =>\n  val conn = createConnection()  // 每个分区建一次\n  iter.map { row => conn.query(row) }\n}\n```\n\nmapPartitions 优势：减少资源创建（数据库连接、网络请求）；但内存压力更大。"
+    },
+    {
+      "id": "si-138",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "为什么 flatMap 在大数据处理中如此重要？举一个 Spark 中的实际例子。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "flatMap = map + flatten。\n\nSpark 中最经典的例子——**WordCount**：\n```scala\nlines.flatMap(_.split(\" \"))\n// 一行文本 → 多个单词 → 自动展平\n```\n\n其他场景：\n```scala\norders.flatMap(_.items)    // 展开嵌套结构\ndata.flatMap(parse(_).toOption)  // 过滤 null\n```"
+    },
+    {
+      "id": "si-139",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 filter、filterNot、withFilter 的区别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nlist.filter(_ > 5)             // 立刻创建新集合\nlist.filterNot(_ > 5)          // 排除\n\n// withFilter：惰性，不创建中间集合\nlist.withFilter(_ > 5).map(_ * 2)  // 遍历一次\n```\n\nfor 推导式中的 if 守卫底层就是 withFilter。"
+    },
+    {
+      "id": "si-140",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "reduce、reduceLeft、reduceRight 的区别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nList(1,2,3,4).reduce(_ + _)          // 10\nList(1,2,3,4).reduceLeft(_ - _)       // (1-2)-3-4 = -8\nList(1,2,3,4).reduceRight(_ - _)      // 1-(2-(3-4)) = -2\n\n// 空集合：抛异常\nList.empty[Int].reduce(_ + _)  // UnsupportedOperationException!\nList.empty[Int].fold(0)(_ + _) // 0（安全）\n```"
+    },
+    {
+      "id": "si-141",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "foldLeft 和 foldRight 哪个更高效？为什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nList(1,2,3).foldLeft(0)(_ + _)   // ((0+1)+2)+3 = 6，尾递归\nList(1,2,3).foldRight(0)(_ + _)  // 1+(2+(3+0)) = 6，非尾递归\n```\n\n**foldLeft 更高效**——尾递归优化为循环，常数栈空间。\n\nSpark 的 aggregate 就是 fold 的分布式版本。"
+    },
+    {
+      "id": "si-142",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 groupBy 的用法是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval words = List(\"apple\", \"banana\", \"apricot\")\nval grouped = words.groupBy(_.head)\n// Map(a -> List(apple, apricot), b -> List(banana))\n\n// 分组后计算\nval counts = grouped.view.mapValues(_.size).toMap\n// Map(a -> 2, b -> 1)\n```\n\nSpark 中尽量用 reduceByKey 或 aggregateByKey 替代 groupByKey。"
+    },
+    {
+      "id": "si-143",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 Scala 的集合操作链式处理：筛选及格学生，按班级分组，计算每个班平均分。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ncase class Student(name: String, clazz: String, score: Double)\nval data = List(\n  Student(\"Alice\", \"A\", 85), Student(\"Bob\", \"A\", 62))\n\nval result = data\n  .filter(_.score >= 60)\n  .groupBy(_.clazz)\n  .view.mapValues { students =>\n    (students.length, students.map(_.score).sum / students.length)\n  }\n  .toMap\n```"
+    },
+    {
+      "id": "si-144",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 sortBy 和 sortWith 的用法分别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval nums = List(3, 1, 4, 1, 5)\nnums.sorted                  // List(1, 1, 3, 4, 5)\nnums.sortBy(-_)              // 降序\nnums.sortWith(_ > _)         // 降序\n\n// 多字段排序\npeople.sortBy(p => (-p.age, p.name))\n```"
+    },
+    {
+      "id": "si-145",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中 distinct 和 distinctBy 的区别是什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nList(1, 1, 2, 2, 3).distinct  // List(1, 2, 3)\n\n// distinctBy：按指定条件去重\npeople.distinctBy(_.age)  // 按 age 去重\n```\n\nSpark RDD 的 distinct() 会触发全量 shuffle。DataFrame 中 dropDuplicates(cols) 相当于 distinctBy。"
+    },
+    {
+      "id": "si-146",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "函数式编程的核心原则是什么？Scala 通过哪些特性支持？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "三大核心原则：\n1. **不可变性**：数据不可变，修改返回新数据\n2. **纯函数**：相同输入永远相同输出，无副作用\n3. **函数作为一等公民**：高阶函数、函数组合\n\nScala 的支持：不可变集合、val 优先、高阶函数、Lambda、模式匹配、表达式导向。"
+    },
+    {
+      "id": "si-147",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "什么是高阶函数？举出 Scala 标准库中 5 个高阶函数。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "高阶函数：接收函数作为参数或返回函数作为结果的函数。\n\n```scala\n1. map(f: T => U)        — 1:1 转换\n2. filter(p: T => Boolean)  — 筛选\n3. reduce(op: (A,A)=>A)  — 归约\n4. foreach(f: T => Unit) — 遍历\n5. flatMap(f: T => Traversable[U]) — 一对多\n```\n\nSpark 的 RDD API 就是高阶函数的极致运用。"
+    },
+    {
+      "id": "si-148",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 中的偏函数（PartialFunction）和普通函数有什么区别？Spark 中哪里用到？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "偏函数只对部分输入值有定义：\n```scala\nval positive: PartialFunction[Int, String] = {\n  case n if n > 0 => s\"positive $n\"\n}\npositive.isDefinedAt(-1)  // false\n\n// RDD collect——偏函数的典型应用\nrdd.collect { case n if n > 0 => n * 2 }\n```\n\ncollect = filter（保留 isDefinedAt 为 true）+ map。"
+    },
+    {
+      "id": "si-149",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中的传名参数（=> T）是什么？和传值参数有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| | 传值 | 传名 |\n|--|------|------|\n| 求值时机 | 调用前 | 每次使用时 |\n| 语法 | x: Int | x: => Int |\n| 适用 | 常规参数 | 延迟计算、短路 |\n\n```scala\ndef log(msg: => String): Unit = if (debug) println(msg)\nlog(expensiveCall())  // 只有需要时才计算\n```\n\nSpark 的 getOrElse 参数就是传名参数。"
+    },
+    {
+      "id": "si-150",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用函数式编程风格解析日志文件并统计各级别数量（INFO/WARN/ERROR）。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nval logs = List(\"INFO: start\", \"WARN: disk 85%\", \"ERROR: conn refused\")\n\nval counts = logs\n  .map(_.takeWhile(_ != ':'))     // 提取级别\n  .groupBy(identity)               // 分组\n  .view.mapValues(_.size)          // 计数\n  .toMap\n```\n\n纯函数式：所有变量都是 val，无副作用，可安全并行执行。"
+    },
+    {
+      "id": "si-151",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 中函数式和命令式风格如何权衡？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "| | 函数式 | 命令式 |\n|--|--------|--------|\n| 可读性 | 声明式 | 指令式 |\n| 线程安全 | 天然安全 | 需锁 |\n| 性能 | 可能产生中间对象 | 直接操作内存 |\n\n建议：**默认用函数式**，局部热点用命令式优化。Spark 代码 99% 函数式。"
+    },
+    {
+      "id": "si-152",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 中的 implicit 关键字是什么？隐式转换和隐式参数有什么区别？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// 隐式参数：自动注入\nimplicit val name: String = \"Alice\"\ndef greet(implicit n: String) = s\"Hello $n\"\ngreet  // \"Hello Alice\"\n\n// 隐式类：类型增强\nimplicit class RichInt(val n: Int) extends AnyVal {\n  def square: Int = n * n\n}\n3.square  // 9\n```\n\n- **隐式参数**：值注入，用于依赖注入\n- **隐式转换**：类型适配/增强"
+    },
+    {
+      "id": "si-153",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 隐式转换的三大使用场景是什么？Spark 中分别对应什么例子？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "**场景一：类型增强**：`\"test@example.com\".isEmail`\nSpark：import spark.implicits._ → $ 语法\n\n**场景二：自动适配类型**\nSpark：rdd.toDF() — RDD 自动转换为 DataFrame\n\n**场景三：隐式参数注入**\nSpark：import spark.implicits._ 注入 Encoder"
+    },
+    {
+      "id": "si-154",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 隐式查找的优先级顺序是什么？为什么 Spark 要求 import spark.implicits._？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "隐式查找优先级（从高到低）：\n1. **当前作用域**（本地定义、import）\n2. **显式 import**（如 import spark.implicits._）\n3. **伴生对象**\n4. **包对象**\n\n为什么必须 import？隐式定义在 Session 实例作用域，避免全局隐式污染。"
+    },
+    {
+      "id": "si-155",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Scala 中的 Context Bound [T: Ordering] 语法是什么？Spark 哪里用到？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ndef sort[T: Ordering](list: List[T]): List[T] = list.sorted\n// 等价于：def sort[T](list: List[T])(implicit ord: Ordering[T]) = list.sorted\n```\n\nSpark 中：reduceByKey、sortByKey 需要隐式 Ordering[K] 对 key 排序。"
+    },
+    {
+      "id": "si-156",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Spark 源码中 rddToPairRDDFunctions 隐式转换是如何工作的？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\n// RDD 本身没有 reduceByKey\nclass RDD[T] { ... }\n\n// 隐式转换定义在 RDD 伴生对象中\nimplicit def rddToPairRDDFunctions[K, V](rdd: RDD[(K, V)]): PairRDDFunctions[K, V]\n\n// 用户代码\nrdd.reduceByKey(_ + _)\n// 编译器：RDD 没有 reduceByKey\n// → 找到 rddToPairRDDFunctions → 转为 PairRDDFunctions → 调用\n```\n\n整个过程**编译期**完成，零运行时开销。"
+    },
+    {
+      "id": "si-157",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "隐式转换的常见陷阱有哪些？如何写出安全的隐式代码？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "常见陷阱：\n1. **可读性差**：隐式调用代码中不可见\n2. **命名冲突**：两个同类型隐式 = 编译报错\n3. **性能**：可能创建隐式对象（值类可缓解）\n\n```scala\n// ✅ 推荐：隐式类 + 值类（零分配）\nimplicit class RichInt(val n: Int) extends AnyVal {\n  def triple: Int = n * 3\n}\n// ✅ 限定作用域：import spark.implicits._\n```"
+    },
+    {
+      "id": "si-158",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "用 Scala 的 Ordering 实现按分数降序、按姓名升序的自定义排序。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ncase class Student(name: String, score: Int)\n\n// 通过 sortBy\nval sorted = students.sortBy(s => (-s.score, s.name))\n// List(Bob(92), Alice(85), Carol(85))\n```\n\nSpark 的 sortByKey 底层依赖 Ordering[K]。"
+    },
+    {
+      "id": "si-159",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Scala 在 Spark 中最核心的编程模式是什么？举例说明。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "核心模式：**函数式链式调用 + 闭包**。\n\n```scala\nval rdd = sc.textFile(\"hdfs://data.log\")\n  .flatMap(_.split(\"\\\\\\\\s+\"))\n  .map(word => (word, 1))\n  .filter(_._1.length > 2)\n  .reduceByKey(_ + _)\n  .sortBy(-_._2)\n```\n\n每个算子接收的匿名函数实际是**闭包**——可能捕获外部变量。Spark 将这些闭包序列化后分发给各 Executor。"
+    },
+    {
+      "id": "si-160",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Case class 为什么是 Spark Dataset 类型的理想选择？Encoder 如何自动推导？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "Case class 自动获得 Product trait：\n\n```scala\ncase class Person(name: String, age: Int)\nval ds: Dataset[Person] = spark.read.json(\"people.json\").as[Person]\n```\n\nEncoder 推导过程：\n1. 编译器找到隐式 ExpressionEncoder[Person]\n2. 通过 Product 接口反射字段名和类型\n3. 生成高效序列化/反序列化（比 Kryo/Java 快 10x+）"
+    },
+    {
+      "id": "si-161",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "在 Spark 中如何使用 Scala 模式匹配处理异构数据？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\nsealed trait Event\ncase class Click(userId: String, url: String) extends Event\ncase class Purchase(userId: String, amount: Double) extends Event\n\nval purchaseAmounts = events.rdd.collect {\n  case Purchase(userId, amount) => (userId, amount)\n}\n```\n\n模式匹配让异构数据流的处理变得类型安全且清晰。"
+    },
+    {
+      "id": "si-162",
+      "type": "essay",
+      "difficulty": "medium",
+      "stem": "Spark DataFrame 中的 null 和 Scala 的 Option 如何互相转换？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ncase class User(name: String, age: Option[Int], email: Option[String])\n\nval validUsers = ds.filter(_.age.isDefined)\nval age = user.age.getOrElse(0)\n```\n\n最佳实践：\n1. case class 中用 Option[T] 表示可空列\n2. 用 getOrElse 或模式匹配安全取值\n3. **避免 .get**——和 NullPointerException 一样危险"
+    },
+    {
+      "id": "si-163",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "Spark 中 import spark.implicits._ 导入了什么？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "1. **$ 字符串 → Column**：`$\"name\"` 语法\n2. **Encoder 自动推导**：`df.as[Person]`\n3. **Seq → Dataset**：`Seq(1,2,3).toDS()`\n4. **RDD → DataFrame**：`rdd.toDF(\"col1\", \"col2\")`\n\n这些隐式定义在 SparkSession 实例上，不是全局的。"
+    },
+    {
+      "id": "si-164",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "大数据面试中 Scala 的最高频考点有哪几个？",
+      "source": "大数据面试题库",
+      "sampleAnswer": "**1. 闭包与序列化**\n问：为什么不能在 map 中用 Driver 端 JDBC 连接？\n答：闭包被序列化发送到 Executor，连接不可序列化\n\n**2. 隐式转换**\n问：import spark.implicits._ 做了什么？\n答：$ 语法、Encoder 推导、toDF\n\n**3. map vs flatMap**\n问：区别？答：map 1:1，flatMap 1:多+展平\n\n**4. Case Class**\n问：为什么 Spark Dataset 推荐 case class？\n答：Product trait → Encoder 自动推导\n\n**5. Trait vs Abstract Class**\n答：trait 可多重混入，abstract class 有构造参数"
+    },
+    {
+      "id": "si-165",
+      "type": "essay",
+      "difficulty": "hard",
+      "stem": "用 Scala 综合实现：统计文本中每个单词出现次数，只保留长度大于 2 的单词，按次数降序输出前 10 个。",
+      "source": "大数据面试题库",
+      "sampleAnswer": "```scala\ndef topWords(text: String, topN: Int = 10): List[(String, Int)] = {\n  text\n    .toLowerCase\n    .split(\"\\\\\\\\W+\")             // 分割\n    .filter(_.length > 2)        // 过滤短词\n    .groupBy(identity)           // 分组\n    .view.mapValues(_.size)      // 统计\n    .toSeq\n    .sortBy(-_._2)               // 降序\n    .take(topN)                  // 取前 N\n    .toList\n}\n```\n\n综合运用了：不可变集合、高阶函数、链式调用、sortBy。"
+    }
+  ]
+}

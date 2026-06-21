@@ -1,0 +1,1111 @@
+{
+  "componentId": "spark-sql",
+  "bindings": {
+    "spark-sql-是什么": [
+      "ssql-c-008",
+      "ssql-c-009",
+      "ssql-c-010",
+      "ssql-e-003"
+    ],
+    "sparksession--统一入口": [
+      "ssql-c-009"
+    ],
+    "dataframe-和-dataset": [
+      "ssql-c-010",
+      "ssql-c-011"
+    ],
+    "sql-vs-dataframe-api": [
+      "ssql-c-011"
+    ],
+    "catalog": [
+      "ssql-c-012"
+    ],
+    "执行流程": [
+      "ssql-c-013"
+    ],
+    "dataframe-vs-dataset-vs-rdd": [
+      "ssql-c-014",
+      "ssql-c-018"
+    ],
+    "dataframe-基础操作": [
+      "ssql-c-015",
+      "ssql-c-021"
+    ],
+    "全局优化catalyst-优化器": [
+      "ssql-c-016"
+    ],
+    "udf--udaf": [
+      "ssql-c-017",
+      "ssql-c-045",
+      "ssql-c-047"
+    ],
+    "性能调优": [
+      "ssql-c-018",
+      "ssql-c-050"
+    ],
+    "读取数据": [
+      "ssql-c-019",
+      "ssql-c-020"
+    ],
+    "基础转换": [
+      "ssql-c-021"
+    ],
+    "sql-写法": [
+      "ssql-c-022"
+    ],
+    "写数据": [
+      "ssql-c-022"
+    ],
+    "什么是窗口函数": [
+      "ssql-c-001",
+      "ssql-c-002",
+      "ssql-c-004",
+      "ssql-c-005",
+      "ssql-c-007"
+    ],
+    "窗口函数语法": [
+      "ssql-c-002",
+      "ssql-c-025"
+    ],
+    "常用窗口函数分类": [
+      "ssql-e-001",
+      "ssql-c-023",
+      "ssql-c-024"
+    ],
+    "窗口帧frame详解": [
+      "ssql-c-003",
+      "ssql-c-025",
+      "ssql-c-026",
+      "ssql-c-027"
+    ],
+    "性能调优建议": [
+      "ssql-c-007",
+      "ssql-c-006",
+      "ssql-e-002"
+    ],
+    "join-策略总览": [
+      "ssql-c-028",
+      "ssql-c-029",
+      "ssql-c-030"
+    ],
+    "1-broadcast-hash-join最优策略": [
+      "ssql-c-028"
+    ],
+    "2-sort-merge-join默认大表-join": [
+      "ssql-c-029",
+      "ssql-c-030"
+    ],
+    "3-shuffle-hash-join": [
+      "ssql-c-031"
+    ],
+    "catalyst-优化器核心流程": [
+      "ssql-c-032",
+      "ssql-c-033"
+    ],
+    "关键优化规则详解": [
+      "ssql-c-016",
+      "ssql-c-034"
+    ],
+    "自适应查询执行-aqe--spark-30": [
+      "ssql-e-006",
+      "ssql-c-036",
+      "ssql-c-037",
+      "ssql-c-038",
+      "ssql-c-039"
+    ],
+    "catalyst-架构": [
+      "ssql-c-032",
+      "ssql-e-004"
+    ],
+    "阶段一analysis语义解析": [
+      "ssql-c-032"
+    ],
+    "阶段二logical-optimization逻辑优化": [
+      "ssql-c-016"
+    ],
+    "阶段三physical-planning物理计划": [
+      "ssql-c-035"
+    ],
+    "阶段四code-generation代码生成": [
+      "ssql-c-033"
+    ],
+    "查看执行计划": [
+      "ssql-c-034"
+    ],
+    "aqe-解决的问题": [
+      "ssql-c-036"
+    ],
+    "aqe-三大核心优化": [
+      "ssql-c-037",
+      "ssql-e-006"
+    ],
+    "aqe-配置详解": [
+      "ssql-c-039"
+    ],
+    "aqe-的局限性": [
+      "ssql-c-037"
+    ],
+    "spark-sql-支持的数据源": [
+      "ssql-c-040"
+    ],
+    "文件格式对比": [
+      "ssql-c-040"
+    ],
+    "分区表": [
+      "ssql-c-041"
+    ],
+    "分桶表bucket-table": [
+      "ssql-c-042",
+      "ssql-e-009"
+    ],
+    "jdbc-数据源": [
+      "ssql-c-043"
+    ],
+    "hive-集成": [
+      "ssql-c-044"
+    ],
+    "udf用户自定义函数": [
+      "ssql-c-045",
+      "ssql-c-046"
+    ],
+    "udaf用户自定义聚合函数": [
+      "ssql-c-047"
+    ],
+    "udtf用户自定义表生成函数-pyspark": [],
+    "pandas-udf向量化-udf": [
+      "ssql-c-046",
+      "ssql-e-010"
+    ],
+    "优化总览": [
+      "ssql-c-048",
+      "ssql-c-049",
+      "ssql-c-050"
+    ],
+    "sql-写法优化": [
+      "ssql-c-048"
+    ],
+    "join-优化": [
+      "ssql-c-028",
+      "ssql-c-029",
+      "ssql-c-030",
+      "ssql-c-031",
+      "ssql-e-005"
+    ],
+    "数据倾斜处理": [
+      "ssql-e-008",
+      "ssql-c-048"
+    ],
+    "文件与存储优化": [
+      "ssql-c-041",
+      "ssql-c-042",
+      "ssql-c-049"
+    ],
+    "配置优化": [
+      "ssql-c-050",
+      "ssql-e-007"
+    ],
+    "面试高频考点": [],
+    "小结": []
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "id": "ssql-c-001",
+      "difficulty": "easy",
+      "stem": "Spark SQL 中，ROW_NUMBER() 和 RANK() 的区别是？",
+      "options": {
+        "A": "ROW_NUMBER() 会给相同值的行分配相同序号",
+        "B": "ROW_NUMBER() 生成连续序号，RANK() 相同值同排名且不跳过",
+        "C": "ROW_NUMBER() 生成连续序号，RANK() 相同值同排名但后续名次跳过",
+        "D": "两者功能完全相同，只是名字不同"
+      },
+      "answer": "C",
+      "explanation": "ROW_NUMBER() 为每行生成唯一的连续编号，即使 ORDER BY 列的值相同也会分配不同序号（随机）。而 RANK() 对相同的 ORDER BY 值给予相同排名，但后续排名会跳过（如 1, 2, 2, 4）。DENSE_RANK() 则不会跳过（1, 2, 2, 3）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-002",
+      "difficulty": "easy",
+      "stem": "在 Spark SQL 中，以下哪个不是窗口函数的组成部分？",
+      "options": {
+        "A": "PARTITION BY",
+        "B": "ORDER BY",
+        "C": "GROUP BY",
+        "D": "ROWS BETWEEN ... AND ..."
+      },
+      "answer": "C",
+      "explanation": "窗口函数语法为 func() OVER (PARTITION BY ... ORDER BY ... [ROWS/RANGE BETWEEN ...])。GROUP BY 是普通聚合的一部分，不是窗口函数的组成部分。窗口函数不会将多行折叠成一行，而 GROUP BY 会。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-003",
+      "difficulty": "medium",
+      "stem": "以下关于 ROWS 和 RANGE 窗口帧的描述，正确的是？",
+      "options": {
+        "A": "ROWS 和 RANGE 行为完全相同",
+        "B": "ROWS 基于物理行数，RANGE 基于逻辑值范围",
+        "C": "RANGE 总是比 ROWS 更快",
+        "D": "ROWS 不能在 ORDER BY 列有重复值时使用"
+      },
+      "answer": "B",
+      "explanation": "ROWS 基于物理行数计算帧范围（如前 3 行），每个行独立计算。RANGE 基于 ORDER BY 列的逻辑值范围，相同的 ORDER BY 值被视为同一逻辑行。当 ORDER BY 列有重复值时，RANGE 会将所有相同值的行一起包含在计算中。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-004",
+      "difficulty": "easy",
+      "stem": "LAG(col, 1, 0) OVER (ORDER BY dt) 的作用是？",
+      "options": {
+        "A": "获取当前行后面第 1 行的 col 值，不存在时返回 0",
+        "B": "获取当前行前面第 1 行的 col 值，不存在时返回 0",
+        "C": "对 col 列进行排名",
+        "D": "删除 col 列的后 1 行"
+      },
+      "answer": "B",
+      "explanation": "LAG(col, n, default) 向上（前）偏移 n 行获取值，如果前面没有对应行（如第一行），则返回 default 值。LEAD(col, n, default) 向下（后）偏移 n 行。LAG/LEAD 常用于计算环比、同比变化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-005",
+      "difficulty": "medium",
+      "stem": "窗口函数在 SQL 中与下列哪个子句的执行顺序最正确？",
+      "options": {
+        "A": "FROM → WHERE → 窗口函数 → GROUP BY → SELECT",
+        "B": "FROM → WHERE → GROUP BY → HAVING → 窗口函数 → SELECT → ORDER BY",
+        "C": "FROM → 窗口函数 → WHERE → GROUP BY → SELECT",
+        "D": "FROM → GROUP BY → 窗口函数 → WHERE → SELECT"
+      },
+      "answer": "B",
+      "explanation": "SQL 逻辑执行顺序：FROM → WHERE → GROUP BY → HAVING → 窗口函数 → SELECT → ORDER BY → LIMIT。这表示不能在 WHERE 子句中直接使用窗口函数的结果（需要子查询），但可以在 SELECT 和 ORDER BY 中使用。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-006",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中使用 SUM(amount) OVER (ORDER BY dt ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) 实现的是？",
+      "options": {
+        "A": "每个分组的总额",
+        "B": "累计求和 (Running Total)",
+        "C": "移动平均值",
+        "D": "排名"
+      },
+      "answer": "B",
+      "explanation": "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW 定义了从分区开始到当前行的帧范围，因此 SUM 会累计从第一行到当前行的所有值，即累计求和（Running Total）。移动平均需要用 ROWS BETWEEN n PRECEDING AND CURRENT ROW 配合 AVG。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-007",
+      "difficulty": "hard",
+      "stem": "关于 Spark SQL 窗口函数的性能调优，以下哪个说法是错误的？",
+      "options": {
+        "A": "减少 PARTITION BY 列基数可以降低 Shuffle 压力",
+        "B": "相同 PARTITION BY + ORDER BY 的窗口可以共享 WindowSpec",
+        "C": "窗口函数不需要 Shuffle，所以总比 GROUP BY 快",
+        "D": "过多的不同窗口定义会产生额外的 Shuffle"
+      },
+      "answer": "C",
+      "explanation": "窗口函数中的 PARTITION BY 同样需要 Shuffle 来将相同 key 的数据发送到同一个分区。如果 PARTITION BY 的基数和 GROUP BY 相同，Shuffle 开销类似。窗口函数的优势是能保留原始行，而不是性能上一定更快。C 选项说不需 Shuffle 是完全错误的。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-001",
+      "difficulty": "medium",
+      "stem": "请说明 ROW_NUMBER()、RANK() 和 DENSE_RANK() 的区别，以及各自适用的场景。",
+      "referencePoints": [
+        "ROW_NUMBER 生成连续唯一序号，相同值随机分配",
+        "RANK 相同值同排名，后续跳过",
+        "DENSE_RANK 相同值同排名，后续不跳过",
+        "适用场景：ROW_NUMBER 用于每组取 TOP N（去重），RANK 用于比赛排名，DENSE_RANK 用于需要连续排名的场景",
+        "注意窗口函数中的 ORDER BY 是必须的"
+      ],
+      "sampleAnswer": "ROW_NUMBER() 为每行生成唯一的连续序号（1, 2, 3, 4...），即使排序字段值相同也会分配不同编号。\n\nRANK() 对相同值的行给予相同排名，但后续排名会跳过（如 1, 2, 2, 4）。\n\nDENSE_RANK() 对相同值的行给予相同排名，且后续排名不跳过（如 1, 2, 2, 3）。\n\n使用场景：\n- ROW_NUMBER：每组取 TOP N 场景最常用，如每个部门工资最高的 3 个人\n- RANK：比赛排名场景，如并列第二，下一个是第四名\n- DENSE_RANK：需要连续排名不跳过的场景，如游戏排行榜",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-002",
+      "difficulty": "hard",
+      "stem": "在 Spark SQL 中，如何使用窗口函数计算每件商品的 7 天移动平均销售额？请写出 SQL 并解释 ROWS 和 RANGE 在此场景下的选择。",
+      "referencePoints": [
+        "SQL 要包含 AVG OVER PARTITION BY product_id ORDER BY dt",
+        "帧定义为 ROWS BETWEEN 6 PRECEDING AND CURRENT ROW",
+        "解释：ROWS 按物理行数计算，RANGE 按逻辑值计算",
+        "如果每天一条记录 → ROWS 合适；如果一天多条 → 需考虑用 RANGE 还是先聚合",
+        "实际场景建议先按天聚合，再用 ROWS"
+      ],
+      "sampleAnswer": "```sql\nSELECT \n  product_id,\n  dt,\n  daily_sales,\n  AVG(daily_sales) OVER (\n    PARTITION BY product_id \n    ORDER BY dt \n    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW\n  ) AS ma_7day\nFROM product_daily_sales\nORDER BY product_id, dt;\n```\n\n选择 ROWS 而非 RANGE：\n1. 因为按天聚合后每天只有一条记录，ROWS 基于物理行数精确取前 6 行 + 当前行 = 7 天数据\n2. 使用 RANGE 会有风险——如果 ORDER BY dt 有重复日期（同一产品一天多条记录），RANGE 会将同一天的所有记录一起计算，导致结果不符合预期\n3. 建议先按产品+日期 GROUP BY 聚合为日级数据，再用 ROWS BETWEEN 6 PRECEDING 确保精确的 7 天窗口",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-008",
+      "difficulty": "easy",
+      "stem": "Spark SQL 的前身是什么？",
+      "options": {
+        "A": "Shark",
+        "B": "Hive",
+        "C": "Pig",
+        "D": "MapReduce"
+      },
+      "answer": "A",
+      "explanation": "Spark SQL 的前身是 Shark，它基于 Hive 但运行在 Spark 引擎上。后来 Shark 被 Spark SQL 取代，提供了更强大的 Catalyst 优化器和直接 DataFrame/Dataset API 支持。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-009",
+      "difficulty": "easy",
+      "stem": "SparkSession 在 Spark 2.0 中统一了以下哪些入口点？",
+      "options": {
+        "A": "仅 SQLContext",
+        "B": "SQLContext 和 HiveContext",
+        "C": "SQLContext、HiveContext 和 StreamingContext",
+        "D": "SparkContext、SQLContext 和 HiveContext"
+      },
+      "answer": "D",
+      "explanation": "Spark 2.0 引入了 SparkSession 作为统一入口点，替代了 SparkContext、SQLContext 和 HiveContext。开发者只需创建一个 SparkSession 即可完成所有操作，简化了编程模型。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-010",
+      "difficulty": "medium",
+      "stem": "DataFrame 和 Dataset 在 Spark SQL 中的主要区别是？",
+      "options": {
+        "A": "DataFrame 是类型安全的，Dataset 不是",
+        "B": "Dataset 在编译时进行类型检查，DataFrame 在运行时",
+        "C": "DataFrame 是弱类型的 Dataset[Row]，Dataset 是强类型的",
+        "D": "两者完全相同"
+      },
+      "answer": "C",
+      "explanation": "DataFrame 实际上是 Dataset[Row] 的类型别名（type alias），在编译时不做字段类型检查。Dataset 是强类型的，在编译时就能检查字段类型是否正确。DataFrame 适合动态结构数据处理，Dataset 适合需要类型安全的场景。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-011",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中，以下哪种写法性能通常更好？",
+      "options": {
+        "A": "DataFrame API 写法",
+        "B": "SQL 写法",
+        "C": "两者在 Catalyst 优化后生成相同的执行计划",
+        "D": "DSL 写法总是更快"
+      },
+      "answer": "C",
+      "explanation": "无论是使用 SQL 还是 DataFrame API，Spark SQL 都会经过 Catalyst 优化器生成相同的逻辑计划和物理计划。在大多数场景下，两者的性能是等价的。选择哪种写法主要取决于可读性和团队偏好。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-012",
+      "difficulty": "easy",
+      "stem": "Spark SQL 中的 Catalog 主要用于？",
+      "options": {
+        "A": "管理表的元数据，如数据库、表、函数信息",
+        "B": "存储实际数据",
+        "C": "执行 SQL 查询",
+        "D": "管理集群资源"
+      },
+      "answer": "A",
+      "explanation": "Catalog 是 Spark SQL 中管理元数据的接口，提供了访问数据库、表、视图、函数等元数据信息的方法。包括 listDatabases()、listTables()、listFunctions() 等操作。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-013",
+      "difficulty": "medium",
+      "stem": "Spark SQL 执行一条 SELECT 查询的正确流程是？",
+      "options": {
+        "A": "解析 → 优化 → 分析 → 执行",
+        "B": "解析 → 分析 → 逻辑优化 → 物理计划 → 代码生成 → 执行",
+        "C": "分析 → 解析 → 优化 → 执行",
+        "D": "解析 → 物理计划 → 分析 → 代码生成"
+      },
+      "answer": "B",
+      "explanation": "Spark SQL 执行流程：1) SQL 解析（Parse）生成未解析的逻辑计划；2) 分析（Analyze）通过 Catalog 解析属性和类型；3) 逻辑优化（Logical Optimization）应用规则优化计划；4) 物理计划（Physical Planning）选择物理算子；5) 代码生成（Code Generation）使用 WholeStageCodegen 生成 Java 字节码；6) 执行。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-014",
+      "difficulty": "easy",
+      "stem": "RDD、DataFrame 和 Dataset 三者的性能排序通常是？",
+      "options": {
+        "A": "RDD > DataFrame > Dataset",
+        "B": "Dataset > DataFrame > RDD",
+        "C": "DataFrame ≈ Dataset > RDD",
+        "D": "三者性能相同"
+      },
+      "answer": "C",
+      "explanation": "DataFrame 和 Dataset 都经过 Catalyst 优化器和 Tungsten 执行引擎，性能相近。RDD 没有优化器，序列化开销大，性能最差。DataFrame/Dataset 的优化空间包括谓词下推、列裁剪、整阶段代码生成等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-015",
+      "difficulty": "easy",
+      "stem": "在 DataFrame 中，select 和 withColumn 的区别是？",
+      "options": {
+        "A": "select 只能选择已有列，withColumn 只能新增列",
+        "B": "select 返回新列子集，withColumn 在原有列基础上新增或替换一列",
+        "C": "两者功能完全相同",
+        "D": "select 是转换操作，withColumn 是行动操作"
+      },
+      "answer": "B",
+      "explanation": "select 可以选择现有列的子集，也可以使用表达式创建新列但只保留选中的列。withColumn 在保留所有原有列的基础上添加或替换一列。例如 df.withColumn('new', df.col + 1) 会保留 df 的所有列并新增 new 列。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-016",
+      "difficulty": "hard",
+      "stem": "Catalyst 优化器的优化规则不包括以下哪个？",
+      "options": {
+        "A": "谓词下推 (Predicate Pushdown)",
+        "B": "列裁剪 (Column Pruning)",
+        "C": "自动调优 Shuffle 分区数",
+        "D": "常量折叠 (Constant Folding)"
+      },
+      "answer": "C",
+      "explanation": "自动调优 Shuffle 分区数是 AQE（自适应查询执行）的功能，不是 Catalyst 优化器的规则。Catalyst 的优化规则包括：谓词下推、列裁剪、常量折叠、布尔表达式简化、投影合并、Limit Pushdown 等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-017",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中注册 UDF 后，其生命周期是？",
+      "options": {
+        "A": "永久有效，存储在 Hive Metastore",
+        "B": "仅当前 SparkSession 有效",
+        "C": "跨 Session 共享",
+        "D": "仅当前 SQL 语句有效"
+      },
+      "answer": "B",
+      "explanation": "通过 spark.udf.register() 注册的 UDF 仅对当前 SparkSession 有效。如果要跨 Session 使用，需要将 UDF 注册到 Hive Metastore 中（CREATE FUNCTION ... USING JAR）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-018",
+      "difficulty": "medium",
+      "stem": "以下哪个不是 Spark SQL 性能调优的通用建议？",
+      "options": {
+        "A": "尽量使用 DataFrame/Dataset API 而非 RDD",
+        "B": "尽可能多使用 UDF 来处理复杂逻辑",
+        "C": "合理设置 Shuffle 分区数",
+        "D": "开启 AQE 自适应查询执行"
+      },
+      "answer": "B",
+      "explanation": "过多使用 UDF 会阻止 Catalyst 优化器进行优化，因为 UDF 内部逻辑对优化器是黑盒。应优先使用内置函数，如果必须用 UDF，考虑使用 Pandas UDF 提升性能。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-019",
+      "difficulty": "easy",
+      "stem": "Spark SQL 读取 JSON 文件时，如何处理嵌套结构？",
+      "options": {
+        "A": "自动推断 Schema 并将嵌套结构展开为 StructType",
+        "B": "需要手动定义 StructType",
+        "C": "JSON 不支持嵌套结构",
+        "D": "嵌套结构会自动展平为扁平列"
+      },
+      "answer": "A",
+      "explanation": "Spark SQL 的 read.json() 会自动推断 JSON 文件的 Schema，嵌套的 JSON 对象会被映射为 StructType 列，JSON 数组会被映射为 ArrayType 列。也可以使用 spark.read.schema() 手动指定 Schema。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-020",
+      "difficulty": "medium",
+      "stem": "以下关于 Spark SQL 读取 Parquet 文件的说法，错误的是？",
+      "options": {
+        "A": "Parquet 是列式存储，读取时支持谓词下推",
+        "B": "Parquet 默认压缩，通常比 CSV 更省空间",
+        "C": "Parquet 读取时必须指定 Schema",
+        "D": "Parquet 支持列裁剪，只读取需要的列"
+      },
+      "answer": "C",
+      "explanation": "Parquet 文件自带了 Schema 信息（存储在文件元数据中），读取时不需要手动指定 Schema。Spark SQL 会从 Parquet 文件中自动读取 Schema。Parquet 的列式存储特性使其天然支持谓词下推和列裁剪。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-021",
+      "difficulty": "easy",
+      "stem": "DataFrame 的 filter() 和 where() 方法的关系是？",
+      "options": {
+        "A": "filter 用于数值条件，where 用于字符串条件",
+        "B": "两者完全等价，where 是 filter 的别名",
+        "C": "filter 性能更好",
+        "D": "where 只能用于 SQL 字符串格式"
+      },
+      "answer": "B",
+      "explanation": "在 Spark SQL 的 DataFrame API 中，where() 方法就是 filter() 方法的别名。两者功能完全等价，可以互换使用。选择哪个取决于编码风格偏好。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-022",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中，以下哪种写入模式会覆盖已有数据？",
+      "options": {
+        "A": "SaveMode.Append",
+        "B": "SaveMode.Overwrite",
+        "C": "SaveMode.ErrorIfExists",
+        "D": "SaveMode.Ignore"
+      },
+      "answer": "B",
+      "explanation": "SaveMode.Overwrite 会覆盖目标位置的所有数据。SaveMode.Append 追加数据。SaveMode.ErrorIfExists（默认）如果目标存在则报错。SaveMode.Ignore 如果目标存在则不执行写入。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-023",
+      "difficulty": "easy",
+      "stem": "以下哪个窗口函数不能与 ORDER BY 配合使用？",
+      "options": {
+        "A": "SUM",
+        "B": "ROW_NUMBER",
+        "C": "AVG",
+        "D": "聚合函数无法在窗口函数中使用 ORDER BY"
+      },
+      "answer": "D",
+      "explanation": "所有窗口聚合函数（SUM、AVG、COUNT、MAX、MIN 等）都可以与 ORDER BY 配合使用。当窗口函数使用 ORDER BY 时，默认帧为 RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-024",
+      "difficulty": "medium",
+      "stem": "NTILE(4) OVER (ORDER BY score DESC) 的作用是？",
+      "options": {
+        "A": "将数据分成 4 组，每组行数大致相等",
+        "B": "计算排名最高的 4 行",
+        "C": "计算前 4 行的平均值",
+        "D": "返回每行的第 4 个值"
+      },
+      "answer": "A",
+      "explanation": "NTILE(n) 将分区内的行尽量均匀地分成 n 个桶（组），为每行分配对应的桶编号（1 到 n）。常用于将数据分为等份，如将学生成绩按高低分成 4 个四分位。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-025",
+      "difficulty": "hard",
+      "stem": "在 Spark SQL 中，窗口函数默认的窗口帧（当指定了 ORDER BY 时）是？",
+      "options": {
+        "A": "ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING",
+        "B": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW",
+        "C": "ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING",
+        "D": "默认没有帧限制"
+      },
+      "answer": "B",
+      "explanation": "当窗口函数指定了 ORDER BY 但没有显式指定帧时，默认帧为 RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW。如果只指定 PARTITION BY 没有 ORDER BY，默认帧为 ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING（整个分区）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-026",
+      "difficulty": "medium",
+      "stem": "对于 ROWS BETWEEN 3 PRECEDING AND 3 FOLLOWING 窗口帧，其包含的行数范围是？",
+      "options": {
+        "A": "固定 7 行",
+        "B": "当前行 + 前 3 行 + 后 3 行，但边界处可能少于 7 行",
+        "C": "固定 3 行",
+        "D": "取决于 PARTITION BY 列的数量"
+      },
+      "answer": "B",
+      "explanation": "该帧定义了从当前行往前 3 行到往后 3 行的范围。在分区内部，边界处的行可能没有前 3 行或后 3 行，所以实际行数在分区中间是 7 行，边界处少于 7 行。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-027",
+      "difficulty": "hard",
+      "stem": "有以下数据：(dep=A, salary=1000), (dep=A, salary=2000), (dep=A, salary=2000), (dep=A, salary=3000)。在 dep 分区内按 salary 排序，使用 RANK()，第二行和第三行的排名分别是？",
+      "options": {
+        "A": "2, 2",
+        "B": "2, 3",
+        "C": "2, 4",
+        "D": "1, 2"
+      },
+      "answer": "A",
+      "explanation": "排序后：salary=1000 (rank=1), salary=2000 (rank=2), salary=2000 (rank=2), salary=3000 (rank=4)。RANK 对相同值分配相同排名，后续名次跳过。所以第二行和第三行（salary 都是 2000）的排名都是 2。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-028",
+      "difficulty": "easy",
+      "stem": "Spark SQL 中 Broadcast Hash Join 的适用条件是？",
+      "options": {
+        "A": "两个表都很大",
+        "B": "一个表很小，可以广播到所有 Executor",
+        "C": "适用于任何大小的表",
+        "D": "仅适用于等值连接"
+      },
+      "answer": "B",
+      "explanation": "Broadcast Hash Join 适用于一张表很小（默认 < 10MB，由 spark.sql.autoBroadcastJoinThreshold 控制），可以广播到所有 Executor 内存中。此时大表不需要 Shuffle，直接在本地与广播的小表进行 Hash Join。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-029",
+      "difficulty": "medium",
+      "stem": "当两个大表进行 Join 且没有合适的优化条件时，Spark SQL 默认选择的 Join 策略是？",
+      "options": {
+        "A": "Broadcast Hash Join",
+        "B": "Sort Merge Join",
+        "C": "Shuffle Hash Join",
+        "D": "Cartesian Join"
+      },
+      "answer": "B",
+      "explanation": "Spark SQL 中对两个大表进行 Join 时，默认策略是 Sort Merge Join（SMJ）。它会将双方按 Join Key 排序后再进行合并，虽然需要 Shuffle，但比 Shuffle Hash Join 更稳定，适用于各种数据分布。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-030",
+      "difficulty": "hard",
+      "stem": "Sort Merge Join 的三个主要阶段是？",
+      "options": {
+        "A": "Shuffle → 排序 → 合并",
+        "B": "广播 → 哈希 → 探测",
+        "C": "排序 → Shuffle → 合并",
+        "D": "过滤 → 投影 → 连接"
+      },
+      "answer": "A",
+      "explanation": "Sort Merge Join 的三个阶段：1) Shuffle：双方按 Join Key 进行 Shuffle，相同 Key 的数据到同一分区；2) 排序：在每个分区内按 Join Key 排序；3) 合并：遍历排序后的数据，找出匹配的行进行合并输出。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-031",
+      "difficulty": "medium",
+      "stem": "在哪种情况下 Shuffle Hash Join 可能优于 Sort Merge Join？",
+      "options": {
+        "A": "两张表都很大且 Join Key 基数很高",
+        "B": "一张表小到可以广播，但比广播阈值略大",
+        "C": "Join Key 的基数很低，每侧都有大量相同 Key 的值",
+        "D": "两个表都需要排序的情况下"
+      },
+      "answer": "B",
+      "explanation": "当一张表比广播阈值稍大（不能广播），但比另一张小得多时，Shuffle Hash Join 可能更好。因为小表 Shuffle 后可以在每个分区构建哈希表，大表只需探测。但默认情况下 Spark 倾向于 SMJ 作为更稳定的选择。spark.sql.join.preferSortMergeJoin=false 可以禁用 SMJ 偏好。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-032",
+      "difficulty": "medium",
+      "stem": "Catalyst 优化器的四个主要阶段中，哪一阶段负责将 unresolved logical plan 转变为 resolved logical plan？",
+      "options": {
+        "A": "Analysis（分析阶段）",
+        "B": "Logical Optimization（逻辑优化）",
+        "C": "Physical Planning（物理计划）",
+        "D": "Code Generation（代码生成）"
+      },
+      "answer": "A",
+      "explanation": "Analysis 阶段负责语义解析，通过 Catalog 解析列名、表名、数据类型等信息，将 unresolved logical plan（只有语法树）转变为 resolved logical plan（完整的语义信息）。如果解析失败会抛出 AnalysisException。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-033",
+      "difficulty": "hard",
+      "stem": "Spark SQL 中 WholeStageCodegen（整阶段代码生成）的主要作用是？",
+      "options": {
+        "A": "将多个物理算子合并为单个 Java 函数，消除虚函数调用",
+        "B": "优化 SQL 语法",
+        "C": "管理集群资源",
+        "D": "生成执行计划的可视化图形"
+      },
+      "answer": "A",
+      "explanation": "WholeStageCodegen（全阶段代码生成）将多个物理算子合并为一个 Java 函数，消除算子之间的虚函数调用和中间数据结构的序列化/反序列化开销。多个算子之间的数据通过流水线方式处理，大幅提升 CPU 效率。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-034",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 执行计划中，== Physical Plan == 部分显示的是什么？",
+      "options": {
+        "A": "解析后的逻辑计划",
+        "B": "优化后的逻辑计划",
+        "C": "最终选定的物理执行计划",
+        "D": "SQL 解析树"
+      },
+      "answer": "C",
+      "explanation": "使用 df.explain(true) 可以查看完整的执行计划层级：Parsed Logical Plan → Analyzed Logical Plan → Optimized Logical Plan → Physical Plan。Physical Plan 是最底层的执行计划，包含了具体的物理算子如 SortMergeJoin、HashAggregate、Exchange（Shuffle）等。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-035",
+      "difficulty": "hard",
+      "stem": "以下关于 Spark SQL 物理计划选择的描述，正确的是？",
+      "options": {
+        "A": "物理计划是单一确定的，没有选择过程",
+        "B": "Catalyst 会生成多个物理计划变体，通过成本模型（CBO）选择最优的",
+        "C": "物理计划由用户手动指定",
+        "D": "物理计划在逻辑优化阶段就已经确定"
+      },
+      "answer": "B",
+      "explanation": "Physical Planning 阶段会基于优化后的逻辑计划生成多个物理计划变体（如不同 Join 策略），然后通过成本模型（CBO, Cost-Based Optimizer）选择代价最低的执行计划。CBO 基于表的统计信息（行数、列基数等）估算各计划的代价。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-036",
+      "difficulty": "easy",
+      "stem": "Spark SQL 的 AQE（Adaptive Query Execution）是在哪个版本引入的？",
+      "options": {
+        "A": "Spark 1.0",
+        "B": "Spark 2.0",
+        "C": "Spark 3.0",
+        "D": "Spark 3.5"
+      },
+      "answer": "C",
+      "explanation": "AQE（自适应查询执行）在 Spark 3.0 中作为正式功能引入，是 Spark SQL 性能的重大改进。AQE 在运行时根据已完成的 Shuffle 阶段的统计信息动态调整后续的执行计划。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-037",
+      "difficulty": "medium",
+      "stem": "AQE 的三大核心优化不包括以下哪个？",
+      "options": {
+        "A": "动态合并 Shuffle 分区",
+        "B": "动态调整 Join 策略",
+        "C": "自动处理数据倾斜",
+        "D": "自动缓存中间结果"
+      },
+      "answer": "D",
+      "explanation": "AQE 的三大核心优化是：1) 动态合并 Shuffle 分区（Coalesce Shuffle Partitions）— 根据数据量自动调整分区数；2) 动态切换 Join 策略（如 SMJ → BHJ）；3) 动态优化数据倾斜 Join（Skew Join Optimization）。自动缓存中间结果不是 AQE 的功能。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-038",
+      "difficulty": "hard",
+      "stem": "AQE 的动态切换 Join 策略在以下哪种场景最有用？",
+      "options": {
+        "A": "两个表都很大",
+        "B": "其中一个表经过 Filter 后变得很小，可以广播",
+        "C": "两个表都是空表",
+        "D": "Join Key 没有重复值"
+      },
+      "answer": "B",
+      "explanation": "AQE 的动态切换 Join 策略最典型的场景是：SQL 中的大表经过 Filter/Where 条件过滤后，实际数据量变得很小。AQE 在 Shuffle 阶段完成后发现数据量小于广播阈值，将 Sort Merge Join 动态切换为 Broadcast Hash Join，大幅提升性能。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-039",
+      "difficulty": "medium",
+      "stem": "开启 AQE 后，spark.sql.adaptive.coalescePartitions.minPartitionNum 的默认值是？",
+      "options": {
+        "A": "1",
+        "B": "根据 spark.default.parallelism 确定",
+        "C": "与 spark.sql.shuffle.partitions 相同",
+        "D": "由 Spark Master 决定"
+      },
+      "answer": "C",
+      "explanation": "spark.sql.adaptive.coalescePartitions.minPartitionNum 默认值与 spark.sql.shuffle.partitions（默认 200）相同。它设定 AQE 合并分区后的最小分区数下限，避免合并后分区数过少。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-040",
+      "difficulty": "easy",
+      "stem": "Spark SQL 的默认数据源格式是？",
+      "options": {
+        "A": "CSV",
+        "B": "JSON",
+        "C": "Parquet",
+        "D": "ORC"
+      },
+      "answer": "C",
+      "explanation": "Spark SQL 的默认数据源格式是 Parquet（由 spark.sql.sources.default 配置，默认值为 parquet）。Parquet 是列式存储格式，支持高效的压缩和编码。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-041",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中，以下关于分区表的说法错误的是？",
+      "options": {
+        "A": "分区可以加速查询过滤",
+        "B": "分区列必须是数值类型",
+        "C": "过多的分区可能导致小文件问题",
+        "D": "分区表按分区列的值将数据存储在不同的目录"
+      },
+      "answer": "B",
+      "explanation": "分区列可以是任何类型（字符串、数值、日期等），不限于数值类型。例如按日期分区时通常使用字符串或日期类型。分区表按照分区列的值组织目录结构，查询时通过分区剪裁（Partition Pruning）跳过不相关的目录。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-042",
+      "difficulty": "medium",
+      "stem": "分桶表（Bucket Table）和分区表的区别是什么？",
+      "options": {
+        "A": "分区按值划分目录，分桶按哈希值划分文件",
+        "B": "两者完全相同",
+        "C": "分区用于小表，分桶用于大表",
+        "D": "分桶表不支持等值连接"
+      },
+      "answer": "A",
+      "explanation": "分区表按列的值划分目录（如 dt=2024-01-01/），适合低基数、离散的列。分桶表（Bucket）按列的哈希值取模拆分到固定数量的文件中，适合高基数列，且能在 Join 时避免 Shuffle（当双方都按 Join Key 分桶且桶数成倍数关系时）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-043",
+      "difficulty": "hard",
+      "stem": "Spark SQL 通过 JDBC 读取 MySQL 时，以下哪个配置可以控制读取的并行度？",
+      "options": {
+        "A": "partitionColumn、lowerBound、upperBound、numPartitions",
+        "B": "parallelism",
+        "C": "fetchSize 和 batchSize",
+        "D": "maxPartitionBytes"
+      },
+      "answer": "A",
+      "explanation": "Spark SQL JDBC 读取时，通过 partitionColumn（分区列）、lowerBound（下限）、upperBound（上限）和 numPartitions（分区数）四个参数来控制并行度。Spark 会根据这些参数生成多个 WHERE 条件子句，将数据分片并行读取。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-044",
+      "difficulty": "medium",
+      "stem": "Spark SQL 集成 Hive 时，以下哪个配置不是必须的？",
+      "options": {
+        "A": "hive.metastore.uris",
+        "B": "spark.sql.warehouse.dir",
+        "C": "spark.sql.catalogImplementation=hive",
+        "D": "spark.executor.memory"
+      },
+      "answer": "D",
+      "explanation": "集成 Hive 时，必须设置 hive.metastore.uris（指向 Hive MetaStore 地址）、spark.sql.warehouse.dir（数据仓库路径）和 spark.sql.catalogImplementation=hive（使用 Hive Catalog）。spark.executor.memory 是通用配置，不是 Hive 集成的必需配置。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-045",
+      "difficulty": "easy",
+      "stem": "在 PySpark 中注册 UDF 的方式是？",
+      "options": {
+        "A": "spark.udf.register()",
+        "B": "pyspark.sql.udf()",
+        "C": "使用 @udf 装饰器或 spark.udf.register()",
+        "D": "CREATE TEMPORARY FUNCTION"
+      },
+      "answer": "C",
+      "explanation": "PySpark 中注册 UDF 的两种方式：1) 使用 @udf(returnType=...) 装饰器装饰 Python 函数；2) 使用 spark.udf.register('func_name', func, returnType) 注册为 SQL 可调用的函数。两种方式等效。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-046",
+      "difficulty": "medium",
+      "stem": "Pandas UDF（Vectorized UDF）相比普通 Python UDF 的优势是？",
+      "options": {
+        "A": "逐行处理，内存占用更小",
+        "B": "基于 Apache Arrow，批量处理数据，减少序列化开销",
+        "C": "支持所有 SQL 功能",
+        "D": "不需要指定返回类型"
+      },
+      "answer": "B",
+      "explanation": "Pandas UDF（矢量化的 UDF）使用 Apache Arrow 在 JVM 和 Python 之间高效传输数据，每次处理一个批量的 Pandas Series/DataFrame，而不是逐行处理。这大幅减少了序列化/反序列化的开销和 Python 函数调用次数，性能通常比普通 UDF 提升 10 倍以上。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-047",
+      "difficulty": "hard",
+      "stem": "在 Spark SQL 中实现自定义 UDAF（用户自定义聚合函数），需要继承的基类是？",
+      "options": {
+        "A": "UserDefinedAggregateFunction（Scala）或实现 Aggregator（强类型）",
+        "B": "AbstractUDAF",
+        "C": "BaseAggregateFunction",
+        "D": "CustomAggregator"
+      },
+      "answer": "A",
+      "explanation": "Spark SQL 中实现 UDAF 有两种方式：1) 继承 UserDefinedAggregateFunction（弱类型，操作 Row）；2) 实现 Aggregator 特质（强类型，泛型参数为 IN、BUF、OUT）。推荐使用 Aggregator，它提供类型安全且有更好的性能。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-048",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 优化中，以下关于数据倾斜（Data Skew）的处理方法错误的是？",
+      "options": {
+        "A": "对倾斜的 Join Key 加随机前缀，扩容后处理",
+        "B": "增大 Spark 并行度可以自动解决所有数据倾斜",
+        "C": "使用 AQE 的 Skew Join Optimization 自动处理",
+        "D": "对倾斜值单独过滤处理再 Union 结果"
+      },
+      "answer": "B",
+      "explanation": "增大并行度只是将数据切分得更细，但不能解决数据分布不均的问题——倾斜的 key 仍然集中在少数分区中。解决数据倾斜的方法包括：1) AQE 自动处理；2) 倾斜 key 加随机前缀+扩容；3) 将倾斜 key 单独过滤出来处理；4) 使用 Salting 技术。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-049",
+      "difficulty": "hard",
+      "stem": "以下关于 Spark SQL 小文件问题的描述，正确的是？",
+      "options": {
+        "A": "小文件只影响 HDFS 存储，不影响 Spark 性能",
+        "B": "使用 coalesce(n) 或 repartition(n) 控制输出文件数可以缓解小文件问题",
+        "C": "小文件问题只发生在写入时，不影响读取",
+        "D": "小文件最终会被 Spark 自动合并"
+      },
+      "answer": "B",
+      "explanation": "小文件问题会影响读写性能：NameNode 内存压力增大（HDFS）、Spark 读取时任务数过多、Task 调度开销大。通过 coalesce(n)（减少分区数，无 Shuffle）或 repartition(n)（可增可减，有 Shuffle）控制输出文件数可以缓解。小文件不会自动合并。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "ssql-c-050",
+      "difficulty": "easy",
+      "stem": "spark.sql.shuffle.partitions 的默认值是多少？",
+      "options": {
+        "A": "50",
+        "B": "100",
+        "C": "200",
+        "D": "500"
+      },
+      "answer": "C",
+      "explanation": "spark.sql.shuffle.partitions 控制 Spark SQL 在执行 Shuffle（如 Join、GroupBy、Distinct 等操作）时的默认分区数，默认值为 200。这个值需要根据数据量适当调整：数据量大时增大，数据量小时减小。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-003",
+      "difficulty": "easy",
+      "stem": "请简述 Spark SQL 相比 Hive SQL 的优势有哪些？",
+      "referencePoints": [
+        "基于内存计算，比 Hive（MapReduce）快 10-100 倍",
+        "统一的 SQL 和 DataFrame API",
+        "支持 Catalyst 优化器和 Tungsten 执行引擎",
+        "支持 ANSI SQL:2003 标准",
+        "可以与 Spark 生态无缝集成（MLlib、Streaming、GraphX）"
+      ],
+      "sampleAnswer": "Spark SQL 相比 Hive SQL 的优势包括：\n1. 性能优势：基于 Spark 内存计算引擎，比 Hive 的 MapReduce 快 10-100 倍\n2. 统一 API：同时支持 SQL 和 DataFrame/Dataset API，灵活性强\n3. 高级优化：Catalyst 优化器进行查询优化，Tungsten 执行引擎进行高效的二进制内存管理和代码生成\n4. 标准兼容：支持 ANSI SQL:2003 标准，兼容性更好\n5. 生态集成：可以无缝与 Spark MLlib、Structured Streaming、GraphX 等组件集成",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-004",
+      "difficulty": "medium",
+      "stem": "请解释 Spark SQL 中的 Catalyst 优化器的四个主要阶段及其作用。",
+      "referencePoints": [
+        "Analysis 阶段：语义解析，通过 Catalog 解析属性和类型",
+        "Logical Optimization 阶段：应用规则优化逻辑计划（谓词下推、列裁剪等）",
+        "Physical Planning 阶段：生成多个物理计划变体，CBO 选最优",
+        "Code Generation 阶段：WholeStageCodegen 生成 Java 字节码"
+      ],
+      "sampleAnswer": "Catalyst 优化器的四个阶段：\n1. Analysis（分析阶段）：将 unresolved logical plan 转为 resolved logical plan，通过 Catalog 解析表名、列名、数据类型等语义信息\n2. Logical Optimization（逻辑优化阶段）：应用基于规则的优化，如谓词下推（将过滤条件提前）、列裁剪（只读取需要的列）、常量折叠、常量表达式求值等\n3. Physical Planning（物理计划阶段）：将优化的逻辑计划转为物理计划，生成多个物理计划变体（如选择不同的 Join 策略），通过 CBO 选择最优计划\n4. Code Generation（代码生成阶段）：使用 WholeStageCodegen 将多个物理算子合并为单个 Java 函数，消除虚函数调用，生成高效字节码",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-005",
+      "difficulty": "medium",
+      "stem": "请比较 Broadcast Hash Join、Sort Merge Join 和 Shuffle Hash Join 的适用场景和优缺点。",
+      "referencePoints": [
+        "BHJ：一张表小（默认<10MB），无 Shuffle，最快",
+        "SMJ：大表 Join 大表，稳定，默认策略",
+        "SHJ：中间场景，Build 侧哈希表，有内存压力",
+        "SMJ 适合各种数据分布，SHJ 在 Key 基数高时效率好",
+        "BHJ 有广播开销和内存限制"
+      ],
+      "sampleAnswer": "三种 Join 策略的对比：\n\nBroadcast Hash Join（BHJ）：\n- 适用：一张表很小（< spark.sql.autoBroadcastJoinThreshold，默认 10MB）\n- 优点：小表广播到所有 Executor，大表无需 Shuffle，性能最快\n- 缺点：广播表必须小，否则 Executor OOM\n\nSort Merge Join（SMJ）：\n- 适用：两个大表 Join\n- 优点：稳定，对数据分布不敏感，无论在哪个分区只需排序后合并\n- 缺点：双方都需要 Shuffle + 排序，有一定开销\n\nShuffle Hash Join（SHJ）：\n- 适用：一张表比另一张小得多但不能广播的情况\n- 优点：不需要排序，Build 侧构建哈希表后 Probe 侧直接探测\n- 缺点：Build 侧哈希表可能内存溢出，Spark 3.0+ 默认禁用",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-006",
+      "difficulty": "hard",
+      "stem": "请详细说明 Spark SQL 的 AQE（Adaptive Query Execution）优化原理及其三大核心特性。",
+      "referencePoints": [
+        "AQE 在运行时根据 Shuffle 阶段统计信息动态优化",
+        "动态合并 Shuffle 分区：根据数据量自动调整分区数",
+        "动态切换 Join 策略：运行时将 SMJ 切换为 BHJ",
+        "动态优化数据倾斜：拆分倾斜分区处理"
+      ],
+      "sampleAnswer": "AQE（Adaptive Query Execution）在 Spark 3.0 引入，工作原理是：在执行过程中，AQE 在 Shuffle 阶段完成后收集分区大小等统计信息，基于这些信息动态调整后续的执行计划。\n\n三大核心特性：\n1. 动态合并 Shuffle 分区（Coalesce Shuffle Partitions）：\n   - 根据 Shuffle 后的实际数据量自动合并小分区\n   - 避免大量小任务，减少调度开销\n   - 由 spark.sql.adaptive.coalescePartitions.parallelismFirst 控制\n\n2. 动态切换 Join 策略：\n   - 如果 Filter 后的小表实际数据量小于广播阈值，将 SMJ 切换为 BHJ\n   - 大幅提升 Join 性能\n\n3. 动态优化数据倾斜 Join（Skew Join Optimization）：\n   - 自动检测单个分区过大的倾斜分区\n   - 将倾斜分区拆分为多个子分区，分别与大表的对应分区进行 Join\n   - 避免某个 Task 处理过多数据成为瓶颈\n\n启用方式：spark.sql.adaptive.enabled=true",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-007",
+      "difficulty": "medium",
+      "stem": "在 Spark SQL 中，如何选择分区数（Partition）？请说明 spark.sql.shuffle.partitions 和 spark.default.parallelism 的区别以及调优方法。",
+      "referencePoints": [
+        "spark.sql.shuffle.partitions 控制 SQL 操作的 Shuffle 分区数",
+        "spark.default.parallelism 控制 RDD 操作的默认并行度",
+        "分区数过大：任务数多、调度开销大",
+        "分区数过小：OOM、数据倾斜",
+        "调优原则：单个分区 100-200MB，根据集群资源调整"
+      ],
+      "sampleAnswer": "\nspark.sql.shuffle.partitions 和 spark.default.parallelism 的区别：\n- spark.sql.shuffle.partitions：仅影响 Spark SQL 中 GroupBy、Join、Distinct 等 Shuffle 操作的默认分区数，默认 200\n- spark.default.parallelism：影响 RDD 操作的默认并行度（如 sc.parallelize、reduceByKey 等不指定分区数时），默认值为集群 Core 总数\n\n分区数调优原则：\n1. 目标单个分区大小在 100-200MB\n2. 数据量大时增大分区数（如 1TB 数据，设 1000 分区左右）\n3. 数据量小时减小分区数（减少任务调度开销）\n4. 可以使用 AQE 的动态合并自动调整\n5. 注意：分区数不是越大越好——每个分区对应一个 Task，过多 Task 会增大调度开销",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-008",
+      "difficulty": "hard",
+      "stem": "请详细解释 Spark SQL 中数据倾斜的原因、影响以及常用的解决方案。",
+      "referencePoints": [
+        "数据倾斜原因：Key 分布不均导致部分分区数据量远大于其他分区",
+        "影响：少数 Task 运行极慢，拖慢整个 Stage",
+        "使用 AQE 自动处理数据倾斜",
+        "手动 Salting：倾斜 Key 加随机前缀",
+        "广播小表避免 Shuffle",
+        "倾斜 Key 单独过滤处理再 Union"
+      ],
+      "sampleAnswer": "数据倾斜是指某些 Key 的值远多于其他 Key，导致 Shuffle 后部分分区数据量巨大，而其他分区很少。\n\n原因：Group By 或 Join 的 Key 分布不均（如 NULL 值过多、热点 Key）。\n\n影响：少数 Task 处理大量数据运行很慢，拖慢整个 Stage，甚至 OOM。\n\n解决方案：\n1. 开启 AQE Skew Join Optimization：自动检测倾斜分区并拆分\n   spark.sql.adaptive.skewJoin.enabled=true\n2. Salting 技术：为倾斜 Key 加随机前缀\n   如：倾斜 key + 随机数（0-9），另一侧表扩容 10 倍\n3. 广播小表：如果大表关联小表，强制广播小表避免 Shuffle\n4. 将倾斜 key 单独过滤处理：过滤出倾斜 key 单独处理，union 其他正常数据\n5. NULL 值处理：将 NULL 值加随机后缀避免集中在一个分区",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-009",
+      "difficulty": "hard",
+      "stem": "请写出在 Spark SQL 中实现分桶表（Bucket Table）的示例代码，并解释分桶表的原理及其对 Join 性能的优化。",
+      "referencePoints": [
+        "分桶表按列的哈希值取模分到固定数量的文件中",
+        "CREATE TABLE ... USING parquet CLUSTERED BY (col) INTO n BUCKETS",
+        "分桶表可以在 Join 时避免 Shuffle（Bucket Pruning）",
+        "分桶数需成倍数关系才能实现 Bucket Join",
+        "分桶适合高基数列，分区适合低基数列"
+      ],
+      "sampleAnswer": "\n分桶表示例：\n```sql\nCREATE TABLE sales_bucketed (\n  sale_id INT,\n  product_id INT,\n  amount DOUBLE\n)\nUSING parquet\nCLUSTERED BY (product_id) INTO 16 BUCKETS;\n```\n\n原理：Spark 对 CLUSTERED BY 列计算哈希值后取模，将数据均匀分布到固定数量的桶文件中。\n\n对 Join 性能优化：当两个表都按相同 Join Key 分桶且桶数成倍数关系时，Spark 可以执行 Bucket Join（也称为 Bucket Pruning）——每个桶只需与另一个表的对应桶 Join，无需 Shuffle。这可以省去大量的 Shuffle 开销。\n\n分区 vs 分桶：\n- 分区：按值划分目录，适合低基数列（如日期、省份）\n- 分桶：按哈希划分文件，适合高基数列（如用户 ID、商品 ID）",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "ssql-e-010",
+      "difficulty": "hard",
+      "stem": "请编写 Pandas UDF（Vectorized UDF）的 Python 代码示例，并解释为什么 Pandas UDF 比普通 Python UDF 性能更好。",
+      "referencePoints": [
+        "Pandas UDF 使用 @pandas_udf 装饰器",
+        "基于 Apache Arrow 批量传输数据，减少序列化开销",
+        "每次处理一个 Pandas Series，而不是逐行处理",
+        "性能通常比普通 UDF 快 10 倍以上",
+        "适用于复杂的数据处理逻辑"
+      ],
+      "sampleAnswer": "\nPandas UDF 示例：\n```python\nfrom pyspark.sql.functions import pandas_udf\nfrom pyspark.sql.types import IntegerType\nimport pandas as pd\n\n@pandas_udf(returnType=IntegerType())\ndef score_category(score: pd.Series) -> pd.Series:\n    \"\"\"将分数转为等级\"\"\"\n    return pd.cut(score, bins=[0, 60, 80, 100], labels=[1, 2, 3])\n\n# 使用\nspark_df.withColumn('category', score_category('score')).show()\n```\n\n性能优势原因：\n1. Apache Arrow 列式格式：数据在 JVM 和 Python 之间以 Arrow 格式传输，无需逐行序列化/反序列化\n2. 批量处理：每次传入一个批量的 Pandas Series，减少 Python-JVM 边界跨域调用次数\n3. 向量化计算：可以利用 Pandas/NumPy 的向量化操作，比 Python 逐行循环快得多\n4. CPU 缓存友好：批量数据处理更适合 CPU 缓存的预取机制\n\n注意事项：Pandas UDF 需要安装 pandas 和 pyarrow 库。",
+      "source": "大数据面试题库"
+    }
+  ]
+}

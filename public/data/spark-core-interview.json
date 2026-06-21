@@ -1,0 +1,1478 @@
+{
+  "componentId": "spark-core",
+  "bindings": {
+    "spark-是什么": [
+      "score-c-001",
+      "score-c-002"
+    ],
+    "spark-发展简史": [
+      "score-c-005",
+      "score-c-006"
+    ],
+    "spark-生态系统": [
+      "score-c-009",
+      "score-c-010"
+    ],
+    "适用场景": [
+      "score-c-013"
+    ],
+    "scala-还是-python": [
+      "score-c-015",
+      "score-c-016"
+    ],
+    "环境搭建": [
+      "score-c-019",
+      "score-c-020"
+    ],
+    "spark-应用提交": [
+      "score-c-023",
+      "score-c-024"
+    ],
+    "第一个-spark-应用": [
+      "score-c-027",
+      "score-c-028"
+    ],
+    "rdd-是什么": [
+      "score-c-031",
+      "score-c-032",
+      "score-e-001"
+    ],
+    "rdd-血缘lineage": [
+      "score-c-035",
+      "score-c-036"
+    ],
+    "算子分类": [
+      "score-c-039",
+      "score-c-040"
+    ],
+    "共享变量": [
+      "score-c-043",
+      "score-c-044"
+    ],
+    "持久化与缓存": [
+      "score-c-047",
+      "score-c-048"
+    ],
+    "rdd-算子分类总览": [
+      "score-c-051"
+    ],
+    "单元素类型-transformation": [
+      "score-c-053",
+      "score-c-054"
+    ],
+    "key-value-类型-transformation": [
+      "score-c-057",
+      "score-c-058",
+      "score-e-002"
+    ],
+    "action-详解": [
+      "score-c-061"
+    ],
+    "分区器partitioner": [
+      "score-c-063"
+    ],
+    "dag-调度全流程": [
+      "score-c-065"
+    ],
+    "dagscheduler-工作细节": [
+      "score-c-067",
+      "score-e-003"
+    ],
+    "rdd-依赖类型": [
+      "score-c-069",
+      "score-c-070"
+    ],
+    "task-类型": [
+      "score-c-073"
+    ],
+    "数据本地性调度": [
+      "score-c-075"
+    ],
+    "失败重试机制": [
+      "score-c-077"
+    ],
+    "shuffle-是什么": [
+      "score-c-079"
+    ],
+    "shuffle-演化": [
+      "score-c-081"
+    ],
+    "shuffle-写流程详解": [
+      "score-c-083",
+      "score-e-004",
+      "score-e-005",
+      "score-c-074"
+    ],
+    "shuffle-读流程详解": [
+      "score-c-085"
+    ],
+    "关键配置参数": [
+      "score-c-087"
+    ],
+    "数据倾斜处理面试必考": [
+      "score-c-089",
+      "score-c-090",
+      "score-e-007"
+    ],
+    "广播变量broadcast-variable": [
+      "score-c-093"
+    ],
+    "累加器accumulator": [
+      "score-c-095"
+    ],
+    "广播变量-vs-累加器": [
+      "score-c-097"
+    ],
+    "spark-运行时架构": [
+      "score-c-099",
+      "score-c-100"
+    ],
+    "dagscheduler-详解": [
+      "score-c-103"
+    ],
+    "taskscheduler-详解": [
+      "score-c-105"
+    ],
+    "spark-内存管理": [
+      "score-c-107",
+      "score-e-009"
+    ],
+    "spark-内存管理架构": [
+      "score-c-109"
+    ],
+    "统一内存管理详解": [
+      "score-c-111"
+    ],
+    "堆外内存off-heap": [
+      "score-c-113"
+    ],
+    "rdd-持久化": [
+      "score-c-115"
+    ],
+    "checkpoint": [
+      "score-c-117"
+    ],
+    "什么时候需要持久化": [
+      "score-c-119"
+    ],
+    "缓存策略选择": [
+      "score-c-121"
+    ],
+    "缓存的数据结构": [
+      "score-c-123"
+    ],
+    "checkpoint-实战": [
+      "score-c-125"
+    ],
+    "缓存调优": [
+      "score-c-127"
+    ],
+    "性能调优总览": [
+      "score-c-129",
+      "score-e-011"
+    ],
+    "代码优化": [
+      "score-c-131",
+      "score-e-006"
+    ],
+    "并行度调优": [
+      "score-c-133"
+    ],
+    "资源调优": [
+      "score-c-135"
+    ],
+    "gc-调优": [
+      "score-c-137"
+    ],
+    "序列化调优": [
+      "score-c-139"
+    ],
+    "数据本地性调优": [
+      "score-c-141"
+    ],
+    "部署模式": [
+      "score-c-143"
+    ],
+    "spark-3x-新特性": [
+      "score-c-145",
+      "score-e-013"
+    ],
+    "动态资源分配": [
+      "score-c-147"
+    ],
+    "面试高频考点": [],
+    "小结": [],
+    "_unmatched": []
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "id": "score-c-001",
+      "difficulty": "easy",
+      "stem": "Spark 的核心数据抽象是什么？",
+      "options": {
+        "A": "DataFrame",
+        "B": "RDD",
+        "C": "Dataset",
+        "D": "DStream"
+      },
+      "answer": "B",
+      "explanation": "RDD 是 Spark 最基本的数据抽象",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-002",
+      "difficulty": "easy",
+      "stem": "Spark 是由哪个大学的研究项目发展而来？",
+      "options": {
+        "A": "UC Berkeley",
+        "B": "MIT",
+        "C": "Stanford",
+        "D": "CMU"
+      },
+      "answer": "A",
+      "explanation": "Spark 起源于 UC Berkeley AMPLab",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-005",
+      "difficulty": "easy",
+      "stem": "Spark 1.0 版本何时发布？",
+      "options": {
+        "A": "2012",
+        "B": "2014",
+        "C": "2015",
+        "D": "2016"
+      },
+      "answer": "B",
+      "explanation": "Spark 1.0 于 2014 年 5 月发布",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-006",
+      "difficulty": "medium",
+      "stem": "Spark 2.0 引入的最重要的 API 是什么？",
+      "options": {
+        "A": "RDD",
+        "B": "DataFrame/Dataset",
+        "C": "GraphX",
+        "D": "MLlib"
+      },
+      "answer": "B",
+      "explanation": "Spark 2.0 统一了 DataFrame 和 Dataset API",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-009",
+      "difficulty": "easy",
+      "stem": "Spark 生态不包含以下哪个组件？",
+      "options": {
+        "A": "Spark SQL",
+        "B": "Spark Streaming",
+        "C": "Spark GraphX",
+        "D": "Spark Oozie"
+      },
+      "answer": "D",
+      "explanation": "Oozie 是 Hadoop 的工作流调度器",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-010",
+      "difficulty": "medium",
+      "stem": "Spark Streaming 使用的流处理模型是？",
+      "options": {
+        "A": "逐条处理",
+        "B": "微批次处理",
+        "C": "事件驱动",
+        "D": "实时流"
+      },
+      "answer": "B",
+      "explanation": "Spark Streaming 使用微批次（Micro-Batch）模型",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-013",
+      "difficulty": "easy",
+      "stem": "Spark 最适合的处理场景是？",
+      "options": {
+        "A": "只做离线批处理",
+        "B": "需要迭代计算和交互式查询",
+        "C": "只做流处理",
+        "D": "OLTP 事务处理"
+      },
+      "answer": "B",
+      "explanation": "Spark 擅长批处理、流处理、交互式查询等多种场景",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-015",
+      "difficulty": "easy",
+      "stem": "Spark 的原生开发语言是什么？",
+      "options": {
+        "A": "Java",
+        "B": "Scala",
+        "C": "Python",
+        "D": "R"
+      },
+      "answer": "B",
+      "explanation": "Spark 用 Scala 开发，Scala 是 Spark 的原生语言",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-016",
+      "difficulty": "medium",
+      "stem": "PySpark 相比 Scala API 的劣势是？",
+      "options": {
+        "A": "功能不全",
+        "B": "可能存在性能损失和 Python JVM 通信开销",
+        "C": "不支持 SQL",
+        "D": "不支持 MLlib"
+      },
+      "answer": "B",
+      "explanation": "PySpark 有 Python-JVM 通信开销",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-019",
+      "difficulty": "easy",
+      "stem": "Spark 运行的最基本环境是？",
+      "options": {
+        "A": "需要 Hadoop 集群",
+        "B": "需要 JDK",
+        "C": "需要数据库",
+        "D": "需要 Docker"
+      },
+      "answer": "B",
+      "explanation": "Spark 运行在 JVM 上，只需要 JDK",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-020",
+      "difficulty": "easy",
+      "stem": "spark-shell 默认启动 SparkSession 的变量名是？",
+      "options": {
+        "A": "sc",
+        "B": "spark",
+        "C": "ss",
+        "D": "session"
+      },
+      "answer": "B",
+      "explanation": "spark-shell 中 SparkSession 默认为 spark",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-023",
+      "difficulty": "medium",
+      "stem": "spark-submit 提交应用时 --executor-memory 设置什么？",
+      "options": {
+        "A": "Driver 内存",
+        "B": "每个 Executor 的内存",
+        "C": "Shuffle 内存",
+        "D": "堆外内存"
+      },
+      "answer": "B",
+      "explanation": "--executor-memory 设置每个 Executor 的内存大小",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-024",
+      "difficulty": "medium",
+      "stem": "spark-submit 默认的部署模式是？",
+      "options": {
+        "A": "cluster",
+        "B": "client",
+        "C": "local",
+        "D": "yarn"
+      },
+      "answer": "B",
+      "explanation": "spark-submit 默认以 client 模式运行",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-027",
+      "difficulty": "easy",
+      "stem": "Spark WordCount 程序中最核心的算子是？",
+      "options": {
+        "A": "map",
+        "B": "filter",
+        "C": "reduceByKey",
+        "D": "collect"
+      },
+      "answer": "C",
+      "explanation": "reduceByKey 是 WordCount 的 Shuffle 算子",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-028",
+      "difficulty": "easy",
+      "stem": "Spark 应用结束时应该调用什么释放资源？",
+      "options": {
+        "A": "sc.stop()",
+        "B": "sc.close()",
+        "C": "sc.release()",
+        "D": "自动释放"
+      },
+      "answer": "A",
+      "explanation": "spark.stop() 或 sc.stop() 释放资源",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-031",
+      "difficulty": "easy",
+      "stem": "RDD 的完整英文名称是什么？",
+      "options": {
+        "A": "Resilient Data Distribution",
+        "B": "Resilient Distributed Dataset",
+        "C": "Reliable Data Definition",
+        "D": "Real-time Data Distribution"
+      },
+      "answer": "B",
+      "explanation": "RDD = Resilient Distributed Dataset，弹性分布式数据集",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-032",
+      "difficulty": "medium",
+      "stem": "以下哪个不是 RDD 的特性？",
+      "options": {
+        "A": "分区列表",
+        "B": "依赖关系",
+        "C": "自动加密",
+        "D": "数据本地性"
+      },
+      "answer": "C",
+      "explanation": "RDD 特性：分区、依赖、计算函数、分区器、数据本地性",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-001",
+      "difficulty": "easy",
+      "stem": "RDD 五大特性是什么？",
+      "referencePoints": [
+        "分区列表",
+        "依赖关系",
+        "计算函数",
+        "分区器可选",
+        "数据本地性可选"
+      ],
+      "sampleAnswer": "1) 分区列表 2) 依赖关系 3) 计算函数 4) 分区器 5) 数据本地性。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-035",
+      "difficulty": "medium",
+      "stem": "RDD 血缘的主要作用是什么？",
+      "options": {
+        "A": "提高计算速度",
+        "B": "实现容错",
+        "C": "加密数据",
+        "D": "压缩数据"
+      },
+      "answer": "B",
+      "explanation": "血缘记录转换链，分区丢失时可重新计算实现容错",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-036",
+      "difficulty": "hard",
+      "stem": "以下哪个操作不会改变 RDD 的血缘关系？",
+      "options": {
+        "A": "map",
+        "B": "filter",
+        "C": "cache",
+        "D": "reduceByKey"
+      },
+      "answer": "C",
+      "explanation": "cache 只缓存数据，不改变 RDD 的血缘关系",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-039",
+      "difficulty": "medium",
+      "stem": "以下哪个是 Action 算子？",
+      "options": {
+        "A": "map",
+        "B": "filter",
+        "C": "reduce",
+        "D": "join"
+      },
+      "answer": "C",
+      "explanation": "reduce 触发计算并返回结果，属于 Action 算子",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-040",
+      "difficulty": "easy",
+      "stem": "Transformation 算子的特点是？",
+      "options": {
+        "A": "立即计算结果",
+        "B": "惰性执行",
+        "C": "必须 collect 才能运行",
+        "D": "不生成新 RDD"
+      },
+      "answer": "B",
+      "explanation": "Transformation 是惰性的，遇到 Action 才触发计算",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-043",
+      "difficulty": "medium",
+      "stem": "广播变量的作用是什么？",
+      "options": {
+        "A": "在所有 Executor 间共享只读变量",
+        "B": "在 Task 间传数据",
+        "C": "加速 Shuffle",
+        "D": "广播日志"
+      },
+      "answer": "A",
+      "explanation": "广播变量将只读变量缓存到每个 Executor",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-044",
+      "difficulty": "medium",
+      "stem": "广播变量的数据存储在哪里？",
+      "options": {
+        "A": "Driver 内存",
+        "B": "每个 Executor 的内存中",
+        "C": "磁盘",
+        "D": "HDFS"
+      },
+      "answer": "B",
+      "explanation": "广播变量在 Executor 内存中缓存",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-047",
+      "difficulty": "easy",
+      "stem": "cache() 方法默认的存储级别是？",
+      "options": {
+        "A": "MEMORY_ONLY",
+        "B": "MEMORY_AND_DISK",
+        "C": "DISK_ONLY",
+        "D": "MEMORY_ONLY_2"
+      },
+      "answer": "A",
+      "explanation": "cache() 等价于 persist(MEMORY_ONLY)",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-048",
+      "difficulty": "medium",
+      "stem": "persist() 和 cache() 的区别？",
+      "options": {
+        "A": "无区别",
+        "B": "persist 可以指定存储级别",
+        "C": "cache 更快",
+        "D": "persist 不支持磁盘"
+      },
+      "answer": "B",
+      "explanation": "persist() 允许指定 StorageLevel",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-051",
+      "difficulty": "easy",
+      "stem": "Spark 算子的两个基本分类是？",
+      "options": {
+        "A": "Map 和 Reduce",
+        "B": "Transformation 和 Action",
+        "C": "Shuffle 和 Non-Shuffle",
+        "D": "Lazy 和 Eager"
+      },
+      "answer": "B",
+      "explanation": "算子分为 Transformation（惰性）和 Action（触发计算）",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-053",
+      "difficulty": "medium",
+      "stem": "map 和 mapPartitions 的区别？",
+      "options": {
+        "A": "无区别",
+        "B": "map 逐条处理 mapPartitions 以分区处理",
+        "C": "mapPartitions 更慢",
+        "D": "map 以分区处理"
+      },
+      "answer": "B",
+      "explanation": "map 逐条处理，mapPartitions 批量处理整个分区",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-054",
+      "difficulty": "medium",
+      "stem": "flatMap 和 map 的区别是？",
+      "options": {
+        "A": "flatMap 返回扁平化结果",
+        "B": "无区别",
+        "C": "flatMap 更慢",
+        "D": "map 返回扁平化结果"
+      },
+      "answer": "A",
+      "explanation": "flatMap 要求每条输入返回一个集合，最终结果扁平化",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-057",
+      "difficulty": "hard",
+      "stem": "reduceByKey 和 groupByKey 的关键区别？",
+      "options": {
+        "A": "reduceByKey 有 map 端预聚合",
+        "B": "无区别",
+        "C": "groupByKey 更快",
+        "D": "reduceByKey 只能用于数值"
+      },
+      "answer": "A",
+      "explanation": "reduceByKey 先本地聚合再 Shuffle，大大减少网络开销",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-058",
+      "difficulty": "medium",
+      "stem": "以下哪个不是 Key-Value Transformation？",
+      "options": {
+        "A": "reduceByKey",
+        "B": "join",
+        "C": "cogroup",
+        "D": "map"
+      },
+      "answer": "D",
+      "explanation": "map 不是 Key-Value 专有算子",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-061",
+      "difficulty": "medium",
+      "stem": "collect 算子在使用时的注意事项？",
+      "options": {
+        "A": "数据量大时可能导致 Driver OOM",
+        "B": "比 saveAsTextFile 快",
+        "C": "不需要网络传输",
+        "D": "只能用于小数据"
+      },
+      "answer": "A",
+      "explanation": "collect 将所有分区数据拉到 Driver，大数据集会 OOM",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-063",
+      "difficulty": "medium",
+      "stem": "Spark 默认的分区器是什么？",
+      "options": {
+        "A": "HashPartitioner",
+        "B": "RangePartitioner",
+        "C": "RoundRobinPartitioner",
+        "D": "CustomPartitioner"
+      },
+      "answer": "A",
+      "explanation": "Spark 默认使用 HashPartitioner",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-065",
+      "difficulty": "hard",
+      "stem": "DAGScheduler 划分 Stage 的依据是？",
+      "options": {
+        "A": "数据量",
+        "B": "宽依赖（Shuffle）",
+        "C": "分区数量",
+        "D": "内存大小"
+      },
+      "answer": "B",
+      "explanation": "遇到宽依赖时划分 Stage",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-067",
+      "difficulty": "medium",
+      "stem": "DAGScheduler 将 Stage 提交给谁？",
+      "options": {
+        "A": "TaskScheduler",
+        "B": "SchedulerBackend",
+        "C": "Executor",
+        "D": "BlockManager"
+      },
+      "answer": "A",
+      "explanation": "DAGScheduler 提交 Stage 给 TaskScheduler",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-003",
+      "difficulty": "medium",
+      "stem": "DAG 调度全流程是怎样的？",
+      "referencePoints": [
+        "Action 触发 Job",
+        "DAGScheduler 划分 Stage",
+        "Stage 提交给 TaskScheduler",
+        "TaskScheduler 分发 Task 到 Executor"
+      ],
+      "sampleAnswer": "Action→DAGScheduler 划分 Stage→TaskScheduler→Executor 执行。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-069",
+      "difficulty": "hard",
+      "stem": "窄依赖的特点是？",
+      "options": {
+        "A": "子 RDD 分区只依赖父 RDD 固定分区",
+        "B": "需要 Shuffle",
+        "C": "依赖所有父分区",
+        "D": "不能流水线执行"
+      },
+      "answer": "A",
+      "explanation": "窄依赖的每个子分区只依赖固定的父分区",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-070",
+      "difficulty": "hard",
+      "stem": "以下哪种依赖是宽依赖？",
+      "options": {
+        "A": "map",
+        "B": "filter",
+        "C": "reduceByKey",
+        "D": "union"
+      },
+      "answer": "C",
+      "explanation": "reduceByKey 需要 Shuffle 是宽依赖",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-073",
+      "difficulty": "medium",
+      "stem": "Spark 中 Task 分为几种类型？",
+      "options": {
+        "A": "1 种",
+        "B": "2 种",
+        "C": "3 种",
+        "D": "4 种"
+      },
+      "answer": "B",
+      "explanation": "ShuffleMapTask 和 ResultTask 两种",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-075",
+      "difficulty": "medium",
+      "stem": "数据本地性级别从高到低排列正确的是？",
+      "options": {
+        "A": "PROCESS_LOCAL > NODE_LOCAL > RACK_LOCAL > ANY",
+        "B": "NODE > PROCESS > RACK",
+        "C": "ANY > RACK > NODE",
+        "D": "RACK > NODE > PROCESS"
+      },
+      "answer": "A",
+      "explanation": "进程本地 > 节点本地 > 机架本地 > 任意",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-077",
+      "difficulty": "medium",
+      "stem": "Task 失败默认最大重试次数是？",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "10"
+      },
+      "answer": "B",
+      "explanation": "spark.task.maxFailures 默认 4",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-079",
+      "difficulty": "medium",
+      "stem": "Shuffle 操作一定涉及？",
+      "options": {
+        "A": "网络传输",
+        "B": "磁盘 IO",
+        "C": "A 和 B",
+        "D": "只涉及磁盘"
+      },
+      "answer": "C",
+      "explanation": "Shuffle 涉及 map 端写磁盘和 reduce 端网络读取",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-081",
+      "difficulty": "hard",
+      "stem": "HashShuffle 未优化时会产生多少个文件？",
+      "options": {
+        "A": "m",
+        "B": "r",
+        "C": "m*r",
+        "D": "m+r"
+      },
+      "answer": "C",
+      "explanation": "HashShuffle 产生 m（map 数）* r（reduce 数）个文件",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-083",
+      "difficulty": "hard",
+      "stem": "SortShuffle 写过程输出几个文件？",
+      "options": {
+        "A": "1 个数据文件+1 个索引文件",
+        "B": "r 个文件",
+        "C": "m 个文件",
+        "D": "不输出文件"
+      },
+      "answer": "A",
+      "explanation": "SortShuffle 每 map 输出 1 个数据文件+1 个索引文件",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-005",
+      "difficulty": "hard",
+      "stem": "SortShuffle 的写流程？",
+      "referencePoints": [
+        "map 端写入内存缓冲区",
+        "溢出排序并写入磁盘",
+        "合并多个溢写文件",
+        "生成索引文件"
+      ],
+      "sampleAnswer": "1) 数据写入内存缓冲区 2) 溢出时排序后写入磁盘 3) 合并所有溢写文件为单个数据文件+索引文件。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-085",
+      "difficulty": "medium",
+      "stem": "Shuffle Read 阶段从哪里读取数据？",
+      "options": {
+        "A": "Executor 本地磁盘",
+        "B": "Map 输出的磁盘文件的位置",
+        "C": "HDFS",
+        "D": "内存"
+      },
+      "answer": "B",
+      "explanation": "Reduce 端根据索引文件读取 map 端输出的磁盘文件",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-087",
+      "difficulty": "medium",
+      "stem": "spark.shuffle.partitions 的默认值是？",
+      "options": {
+        "A": "50",
+        "B": "100",
+        "C": "200",
+        "D": "500"
+      },
+      "answer": "C",
+      "explanation": "spark.shuffle.partitions 默认 200",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-089",
+      "difficulty": "medium",
+      "stem": "数据倾斜时优先考虑的方案？",
+      "options": {
+        "A": "增大并行度",
+        "B": "Broadcast Join",
+        "C": "过滤全部数据",
+        "D": "重启集群"
+      },
+      "answer": "B",
+      "explanation": "Broadcast Join 避免 Shuffle 从根本上解决倾斜",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-090",
+      "difficulty": "hard",
+      "stem": "两阶段聚合中加盐的作用？",
+      "options": {
+        "A": "加密数据",
+        "B": "将相同 key 分散到不同分区",
+        "C": "压缩数据",
+        "D": "减少数据量"
+      },
+      "answer": "B",
+      "explanation": "加盐（随机前缀）将倾斜 key 分散到不同分区",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-007",
+      "difficulty": "medium",
+      "stem": "数据倾斜的解决方案有哪些？",
+      "referencePoints": [
+        "Broadcast Join",
+        "加盐两阶段聚合",
+        "识别倾斜 key 单独处理",
+        "增大并行度",
+        "过滤异常 key"
+      ],
+      "sampleAnswer": "1) Broadcast Join（优先）2) 加盐两阶段聚合 3) 倾斜 key 分离处理 4) 增大并行度 5) 过滤异常 key。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-093",
+      "difficulty": "medium",
+      "stem": "使用广播变量有什么前提条件？",
+      "options": {
+        "A": "变量必须是只读的",
+        "B": "变量必须可序列化",
+        "C": "A 和 B",
+        "D": "变量必须小"
+      },
+      "answer": "C",
+      "explanation": "广播变量必须是只读且可序列化的",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-095",
+      "difficulty": "hard",
+      "stem": "累加器在 Action 算子中才能生效的原因？",
+      "options": {
+        "A": "Transformer 可能重复执行导致重复累加",
+        "B": "累加器只能在 Action 中创建",
+        "C": "累加器需要触发计算",
+        "D": "以上都是"
+      },
+      "answer": "A",
+      "explanation": "Transformation 可能被多次执行，导致累加器重复累加",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-097",
+      "difficulty": "medium",
+      "stem": "广播变量和累加器的共同点是？",
+      "options": {
+        "A": "都是只读的",
+        "B": "都在 Executor 间共享数据",
+        "C": "都需要 Driver 参与",
+        "D": "都是可变的"
+      },
+      "answer": "B",
+      "explanation": "两者都是跨 Executor 共享数据的机制",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-099",
+      "difficulty": "easy",
+      "stem": "Spark Driver 的主要作用？",
+      "options": {
+        "A": "存储数据",
+        "B": "解析 SQL 转化 Job 为 Task 并调度",
+        "C": "管理 HDFS",
+        "D": "监控集群"
+      },
+      "answer": "B",
+      "explanation": "Driver 是 Spark 应用的入口，负责解析、调度",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-100",
+      "difficulty": "medium",
+      "stem": "Executor 的职责不包括？",
+      "options": {
+        "A": "执行 Task",
+        "B": "缓存数据",
+        "C": "任务调度",
+        "D": "返回结果给 Driver"
+      },
+      "answer": "C",
+      "explanation": "Executor 负责执行 Task 和缓存数据，调度是 Driver 的职责",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-103",
+      "difficulty": "hard",
+      "stem": "DAGScheduler 的高级调度职责是？",
+      "options": {
+        "A": "将 DAG 图划分为 Stage",
+        "B": "将 Task 发送到 Executor",
+        "C": "管理内存",
+        "D": "数据本地性选择"
+      },
+      "answer": "A",
+      "explanation": "DAGScheduler 负责将 DAG 划分为 Stage",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-105",
+      "difficulty": "medium",
+      "stem": "TaskScheduler 的调度职责是？",
+      "options": {
+        "A": "划分 Stage",
+        "B": "将 Task 分配给 Executor",
+        "C": "解析 SQL",
+        "D": "管理缓存"
+      },
+      "answer": "B",
+      "explanation": "TaskScheduler 负责将 Task 分发到 Executor",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-107",
+      "difficulty": "medium",
+      "stem": "spark.memory.fraction 默认值是？",
+      "options": {
+        "A": "0.5",
+        "B": "0.6",
+        "C": "0.75",
+        "D": "0.8"
+      },
+      "answer": "B",
+      "explanation": "spark.memory.fraction 默认 0.6",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-009",
+      "difficulty": "medium",
+      "stem": "Spark 统一内存管理的原理？",
+      "referencePoints": [
+        "总堆内存的 60% 为统一内存",
+        "Storage 和 Execution 各占一半",
+        "Execution 可借用 Storage",
+        "借用可被收回"
+      ],
+      "sampleAnswer": "堆内存 60% 用于 Unified Memory，Storage 和 Execution 各占 30%。Execution 可借用 Storage 空间。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-109",
+      "difficulty": "hard",
+      "stem": "Spark 堆内内存分为哪几部分？",
+      "options": {
+        "A": "Storage 和 Execution",
+        "B": "Storage、Execution 和其他",
+        "C": "Young 和 Old",
+        "D": "Heap 和 Off-Heap"
+      },
+      "answer": "B",
+      "explanation": "堆内内存分 Storage、Execution 和其他（预留+User 代码）",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-111",
+      "difficulty": "hard",
+      "stem": "Execution 和 Storage 之间的内存借用规则？",
+      "options": {
+        "A": "Execution 可借 Storage",
+        "B": "Storage 可借 Execution",
+        "C": "互相可借",
+        "D": "不可借用"
+      },
+      "answer": "C",
+      "explanation": "Execution 和 Storage 可以互相借用空闲内存",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-113",
+      "difficulty": "medium",
+      "stem": "Off-Heap 内存的优势是？",
+      "options": {
+        "A": "自动 GC 管理",
+        "B": "不受 GC 影响适合大对象",
+        "C": "速度更快",
+        "D": "自动序列化"
+      },
+      "answer": "B",
+      "explanation": "堆外内存不在 JVM 堆上，不受 GC 影响",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-115",
+      "difficulty": "medium",
+      "stem": "MEMORY_ONLY_SER 相比 MEMORY_ONLY 的特点？",
+      "options": {
+        "A": "占用空间更小但需要序列化开销",
+        "B": "速度更快",
+        "C": "只存磁盘",
+        "D": "复制多份"
+      },
+      "answer": "A",
+      "explanation": "MEMORY_ONLY_SER 序列化存储节省空间但增加 CPU 开销",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-117",
+      "difficulty": "hard",
+      "stem": "Checkpoint 相比 cache 的额外开销？",
+      "options": {
+        "A": "需要额外触发一个 Job",
+        "B": "没有额外开销",
+        "C": "需要更多内存",
+        "D": "速度更慢"
+      },
+      "answer": "A",
+      "explanation": "Checkpoint 需要额外 Job 将数据写入可靠存储",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-119",
+      "difficulty": "medium",
+      "stem": "以下哪种场景最适合使用 cache？",
+      "options": {
+        "A": "数据只使用一次",
+        "B": "数据被多个 Action 重复使用",
+        "C": "数据量极大",
+        "D": "数据不需要容错"
+      },
+      "answer": "B",
+      "explanation": "数据被多次使用时 cache 避免重复计算",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-121",
+      "difficulty": "medium",
+      "stem": "选择 MEMORY_AND_DISK 的场景是？",
+      "options": {
+        "A": "内存充足且需要高性能",
+        "B": "内存不足但不想丢失数据",
+        "C": "需要跨进程共享",
+        "D": "数据量极小"
+      },
+      "answer": "B",
+      "explanation": "MEMORY_AND_DISK 优先内存，不足时落盘",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-123",
+      "difficulty": "medium",
+      "stem": "RDD 缓存数据实际存储在？",
+      "options": {
+        "A": "Driver",
+        "B": "每个 Executor 的 BlockManager 中",
+        "C": "HDFS",
+        "D": "外部存储"
+      },
+      "answer": "B",
+      "explanation": "BlockManager 管理 Executor 上的缓存数据",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-125",
+      "difficulty": "hard",
+      "stem": "Checkpoint 应该缓存到？",
+      "options": {
+        "A": "本地磁盘",
+        "B": "HDFS 或可靠文件系统",
+        "C": "内存",
+        "D": "数据库"
+      },
+      "answer": "B",
+      "explanation": "Checkpoint 需要可靠存储如 HDFS",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-127",
+      "difficulty": "hard",
+      "stem": "缓存的数据什么情况下会被清除？",
+      "options": {
+        "A": "内存不足时 LRU 淘汰",
+        "B": "永不淘汰",
+        "C": "每 5 分钟淘汰",
+        "D": "只在应用结束时"
+      },
+      "answer": "A",
+      "explanation": "BlockManager 在内存不足时采用 LRU 淘汰策略",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-129",
+      "difficulty": "medium",
+      "stem": "Spark 性能调优的首要目标是？",
+      "options": {
+        "A": "增大内存",
+        "B": "减少 Shuffle 数据量",
+        "C": "增加并行度",
+        "D": "使用最新的版本"
+      },
+      "answer": "B",
+      "explanation": "减少 Shuffle 数据量是最核心的调优方向",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-011",
+      "difficulty": "medium",
+      "stem": "Spark 性能调优的核心原则？",
+      "referencePoints": [
+        "减少 Shuffle 数据量",
+        "合理设置并行度",
+        "使用高效算子",
+        "合理使用缓存",
+        "选择合适序列化"
+      ],
+      "sampleAnswer": "核心是减少 Shuffle。reduceByKey 替代 groupByKey，100-200MB/分区，Kryo 序列化。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-131",
+      "difficulty": "medium",
+      "stem": "以下哪个代码优化是正确的？",
+      "options": {
+        "A": "能用 groupByKey 就不用 reduceByKey",
+        "B": "能用 reduceByKey 就不用 groupByKey",
+        "C": "filter 应该放在 join 之后",
+        "D": "使用 foreach 替代 foreachPartition"
+      },
+      "answer": "B",
+      "explanation": "reduceByKey 有预聚合减少网络开销",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-133",
+      "difficulty": "medium",
+      "stem": "合理的分区大小范围是？",
+      "options": {
+        "A": "10-50MB",
+        "B": "100-200MB",
+        "C": "500MB-1GB",
+        "D": "越大越好"
+      },
+      "answer": "B",
+      "explanation": "推荐每个分区 100-200MB",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-135",
+      "difficulty": "hard",
+      "stem": "Executor 核心数与任务并行度的关系？",
+      "options": {
+        "A": "建议每个 Executor 2-5 核",
+        "B": "越多越好",
+        "C": "和并行度没关系",
+        "D": "必须偶数"
+      },
+      "answer": "A",
+      "explanation": "推荐每个 Executor 分配 2-5 个核心",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-137",
+      "difficulty": "hard",
+      "stem": "减少 GC 开销的策略？",
+      "options": {
+        "A": "使用 Kryo 序列化减少对象大小",
+        "B": "增大 GC 线程数",
+        "C": "关闭 GC",
+        "D": "使用串行 GC"
+      },
+      "answer": "A",
+      "explanation": "Kryo 序列化减少对象大小和数量，降低 GC 压力",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-139",
+      "difficulty": "hard",
+      "stem": "Kryo 序列化的缺点？",
+      "options": {
+        "A": "需要提前注册类",
+        "B": "比 Java 序列化慢",
+        "C": "不支持所有类型",
+        "D": "A 和 C"
+      },
+      "answer": "A",
+      "explanation": "Kryo 需要 registerKryoClasses 注册类才能最佳性能",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-141",
+      "difficulty": "hard",
+      "stem": "数据本地性等待超时由哪个参数控制？",
+      "options": {
+        "A": "spark.locality.wait",
+        "B": "spark.task.timeout",
+        "C": "spark.executor.timeout",
+        "D": "spark.network.timeout"
+      },
+      "answer": "A",
+      "explanation": "spark.locality.wait 控制各本地性级别的等待时间",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-143",
+      "difficulty": "medium",
+      "stem": "YARN cluster 模式下 Driver 运行在哪里？",
+      "options": {
+        "A": "客户端机器",
+        "B": "ApplicationMaster 中",
+        "C": "NodeManager",
+        "D": "ResourceManager"
+      },
+      "answer": "B",
+      "explanation": "YARN cluster 模式 Driver 运行在 AM 中",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-145",
+      "difficulty": "medium",
+      "stem": "Spark 3.0 最重要的优化是？",
+      "options": {
+        "A": "AQE",
+        "B": "Spark Streaming",
+        "C": "MLlib",
+        "D": "GraphX"
+      },
+      "answer": "A",
+      "explanation": "Adaptive Query Execution 是 3.0 最重要的新功能",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-013",
+      "difficulty": "medium",
+      "stem": "AQE 三大优化？",
+      "referencePoints": [
+        "动态合并分区",
+        "动态切换 Join 策略",
+        "动态处理倾斜 Join"
+      ],
+      "sampleAnswer": "1) 动态合并 Shuffle 分区 2) 动态切换 BroadcastJoin 3) 动态处理倾斜。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-147",
+      "difficulty": "hard",
+      "stem": "动态资源分配需要开启什么服务？",
+      "options": {
+        "A": "Shuffle Service",
+        "B": "HDFS Service",
+        "C": "YARN Service",
+        "D": "History Server"
+      },
+      "answer": "A",
+      "explanation": "spark.shuffle.service.enabled=true 确保 Executor 删除后数据不丢失",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-002",
+      "difficulty": "medium",
+      "stem": "请详细解释 Spark 中 reduceByKey 和 groupByKey 的区别，以及为什么 reduceByKey 性能更好。",
+      "referencePoints": [
+        "reduceByKey 有 Map 端预聚合（Combiner），减少 Shuffle 数据量",
+        "groupByKey 将所有原始数据全量 Shuffle",
+        "reduceByKey 要求聚合函数满足结合律",
+        "reduceByKey 适合 sum/count/max/min，groupByKey 只在需要全部值时使用"
+      ],
+      "sampleAnswer": "reduceByKey 和 groupByKey 都用于对 PairRDD 按键分组聚合，但内部实现机制完全不同：\n\n**reduceByKey**：\n- 在每个 Map Task 内先对相同 key 做局部聚合（类似于 Hadoop 的 Combiner）\n- 每个分区输出时，key 已经部分聚合，Shuffle 数据量大幅减少\n- 要求聚合函数满足结合律（如 _+_）\n- 默认使用 HashPartitioner，也可以通过第二个参数指定分区数和分区器\n\n**groupByKey**：\n- 没有 Map 端预聚合，将所有 KV 对原封不动 Shuffle 到 Reduce 端\n- Shuffle 数据量 = 原始数据量\n- Reduce 端收到所有值后进行分组，生成 Iterable 集合\n- 性能显著差于 reduceByKey，应尽量避免使用\n\n**性能对比**：假设 1000 万条数据，100 个 key。reduceByKey 预聚合后 Shuffle 100 条记录，groupByKey 全量 Shuffle 1000 万条。\n\n**选择建议**：绝大多数场景用 reduceByKey（或 aggregateByKey），除非确实需要获取每个 key 对应的所有值的完整列表时再用 groupByKey。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-004",
+      "difficulty": "hard",
+      "stem": "请详细解释 Spark Shuffle 的 SortShuffle 写流程，包括内存缓冲、排序溢写和合并的完整过程。",
+      "referencePoints": [
+        "Map 端数据写入内存缓冲区（ShuffleExternalSorter）",
+        "缓冲区满后按 partitionId+key 排序并溢写到磁盘",
+        "多次 spill 产生多个临时文件",
+        "最终 merge 为单个 data file + index file",
+        "BypassMergeSortShuffle 的优化机制"
+      ],
+      "sampleAnswer": "SortShuffle 写流程的完整过程：\n\n**1. 数据收集阶段**：\n- Map Task 将输出数据写入 ShuffleExternalSorter\n- 数据在内存中以指针 + record 的形式保存\n- `spark.shuffle.file.buffer`（默认 32K）控制写缓冲区大小\n\n**2. 排序与溢写（Spill）**：\n- 当内存缓冲区达到阈值时触发 spill\n- 先按 partitionId 排序（确保同一分区的数据连续），再按 key 排序（如果启用了排序）\n- 每个 spill 生成一个临时文件到本地磁盘\n\n**3. 合并（Merge）**：\n- 所有 spill 完成后，将多个临时文件合并为一个最终的 data 文件\n- 同时生成 index 文件，记录每个 partition 在 data 文件中的偏移量\n- 每个 Map Task 最终只产生 2 个文件（data + index）\n\n**4. BypassMergeSortShuffle 优化**：\n- 当分区数 < spark.shuffle.sort.bypassMergeThreshold（默认 200）且无聚合操作时触发\n- 直接为每个分区创建一个临时文件，最后合并\n- 跳过排序步骤，适用于分区少的场景",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "score-e-006",
+      "difficulty": "medium",
+      "stem": "请列举 Spark 代码层面的优化技巧，说明每种技巧解决的问题和优化原理。",
+      "referencePoints": [
+        "用 reduceByKey 替代 groupByKey 减少 Shuffle",
+        "用 foreachPartition 替代 foreach 减少资源创建开销",
+        "缓存被多次使用的 RDD 避免重复计算",
+        "用累加器合并多次 Action 减少计算次数",
+        "用 coalesce 替代 repartition 减少 Shuffle"
+      ],
+      "sampleAnswer": "Spark 代码优化的核心技巧：\n\n**1. reduceByKey 替代 groupByKey**\n- 问题：groupByKey 全量 Shuffle，网络和磁盘开销大\n- 原理：reduceByKey 在 Map 端预聚合（Combiner），Shuffle 数据量大幅减少\n- 推荐：优先使用 reduceByKey，需要灵活聚合时用 aggregateByKey\n\n**2. foreachPartition 替代 foreach**\n- 问题：foreach 每条记录创建一次资源（如数据库连接），性能极低\n- 原理：foreachPartition 每个分区创建一次资源，分区内复用\n- 示例：写入 MySQL 时 foreachPartition 中创建连接，分区内逐条写入\n\n**3. 缓存被多次使用的 RDD**\n- 问题：RDD 默认不持久化，多次 Action 导致重复计算\n- 原理：cache()/persist() 将中间结果缓存到内存/磁盘，后续 Action 直接读取\n- 注意：只用一次的 RDD 不要缓存，浪费内存\n\n**4. 累加器合并多次 Action**\n- 问题：多次 filter+count 遍历同一 RDD\n- 原理：一次 foreach + 多个累加器同时统计多个指标\n- 适用：同时计算多个统计值（count/sum/max/min）\n\n**5. coalesce 替代 repartition**\n- 问题：repartition 全量 Shuffle，即使只是减少分区数\n- 原理：coalesce 减少分区时默认不 Shuffle（合并相邻分区）\n- 注意：增加分区数时必须用 repartition",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "score-c-074",
+      "difficulty": "hard",
+      "stem": "SortShuffle 在溢写时按什么排序？",
+      "options": {
+        "A": "按分区 ID + key 的字典序",
+        "B": "只按 key",
+        "C": "随机",
+        "D": "按值大小"
+      },
+      "answer": "A",
+      "explanation": "SortShuffle 按 分区ID 和 key 进行排序，同一分区的数据按 key 有序",
+      "source": "大数据面试题库"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { ChoiceQuestion, EssayQuestion, Question, QuizSet } from '@/types';
+import { ChoiceQuestion, EssayQuestion, WritingQuestion, Question, QuizSet } from '@/types';
 import fs from 'fs';
 import path from 'path';
 
@@ -31,6 +31,10 @@ export function countChoiceQuestions(questions: Question[]): number {
 
 export function countEssayQuestions(questions: Question[]): number {
   return questions.filter(q => q.type === 'essay').length;
+}
+
+export function countWritingQuestions(questions: Question[]): number {
+  return questions.filter(q => q.type === 'writing').length;
 }
 
 // Count by difficulty

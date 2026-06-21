@@ -1,0 +1,165 @@
+{
+  "componentId": "hdfs",
+  "bindings": {
+    "hdfs-定位": [],
+    "核心架构": [
+      "hdfs-c-005"
+    ],
+    "元数据管理": [
+      "hdfs-c-001"
+    ],
+    "读取流程": [],
+    "写入流程面试必考": [
+      "hdfs-c-004",
+      "hdfs-e-001"
+    ],
+    "高可用ha": [],
+    "面试高频考点": [],
+    "小结": [],
+    "_unmatched": [
+      "hdfs-c-002",
+      "hdfs-c-003",
+      "hdfs-c-006",
+      "hdfs-c-007",
+      "hdfs-e-002"
+    ]
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "id": "hdfs-c-001",
+      "difficulty": "easy",
+      "stem": "HDFS 默认的数据块（Block）大小是多少？",
+      "options": {
+        "A": "64KB",
+        "B": "64MB",
+        "C": "128MB",
+        "D": "1GB"
+      },
+      "answer": "C",
+      "explanation": "HDFS 默认 Block Size 从 Hadoop 2.x 开始是 128MB（1.x 是 64MB）。大块的好处：减少 NameNode 元数据量（每个 Block 在 NameNode 中有一条记录）、减少寻址开销（一次寻址读更多数据）、减少 MapReduce 的 Map Task 数量。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-002",
+      "difficulty": "easy",
+      "stem": "HDFS 中 NameNode 的主要职责是？",
+      "options": {
+        "A": "存储实际数据",
+        "B": "管理元数据（文件系统命名空间、Block 映射、副本位置）",
+        "C": "执行 MapReduce 计算任务",
+        "D": "管理 YARN 资源"
+      },
+      "answer": "B",
+      "explanation": "NameNode 是 HDFS 的元数据管家，负责管理：文件系统命名空间（目录结构）、文件到 Block 的映射、Block 到 DataNode 的位置映射。NameNode 不存储实际数据——实际数据存在 DataNode 的本地硬盘上。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-003",
+      "difficulty": "medium",
+      "stem": "HDFS 的 SecondaryNameNode 的作用是？",
+      "options": {
+        "A": "NameNode 的热备份，NameNode 挂了自动切换",
+        "B": "定期合并 edits log 和 fsimage，生成新的 checkpoint（防止 edits log 过大）",
+        "C": "存储一份额外的数据副本",
+        "D": "管理 YARN 资源"
+      },
+      "answer": "B",
+      "explanation": "SecondaryNameNode 不是 NameNode 的热备！它的作用是定期从 NameNode 拉取 edits log 和 fsimage，进行合并（checkpoint），将合并后的新 fsimage 返回给 NameNode。防止 edits log 无限增长导致恢复时间过长。HA 模式下的热备是 Standby NameNode。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-004",
+      "difficulty": "medium",
+      "stem": "HDFS 写入流程中，第一个 Block 的第一个副本写入哪个 DataNode？",
+      "options": {
+        "A": "随机选择一个 DataNode",
+        "B": "优先选择客户端所在的 DataNode（如果客户端是 DataNode），否则随机选",
+        "C": "总是选择 NameNode 所在的节点",
+        "D": "选择容量最小的 DataNode"
+      },
+      "answer": "B",
+      "explanation": "HDFS 副本放置策略（机架感知）：第一个副本放在客户端所在节点（如果客户端是 DataNode），或随机选一个；第二个副本放在与第一个不同机架的节点（机架容错）；第三个副本放在与第二个同机架的不同节点（减少跨机架带宽）。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-005",
+      "difficulty": "medium",
+      "stem": "HDFS 联邦（Federation）解决的核心问题是？",
+      "options": {
+        "A": "数据副本数量不足",
+        "B": "NameNode 内存瓶颈——单 NameNode 受限于内存无法管理海量文件",
+        "C": "DataNode 磁盘速度慢",
+        "D": "网络带宽不足"
+      },
+      "answer": "B",
+      "explanation": "联邦通过多个独立的 NameNode（每个管理不同的命名空间卷）水平扩展 NameNode 的元数据管理能力。每个 NameNode 管理一部分目录，DataNode 向所有 NameNode 注册。解决单 NameNode 内存无法容纳海量 Block 元数据的问题。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-006",
+      "difficulty": "hard",
+      "stem": "HDFS 的纠删码（Erasure Coding）相比三副本策略，以下描述正确的是？",
+      "options": {
+        "A": "纠删码提供更高的数据可靠性，但性能完全不如三副本",
+        "B": "纠删码以更少的存储开销（如 1.4x）提供与三副本（3x）相同的容错能力，但读性能略低",
+        "C": "纠删码完全替代了三副本，三副本已从 HDFS 移除",
+        "D": "纠删码只能用于冷数据"
+      },
+      "answer": "B",
+      "explanation": "纠删码（EC，Hadoop 3.0+）将数据块分割为数据单元 + 校验单元。以 RS(6,3) 为例：6 个数据分片 + 3 个校验分片 = 9 个分片，存储开销 1.5x（vs 三副本的 3x），允许丢失任意 3 个分片。代价：读需要重组分片，性能低于三副本的直读。适用于冷数据，热数据仍推荐三副本。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "choice",
+      "id": "hdfs-c-007",
+      "difficulty": "hard",
+      "stem": "HDFS 小文件过多会导致什么问题？",
+      "options": {
+        "A": "只是占用更多磁盘空间，没有其他问题",
+        "B": "NameNode 内存耗尽——每个小文件/Block 都在 NameNode 中有一条元数据记录",
+        "C": "DataNode 磁盘读写变快",
+        "D": "只影响 MapReduce，不影响其他组件"
+      },
+      "answer": "B",
+      "explanation": "HDFS 每个文件和每个 Block 在 NameNode 内存中占据约 150 字节。1000 万个小文件 → 约 1.5GB NameNode 内存 → 可能 OOM。同时，大量小文件产生大量 Map Task，Task 启动开销远超数据处理时间。解决方案：SequenceFile/HAR 合并小文件、定期文件合并任务、Spark 的 coalesce。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "hdfs-e-001",
+      "difficulty": "medium",
+      "stem": "请详细描述 HDFS 的写入流程，包含 NameNode、DataNode、客户端之间的交互。",
+      "referencePoints": [
+        "客户端请求 NameNode 创建文件 → 检查权限和目录合法性",
+        "NameNode 返回 DataNode 列表（按副本放置策略）",
+        "客户端向第一个 DataNode 建立 Pipeline",
+        "Pipeline 逐个向后传输数据包（package by package）",
+        "每写完一个 Block，重新申请下一个 Block 的 DataNode 列表",
+        "所有 Block 写完 → 关闭文件 → NameNode 提交元数据"
+      ],
+      "sampleAnswer": "HDFS 写入流程：\n\n1. 客户端调用 FileSystem.create() → 向 NameNode 发送创建文件请求\n2. NameNode 检查：文件是否存在、客户端是否有写权限、父目录是否存在\n3. NameNode 在命名空间中创建文件记录，但尚未分配 Block\n4. 客户端开始写数据 → DFSOutputStream 将数据分包（packet）\n5. 第一个 packet 满后 → 请求 NameNode 分配第一个 Block 的 DataNode 列表\n6. NameNode 按副本放置策略返回 DataNode 列表（如 DN1, DN2, DN3）\n7. 客户端与 DN1 建立连接 → DN1 连接 DN2 → DN2 连接 DN3 → 形成 Pipeline\n8. 数据 packet 沿 Pipeline 传输：Client → DN1 → DN2 → DN3\n9. 每节点收到 packet 后写入本地磁盘，向前一个节点发 ACK\n10. 客户端收到所有 ACK → 发送下一个 packet\n11. 当前 Block 写满 → flush → 客户端请求 NameNode 分配下一个 Block\n12. 所有数据写完后 close → NameNode 将文件元数据持久化到 edits log\n\n关键点：Pipeline 复制、packet 级传输、ACK 确认机制。如果 Pipeline 中某个 DN 失败，Pipeline 重新构建，用剩下的正常 DN 继续写。",
+      "source": "大数据面试题库"
+    },
+    {
+      "type": "essay",
+      "id": "hdfs-e-002",
+      "difficulty": "hard",
+      "stem": "请解释 HDFS NameNode HA 的原理，包括 Active/Standby 切换机制、JournalNode 的作用、以及 ZKFC 的角色。",
+      "referencePoints": [
+        "Active NN 处理所有读写请求，Standby NN 保持同步",
+        "JournalNode 集群（奇数个）存储 edits log，Active 写、Standby 读",
+        "ZKFC（ZooKeeper Failover Controller）通过 ZK 锁机制管理主备",
+        "自动故障转移：ZKFC 检测 Active NN 健康状态，异常时触发切换",
+        "DataNode 同时向两台 NN 发送心跳和 Block 报告"
+      ],
+      "sampleAnswer": "**NameNode HA 架构**：\n\n核心组件：\n- Active NameNode：处理所有客户端读写请求，将 edits 写入 JournalNode 集群\n- Standby NameNode：从 JournalNode 读取 edits log 同步，定期做 checkpoint（合并 edits + fsimage）\n- JournalNode 集群（通常 3 个，部署在不同节点）：Active NN 写入 edits、Standby NN 读取 edits，过半写入成功即成功（Quorum）\n- ZKFC（ZooKeeper Failover Controller）：每个 NN 一个 ZKFC 进程，负责健康检测和主备选举\n- ZooKeeper：锁机制，确保只有一个 Active NN\n\n**主备切换过程**：\n1. Active NN 的 ZKFC 在 ZooKeeper 持有一个临时锁（ephemeral znode）\n2. ZKFC 定期检测 Active NN 健康状态（通过 RPC）\n3. Active NN 挂了 → ZKFC 的 ZK Session 超时 → 临时锁被删除\n4. Standby NN 的 ZKFC 检测到锁释放 → 争夺锁 → 争到锁的获得 Active 身份\n5. 新 Active NN 执行 fencing（隔离）确保旧 Active 不再写入\n6. DataNode 早已向两台 NN 发送心跳和 Block 报告 → 新 Active 快速接管\n\n**Fencing（隔离）机制**：防止脑裂——旧 Active NN 假死后恢复，两个 Active 同时写入。Fencing 方法：1）SSH 到旧 Active kill 进程；2）收回旧 Active 对 JournalNode 的写权限。\n\n**为什么 JournalNode 是奇数**：因为过半写入即可（Quorum 机制），3 个 JN 容忍 1 个故障。",
+      "source": "大数据面试题库"
+    }
+  ]
+}

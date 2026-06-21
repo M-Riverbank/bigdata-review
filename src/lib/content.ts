@@ -1,19 +1,30 @@
+import 'server-only';
 import { Article } from '@/types';
+import { ARTICLE_DIFFICULTY, getGroupsForComponent } from '@/lib/content-constants';
 import fs from 'fs';
 import path from 'path';
+import GithubSlugger from 'github-slugger';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content');
+
+// Look up group info for an article by its component and order prefix
+function getGroupInfo(component: string, orderPrefix: string): { group: string; groupLabel: string } {
+  const groups = getGroupsForComponent(component);
+  for (const g of groups) {
+    if (g.articles.includes(orderPrefix)) {
+      return { group: g.id, groupLabel: g.label };
+    }
+  }
+  return { group: 'default', groupLabel: '教程' };
+}
 
 // Map component id to content directory path
 // Sub-components like 'spark-sql' live under 'spark/sql/'
 function getContentDir(componentId: string): string {
-  // e.g. 'spark-sql' → 'spark/sql', 'spark-core' → 'spark/core'
-  // 'hive' → 'hive', 'scala' → 'scala'
   const parts = componentId.split('-');
   if (parts.length >= 2 && !['hdfs', 'yarn'].includes(componentId)) {
     return path.join(CONTENT_ROOT, parts[0], parts[1]);
   }
-  // hadoop/hdfs, hadoop/yarn
   if (componentId === 'hdfs') return path.join(CONTENT_ROOT, 'hadoop', 'hdfs');
   if (componentId === 'yarn') return path.join(CONTENT_ROOT, 'hadoop', 'yarn');
   return path.join(CONTENT_ROOT, componentId);
@@ -27,12 +38,10 @@ function getAllContentDirs(): { relPath: string; absPath: string }[] {
 
   function scan(dir: string, rel: string) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
-    // Check if directory itself has .md files (leaf content dir)
     const hasMd = entries.some(e => e.isFile() && e.name.endsWith('.md'));
     if (hasMd) {
       results.push({ relPath: rel, absPath: dir });
     }
-    // Also scan subdirectories
     for (const entry of entries) {
       if (entry.isDirectory()) {
         scan(path.join(dir, entry.name), rel ? `${rel}/${entry.name}` : entry.name);
@@ -46,7 +55,6 @@ function getAllContentDirs(): { relPath: string; absPath: string }[] {
 
 // Map a relative content directory to component ID
 function dirToComponentId(relPath: string): string {
-  // 'spark/sql' → 'spark-sql', 'hive' → 'hive'
   return relPath.replace(/\//g, '-');
 }
 
@@ -61,14 +69,26 @@ export function getArticles(component: string): Article[] {
     .map(f => {
       const match = f.match(/^(\d+)-(.+)\.md$/);
       const order = match ? parseInt(match[1], 10) : 999;
+      const orderPrefix = match ? match[1] : '00';
       const title = match
         ? match[2].replace(/-/g, ' ').replace(/^\S/, s => s.toUpperCase())
         : f.replace(/\.md$/, '');
+      let displayTitle = title;
+      try {
+        const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+        const h1Match = raw.match(/^#\s+(.+)/m);
+        if (h1Match) displayTitle = h1Match[1].trim();
+      } catch (_) { /* keep filename-derived title */ }
+      const difficulty = ARTICLE_DIFFICULTY[orderPrefix] || '基础';
+      const groupInfo = getGroupInfo(component, orderPrefix);
       return {
         slug: f.replace(/\.md$/, ''),
-        title,
+        title: displayTitle,
         component,
         order,
+        difficulty,
+        group: groupInfo.group,
+        groupLabel: groupInfo.groupLabel,
       };
     })
     .sort((a, b) => a.order - b.order);
@@ -108,3 +128,27 @@ export function getAdjacentArticles(
     next: idx < articles.length - 1 ? articles[idx + 1] : null,
   };
 }
+
+// Extract section headings from markdown content for the interview sidebar
+export interface SectionHeading {
+  heading: string;
+  id: string;
+}
+
+export function extractSectionHeadings(content: string): SectionHeading[] {
+  const slugger = new GithubSlugger();
+  const headings: SectionHeading[] = [];
+  const lines = content.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('## ') && !line.startsWith('### ')) {
+      const heading = line.replace(/^##\s+/, '').trim();
+      const id = slugger.slug(heading);
+      slugger.reset();
+      headings.push({ heading, id });
+    }
+  }
+  return headings;
+}
+
+// Re-export from content-constants (only used by server components)
+export { getGroupsForComponent };

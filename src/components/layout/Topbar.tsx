@@ -10,7 +10,7 @@ export default function Topbar() {
   const segments = pathname.split('/').filter(Boolean);
 
   // Build breadcrumb items
-  const breadcrumbs: { label: string; href: string }[] = [{ label: '大盘', href: '/' }];
+  const breadcrumbs: { label: string; href: string }[] = [{ label: '学习概览', href: '/' }];
 
   if (segments.length > 0) {
     let currentPath = '';
